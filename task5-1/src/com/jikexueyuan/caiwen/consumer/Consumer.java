@@ -20,7 +20,7 @@ public class Consumer extends Thread {
 			try {
 				//去线程队列获取账户操作信息，取到则处理，取不到则阻塞线程
 				AccountCommand accountCommand = drawQueue.take();
-				System.out.println("【操作号：" + accountCommand.getId() + "】" + this.getName() + "：操作"
+				System.out.println("【操作号：" + accountCommand.getId() + "】" + this.getName() + "：准备操作"
 						+ accountCommand.getOperation() + accountCommand.getMount());
 				//如果是操作是-，则取钱，否则存钱
 				if ("-".equals(accountCommand.getOperation())) {

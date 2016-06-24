@@ -24,13 +24,12 @@ public class AccountTest {
 		threadPool.submit(new Consumer("消费者", accountCommands));
 
 		// 循环创建生产者线程
-		for (int i = 0; i <= 100; i++) {
+		for (int i = 0; i <= 1000; i++) {
 			if (i % 3 == 0) {
-				threadPool.submit(new Producer("生产者-" + i, new AccountCommand(i, account, "-", 100), accountCommands));
+				threadPool.submit(new Producer("生产者-" + i, new AccountCommand(i, account, "-", 10), accountCommands));
 			} else {
-				threadPool.submit(new Producer("生产者-" + i, new AccountCommand(i, account, "+", 30), accountCommands));
+				threadPool.submit(new Producer("生产者-" + i, new AccountCommand(i, account, "+", 10), accountCommands));
 			}
-
 		}
 	}
 }

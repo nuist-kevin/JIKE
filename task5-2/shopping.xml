@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shopping>
+<goods>
+<name>iPhone 6s 64G 玫瑰金</name>
+<price>5688</price>
+<number>15</number>
+</goods>
+<goods>
+<name>iPhone 6s Plus 64G 玫瑰金</name>
+<price>6388</price>
+<number>10</number>
+</goods>
+<goods>
+<name>iPhone 6 16G 银色</name>
+<price>3988</price>
+<number>12</number>
+</goods>
+</shopping>
