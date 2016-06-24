@@ -17,10 +17,10 @@ public class Producer extends Thread {
 	@Override
 	public void run() {
 		try {
+			//向线程队列中存入账户操作信息
 			drawQueue.put(accountCommand);
 			System.out.println("【操作号：" +accountCommand.getId() + "】" + this.getName() +"：要求" + accountCommand.getOperation() + accountCommand.getMount());
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

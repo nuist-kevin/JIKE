@@ -20,6 +20,7 @@ public class Account {
 		this.balance = balance;
 	}
 
+	//加同步锁的取钱操作
 	public synchronized void draw(double mount) {
 		if (balance >= mount) {
 			balance -= mount;
@@ -29,7 +30,7 @@ public class Account {
 		}
 
 	}
-
+	//加同步锁的存钱操作
 	public synchronized void deposit(double mount) {
 		System.out.println();
 		balance += mount;

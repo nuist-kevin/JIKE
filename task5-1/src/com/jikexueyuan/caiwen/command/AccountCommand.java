@@ -2,6 +2,10 @@ package com.jikexueyuan.caiwen.command;
 
 import com.jikexueyuan.caiwen.domain.Account;
 
+/**
+ * Description:
+ * 账户操作类，封装了操作的账户，操作类型和金额
+ */
 public class AccountCommand {
 	private int id;
 	public int getId() {
