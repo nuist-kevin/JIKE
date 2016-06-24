@@ -54,8 +54,8 @@ public class OrderManager {
 		Integer sums = 0;
 		for (Iterator<Goods> iterator = goodsList.iterator(); iterator.hasNext();) {
 			Goods goods = iterator.next();
-			total += goods.getPrice();
-			sums += goods.getCount();
+			total += goods.getPrice() * goods.getNumber();
+			sums += goods.getNumber();
 		}
 		order.setSums(sums);
 		order.setTotal(total);
@@ -74,7 +74,7 @@ public class OrderManager {
 				Goods goods = new Goods();
 				//根据xpath获取每个货物的信息并设置对象属性，添加到货物列表中
 				goods.setName(document.valueOf("//goods[" + i + "]/name"));
-				goods.setCount(Integer.parseInt(document.valueOf("//goods[" + i + "]/number")));
+				goods.setNumber((Integer.parseInt(document.valueOf("//goods[" + i + "]/number"))));
 				goods.setPrice(Double.parseDouble(document.valueOf("//goods[" + i + "]/price")));
 				goodsList.add(goods);
 			}
