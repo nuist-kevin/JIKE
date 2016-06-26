@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.ui.theme" value="simple"/>
+    <constant name="struts.ui.templateDir" value="template"/>
+    <constant name="struts.ui.templateSuffix" value="ftl"/>
+
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="login" class="com.jkxy.caiwen.action.LoginAction">
+            <result name="input">/login.jsp</result>
+            <result name="success">/message.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+    </package>
+</struts>
