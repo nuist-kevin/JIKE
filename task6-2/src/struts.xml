@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+	<package name="default" namespace="/" extends="struts-default,json-default">
+
+		<!-- Add your actions here -->
+		<action name="poetrySearch" class="com.jikexueyuan.caiwen.action.PoetryAction" >
+			<result name="input">/WEB-INF/jsp/main.jsp</result>
+		</action>
+		<action name="ajaxPoetrySearch" class="com.jikexueyuan.caiwen.action.PoetryAction" method="returnJson">
+			<result type="json">
+				<param name="root">poetryJson</param>
+			</result>
+		</action>
+
+	</package>
+</struts>
