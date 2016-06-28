@@ -3,20 +3,31 @@
 <!DOCTYPE struts PUBLIC
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
-
-
 <struts>
-	<package name="default" namespace="/" extends="struts-default,json-default">
+	<constant name="struts.ui.theme" value="simple"/>
+	<constant name="struts.ui.templateDir" value="template"/>
+	<constant name="struts.ui.templateSuffix" value="ftl"/>
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 
-		<!-- Add your actions here -->
-		<action name="poetrySearch" class="com.jikexueyuan.caiwen.action.PoetryAction" >
-			<result name="input">/WEB-INF/jsp/main.jsp</result>
+	<package name="default"  namespace="/" extends="struts-default, json-default" strict-method-invocation="false">
+		<action name="*ShowSearch" class="com.jikexueyuan.caiwen.action.{1}.PoetryAction" method="input">
+			<result name="input">/WEB-INF/jsp/{1}Search.jsp</result>
+
+			<!--<result name="json" type="json">-->
+				<!--<param name="root">poetryJson</param>-->
+			<!--</result>-->
 		</action>
-		<action name="ajaxPoetrySearch" class="com.jikexueyuan.caiwen.action.PoetryAction" method="returnJson">
-			<result type="json">
-				<param name="root">poetryJson</param>
+		<action name="*DoSearch" class="com.jikexueyuan.caiwen.action.{1}.PoetryAction" method="submit">
+			<result name="input">/WEB-INF/jsp/{1}Search.jsp</result>
+			<result type="dispatcher">/WEB-INF/jsp/{1}Search.jsp</result>
+			<result name="json" type="json">
+			<param name="root">poetryJson</param>
 			</result>
 		</action>
-
+		<!--<action name="*Search" class="com.jikexueyuan.caiwen.action.{1}.PoetryAction" >-->
+			<!--<result>/WEB-INF/jsp/{1}Search.jsp</result>-->
+			<!--<interceptor-ref name="validation"><param name="excludeMethods">execute</param></interceptor-ref>-->
+		<!--</action>-->
 	</package>
 </struts>

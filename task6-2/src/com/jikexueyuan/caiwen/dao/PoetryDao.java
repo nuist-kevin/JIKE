@@ -11,6 +11,7 @@ import com.jikexueyuan.caiwen.db.ConnectionFactory;
 import com.jikexueyuan.caiwen.domain.Poet;
 import com.jikexueyuan.caiwen.domain.Poetry;
 
+
 public class PoetryDao {
 
 	public List<Poetry> getPoetries(String searchOption, String searchValue) {
@@ -45,7 +46,8 @@ public class PoetryDao {
 				Poetry poetry = new Poetry();
 				poetry.setId(resultSet.getInt("t1.id"));
 				poetry.setTitle(resultSet.getString("t1.title"));
-				poetry.setContent(resultSet.getString("t1.content"));
+				String formatedContent = resultSet.getString("t1.content").replace("。","。\n");
+				poetry.setContent(formatedContent);
 				Poet poet = new Poet();
 				poet.setId(resultSet.getInt("t2.id"));
 				poet.setName(resultSet.getString("t2.name"));
