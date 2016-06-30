@@ -8,9 +8,14 @@
 	<constant name="struts.ui.templateDir" value="template"/>
 	<constant name="struts.ui.templateSuffix" value="ftl"/>
 	<constant name="struts.devMode" value="true"></constant>
-	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 
 	<package name="default"  namespace="/" extends="struts-default, json-default" strict-method-invocation="false">
+		<default-action-ref name="index"/>
+		<action name="index">
+			<result>/WEB-INF/jsp/ajaxSearch.jsp</result>
+		</action>
+		
 		<action name="*ShowSearch" class="com.jikexueyuan.caiwen.action.{1}.PoetryAction" method="input">
 			<result name="input">/WEB-INF/jsp/{1}Search.jsp</result>
 
@@ -25,9 +30,5 @@
 			<param name="root">poetryJson</param>
 			</result>
 		</action>
-		<!--<action name="*Search" class="com.jikexueyuan.caiwen.action.{1}.PoetryAction" >-->
-			<!--<result>/WEB-INF/jsp/{1}Search.jsp</result>-->
-			<!--<interceptor-ref name="validation"><param name="excludeMethods">execute</param></interceptor-ref>-->
-		<!--</action>-->
 	</package>
 </struts>
