@@ -18,13 +18,13 @@ import org.junit.Test;
  * 任务 7: SSH框架之Hibernate入门 <br>
  * 1、［使用HQL实现］输出数据中名字为三个字的诗人列表及其诗词的数量统计。格式如：姓名 － 诗词数量 <br>
  * 2、分页输出诗人李白所有诗词的标题，要求每10个标题分为1页，输出的数据格式如下： <br>
- * 诗人李白相关的数据总共 XXX页。 <br>
- * 第一页内容： <br>
- * 《。。。》 <br>
- * 《。。。》 <br>
- * 最后一页内容： <br>
- * 《。。。》 <br>
- * 《。。。》 <br>
+ * 		诗人李白相关的数据总共 XXX页。 <br>
+ * 		第一页内容： <br>
+ * 		《。。。》 <br>
+ * 		《。。。》 <br>
+ * 		最后一页内容： <br>
+ * 		《。。。》 <br>
+ * 		《。。。》 <br>
  * <br>
  * 3、［使用关联映射实现］输出某一个诗人所有的诗词前15个字（包括标点符号），这个诗人的名字要求用户输入，敲回车后进行查询操作。 <br>
  *
@@ -111,8 +111,8 @@ public class TestPoetry {
 		Session session = sessionFactory.openSession();
 		Long recordNum = (Long) session.createQuery("select count(p.title) from Poetry p where p.poet.name = '李白'")
 				.uniqueResult();
-		System.out.println(recordNum);
 		int pageNum = (int) (recordNum % 10 == 0 ? recordNum / 10 : (recordNum / 10 + 1));
+		System.out.println("诗人李白相关的数据总共" + pageNum + "页");
 		for (int i = 1; i <= pageNum; i++) {
 			List<String> titles = session
 					.createNativeQuery("select t1.title" + "   FROM" + "   tang_poetry.poetries t1" + "   JOIN"
