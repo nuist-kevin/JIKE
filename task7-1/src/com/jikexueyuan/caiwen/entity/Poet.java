@@ -10,7 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+/***
+	诗人实体类
+ */
 @Entity()
 @Table(name="POETS")
 public class Poet {
