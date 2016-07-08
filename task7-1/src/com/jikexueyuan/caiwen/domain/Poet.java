@@ -1,6 +1,5 @@
 package com.jikexueyuan.caiwen.domain;
 
-import com.jikexueyuan.caiwen.entity.*;
 
 import javax.persistence.*;
 import java.util.Date;
