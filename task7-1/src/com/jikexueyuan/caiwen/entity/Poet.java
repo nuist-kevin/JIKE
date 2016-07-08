@@ -1,15 +1,10 @@
 package com.jikexueyuan.caiwen.entity;
 
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
+
 /***
 	诗人实体类
  */
@@ -26,7 +21,18 @@ public class Poet {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="UPDATED_AT")
 	private Date updateTime;
-	
+
+	@OneToMany(mappedBy = "poet")
+	private List<Poetry> poetries;
+
+	public List<Poetry> getPoetries() {
+		return poetries;
+	}
+
+	public void setPoetries(List<Poetry> poetries) {
+		this.poetries = poetries;
+	}
+
 	public Integer getId() {
 		return id;
 	}

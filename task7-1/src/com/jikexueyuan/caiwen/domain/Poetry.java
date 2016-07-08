@@ -13,7 +13,7 @@ public class Poetry {
 	private String title;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "POET_ID")
+//	@JoinColumn(name = "POET_ID")
 	private Poet poet;
 
 	private String content;

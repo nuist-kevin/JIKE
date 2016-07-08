@@ -1,7 +1,10 @@
 package com.jikexueyuan.caiwen.domain;
 
+import com.jikexueyuan.caiwen.entity.*;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "POETS")
@@ -19,9 +22,20 @@ public class Poet {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updateTime;
 
+	@OneToMany(mappedBy = "poet")
+	private List<Poetry> poetries;
+
+	public List<Poetry> getPoetries() {
+		return poetries;
+	}
+
+	public void setPoetries(List<Poetry> poetries) {
+		this.poetries = poetries;
+	}
+
 
 	public Date getCreateTime() {
-		return createTime;
+		return this.createTime;
 	}
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
