@@ -2,7 +2,8 @@ $(function() {
 	$("#searchBtn").click(
 			function(event) {
 				event.preventDefault();
-				$.post("/task4-1/PoetrySearch", {
+				var url = document.location.pathname + "PoetrySearch";
+				$.post(url, {
 					searchOption : $("#searchOption").val(),
 					searchValue : $("#searchValue").val()
 				}, function(data) {

@@ -17,7 +17,7 @@ public class PoetryDao {
 		Connection connection = ConnectionFactory.getInstance().getConnection();
 		List<String> poetryTitleList = new ArrayList<>();
 		String sql = "select t1.title from tang_poetry.poetries t1 "
-				+ "join tang_poetry.poets t2 on t1.poet_id = t2.id " + " where t2.name = ?; ";
+				+ "join tang_poetry.poets t2 on t1.poet_id = t2.id " + " where t2.name = ? ";
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		try	{
@@ -46,12 +46,12 @@ public class PoetryDao {
 		Connection connection = ConnectionFactory.getInstance().getConnection();
 		List<Poetry> poetryTitleList = new ArrayList<>();
 		String sql = "select t1.title, t1.content, t2.name from tang_poetry.poetries t1 "
-				+ "join tang_poetry.poets t2 on t1.poet_id = t2.id where ";
+				+ "join tang_poetry.poets t2 on t1.poet_id = t2.id where 1=1 ";
 				if (content != null) {
-					sql += "  t1.content like ?; ";
+					sql += " and  t1.content like ? ";
 				}
 				if (title != null) {
-					sql += "  t1.title like ?; ";
+					sql += " and  t1.title like ? ";
 				}
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
