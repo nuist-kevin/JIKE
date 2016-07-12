@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/db_login</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">caiwen</property>
+
+        <!--&lt;!&ndash; JDBC connection pool (use the built-in) -->
+        <property name="hibernate.c3p0.min_size">1</property>
+        <property name="hibernate.c3p0.max_size">5</property>
+         <property name="hibernate.c3p0.timeout">30</property>
+
+
+<property name="hibernate.current_session_context_class">thread</property>
+        <!-- SQL dialect 无需指定，hibernate会根据connection自动判断选择合适的方言-->
+        <!--<property name="dialect">MySQL5</property>-->
+
+        <!-- Disable the second-level cache  -->
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <!-- 默认不对数据库做DDL操作 -->
+        <!--<property name="hbm2ddl.auto">none</property>-->
+
+        <mapping class="com.jikexueyuan.caiwen.domain.User"/>
+         <mapping class="com.jikexueyuan.caiwen.domain.BaseDomain"/>
+        
+    </session-factory>
+
+</hibernate-configuration>

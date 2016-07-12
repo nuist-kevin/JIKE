@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.ui.theme" value="simple"/>
+	<constant name="struts.ui.templateDir" value="template"/>
+	<constant name="struts.ui.templateSuffix" value="ftl"/>
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+
+	<package name="default"  namespace="/" extends="struts-default" strict-method-invocation="false">
+		<default-action-ref name="index"/>
+		<action name="index">
+			<result>/login.html</result>
+		</action>
+		<action name="login" class="com.jikexueyuan.caiwen.action.LoginAction" >
+			<result name="success">/WEB-INF/jsp/user/view.jsp</result>
+			<result name="error" type="redirect">/login.html</result>
+			<result name="list">/WEB-INF/jsp/user/list.jsp</result>
+		</action>
+		
+	</package>
+	<package name="user" namespace="/user" extends="struts-default" strict-method-invocation="false">
+		<action name="edit" class="com.jikexueyuan.caiwen.action.UserAction" >
+			<result name="input">/WEB-INF/jsp/user/edit.jsp</result>
+			<result name="success">/WEB-INF/jsp/user/view.jsp</result>
+			<result name="error">/WEB-INF/jsp/user/edit.jsp</result>
+		</action>
+		<action name="list" class="com.jikexueyuan.caiwen.action.UserAction" method="list">
+			<result name="success">/WEB-INF/jsp/user/list.jsp</result>
+		</action>		
+		<action name="view" class="com.jikexueyuan.caiwen.action.UserAction" method="view">
+			<result name="success">/WEB-INF/jsp/user/"view".jsp</result>
+		</action>	
+	</package>
+
+</struts>
