@@ -10,7 +10,17 @@ public class LoginAction extends ActionSupport {
 	private String username;
 	private String password;
 
-	public String getUsername() {
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getUsername() {
 		return username;
 	}
 
@@ -40,4 +50,8 @@ public class LoginAction extends ActionSupport {
 		}
 	}
 
+	public String register() throws Exception {
+        userService.create(getUser());
+        return SUCCESS;
+	}
 }

@@ -14,7 +14,7 @@ public class UserService {
 
 	private UserDao userDao = new UserDaoImpl();
 	
-	public void add(User user) {
+	public void create(User user) {
 		Session session = HibernateUtil.getSession();
 		Transaction transaction = session.beginTransaction();
 		try {
@@ -24,43 +24,53 @@ public class UserService {
 			exception.printStackTrace();
 			transaction.rollback();
 		}
-		finally {
-			session.close();
-		}
+//		finally {
+//			session.close();
+//		}
 	}
 	
-	public void edit(User user) {
+	public void edit(Integer id) {
 		Session session = HibernateUtil.getSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			userDao.update(user);
+            userDao.update(userDao.get(id));
 			transaction.commit();
 		} catch (Exception exception){
 			exception.printStackTrace();
 			transaction.rollback();
 		}
-		finally {
-			session.close();
-		}
+//		finally {
+//			session.close();
+//		}
 	}
 	
-	public void delete(User user) {
+	public void delete(Integer id) {
 		Session session = HibernateUtil.getSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			userDao.delete(user.getId());
+			userDao.delete(id);
 			transaction.commit();
 		} catch (Exception exception){
 			exception.printStackTrace();
 			transaction.rollback();
 		}
-		finally {
-			session.close();
-		}
+//		finally {
+//			session.close();
+//		}
 	}
 	
 	public User get(Integer id) {
-		return userDao.get(id);
+        User user = new User();
+        Session session = HibernateUtil.getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            user = userDao.get(id);
+            transaction.commit();
+        } catch (Exception exception){
+            exception.printStackTrace();
+            transaction.rollback();
+        }
+        return user;
 	}
 	
 	public List<User> getAll() {
@@ -73,13 +83,14 @@ public class UserService {
 		Transaction transaction = session.beginTransaction();
 		try {
 			user = userDao.getUserByUsername(username);
-		} catch (Exception exception){
+            transaction.commit();
+        } catch (Exception exception){
 			exception.printStackTrace();
 			transaction.rollback();
 		}
-		finally {
-			session.close();
-		}
+//		finally {
+//			session.close();
+//		}
 		return user;
 	}
 }

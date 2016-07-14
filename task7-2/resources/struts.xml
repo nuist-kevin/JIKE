@@ -18,21 +18,28 @@
 		<action name="login" class="com.jikexueyuan.caiwen.action.LoginAction" >
 			<result name="success">/WEB-INF/jsp/user/view.jsp</result>
 			<result name="error" type="redirect">/login.html</result>
+			<result name="input" type="redirect">/login.html</result>
 			<result name="list">/WEB-INF/jsp/user/list.jsp</result>
 		</action>
-		
+		<action name="register" class="com.jikexueyuan.caiwen.action.LoginAction" method="register">
+			<result name="success">/WEB-INF/jsp/user/view.jsp</result>
+			<result name="input" type="redirect">/register.html</result>
+		</action>
 	</package>
 	<package name="user" namespace="/user" extends="struts-default" strict-method-invocation="false">
-		<action name="edit" class="com.jikexueyuan.caiwen.action.UserAction" >
+		<action name="edit" class="com.jikexueyuan.caiwen.action.UserAction" method="edit">
 			<result name="input">/WEB-INF/jsp/user/edit.jsp</result>
 			<result name="success">/WEB-INF/jsp/user/view.jsp</result>
 			<result name="error">/WEB-INF/jsp/user/edit.jsp</result>
+		</action>
+		<action name="delete" class="com.jikexueyuan.caiwen.action.UserAction" method="delete">
+			<result name="success">/WEB-INF/jsp/user/list.jsp</result>
 		</action>
 		<action name="list" class="com.jikexueyuan.caiwen.action.UserAction" method="list">
 			<result name="success">/WEB-INF/jsp/user/list.jsp</result>
 		</action>		
 		<action name="view" class="com.jikexueyuan.caiwen.action.UserAction" method="view">
-			<result name="success">/WEB-INF/jsp/user/"view".jsp</result>
+			<result  name="success">/WEB-INF/jsp/user/view.jsp</result>
 		</action>	
 	</package>
 
