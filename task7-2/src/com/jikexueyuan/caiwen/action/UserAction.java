@@ -13,8 +13,17 @@ public class UserAction extends ActionSupport {
 	private List<User> users;
 	private User user;
 	private UserService userService = new UserService();
+    private Integer id;
 
-	public User getUser() {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public User getUser() {
 		return user;
 	}
 
@@ -44,7 +53,7 @@ public class UserAction extends ActionSupport {
 	}
 
 	public String view() throws Exception {
-		setUser(userService.get(getUser().getId()));
+		setUser(userService.get(getId()));
 		return SUCCESS;
 	}
 }

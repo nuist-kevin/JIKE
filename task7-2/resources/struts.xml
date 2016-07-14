@@ -9,6 +9,8 @@
 	<constant name="struts.ui.templateSuffix" value="ftl"/>
 	<constant name="struts.devMode" value="true"></constant>
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.enable.SlashesInActionNames" value="true"/>
+	<constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
 
 	<package name="default"  namespace="/" extends="struts-default" strict-method-invocation="false">
 		<default-action-ref name="index"/>
@@ -38,7 +40,8 @@
 		<action name="list" class="com.jikexueyuan.caiwen.action.UserAction" method="list">
 			<result name="success">/WEB-INF/jsp/user/list.jsp</result>
 		</action>		
-		<action name="view" class="com.jikexueyuan.caiwen.action.UserAction" method="view">
+		<action name="/view/*" class="com.jikexueyuan.caiwen.action.UserAction" method="view">
+			<param name="id">{1}</param>
 			<result  name="success">/WEB-INF/jsp/user/view.jsp</result>
 		</action>	
 	</package>
