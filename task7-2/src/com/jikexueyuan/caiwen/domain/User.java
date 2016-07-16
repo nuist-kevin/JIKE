@@ -6,10 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "USERS")
-public class User extends BaseDomain{
+public class User extends BaseDomain implements Serializable {
 	private Integer id;
 	private String username;
 	private String password;
@@ -17,6 +18,7 @@ public class User extends BaseDomain{
 	private Integer age;
 	private String phoneNum;
 	private String address;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {

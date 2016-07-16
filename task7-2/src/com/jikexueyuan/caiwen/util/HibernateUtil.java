@@ -1,12 +1,11 @@
 package com.jikexueyuan.caiwen.util;
 
+import com.jikexueyuan.caiwen.interceptor.hibernate.AddInterceptor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-
-//import com.jikexueyuan.caiwen.interceptor.hibernate.MyInterceptor;
 
 public class HibernateUtil {
 
@@ -16,7 +15,7 @@ public class HibernateUtil {
 		try {
 			Configuration configuration = new Configuration()
 					//设置拦截器
-//					.setInterceptor(new MyInterceptor())
+					.setInterceptor(new AddInterceptor())
 					.configure();
 			StandardServiceRegistryBuilder standardServiceRegistryBuilder = new StandardServiceRegistryBuilder()
 			        .applySettings(configuration.getProperties());

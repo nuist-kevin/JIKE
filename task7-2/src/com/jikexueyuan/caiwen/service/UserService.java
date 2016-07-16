@@ -1,5 +1,6 @@
 package com.jikexueyuan.caiwen.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -14,34 +15,31 @@ public class UserService {
 
 	private UserDao userDao = new UserDaoImpl();
 	
-	public void create(User user) {
+	public Integer create(User user) {
+		Integer userId = null;
 		Session session = HibernateUtil.getSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-			userDao.save(user);
+			userId = userDao.save(user);
 			transaction.commit();
 		} catch (Exception exception){
 			exception.printStackTrace();
 			transaction.rollback();
 		}
-//		finally {
-//			session.close();
-//		}
+		return userId;
 	}
 	
-	public void edit(Integer id) {
+	public void edit(User user) {
 		Session session = HibernateUtil.getSession();
 		Transaction transaction = session.beginTransaction();
 		try {
-            userDao.update(userDao.get(id));
+            userDao.update(user);
 			transaction.commit();
 		} catch (Exception exception){
 			exception.printStackTrace();
 			transaction.rollback();
 		}
-//		finally {
-//			session.close();
-//		}
+
 	}
 	
 	public void delete(Integer id) {
@@ -54,9 +52,7 @@ public class UserService {
 			exception.printStackTrace();
 			transaction.rollback();
 		}
-//		finally {
-//			session.close();
-//		}
+
 	}
 	
 	public User get(Integer id) {
@@ -74,7 +70,48 @@ public class UserService {
 	}
 	
 	public List<User> getAll() {
-		return userDao.findAll();
+		List<User> users = new ArrayList<>();
+		Session session = HibernateUtil.getSession();
+		Transaction transaction = session.beginTransaction();
+		try {
+			users = userDao.findAll();
+			transaction.commit();
+		} catch (Exception exception){
+			exception.printStackTrace();
+			transaction.rollback();
+		}
+
+		return users;
+	}
+
+	public List<User> findBypage(int page) {
+		List<User> users = new ArrayList<>();
+		Session session = HibernateUtil.getSession();
+		Transaction transaction = session.beginTransaction();
+		try {
+			users = userDao.findByPage(10, (page-1) * 10);
+			transaction.commit();
+		} catch (Exception exception){
+			exception.printStackTrace();
+			transaction.rollback();
+		}
+
+		return users;
+	}
+
+	public Long getTotalCount() {
+		Long totalCount = 0L;
+		Session session = HibernateUtil.getSession();
+		Transaction transaction = session.beginTransaction();
+		try {
+			totalCount = userDao.totalCount();
+			transaction.commit();
+		} catch (Exception exception){
+			exception.printStackTrace();
+			transaction.rollback();
+		}
+
+		return totalCount;
 	}
 
 	public User getUserByUsername(String username) {
@@ -88,9 +125,7 @@ public class UserService {
 			exception.printStackTrace();
 			transaction.rollback();
 		}
-//		finally {
-//			session.close();
-//		}
+
 		return user;
 	}
 }

@@ -15,7 +15,7 @@ public class CustomIntegrator implements Integrator {
 	        SessionFactoryServiceRegistry serviceRegistry) {
 		// TODO Auto-generated method stub
         EventListenerRegistry eventListenerRegistry = serviceRegistry.getService( EventListenerRegistry.class );
-        eventListenerRegistry.appendListeners(EventType.UPDATE, new MyUpdateEventListener());
+        eventListenerRegistry.appendListeners(EventType.UPDATE, new UpdateEventListener());
 	}
 
 	@Override
