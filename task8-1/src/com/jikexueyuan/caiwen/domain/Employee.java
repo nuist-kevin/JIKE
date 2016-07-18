@@ -1,5 +1,8 @@
 package com.jikexueyuan.caiwen.domain;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("xx")
 public class Employee {
 	private String name;
 	private Integer age;

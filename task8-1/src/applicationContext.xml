@@ -2,26 +2,37 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:context="http://www.springframework.org/schema/context"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd"> 
-          
-    <bean id="jOutput" class="com.jikexueyuan.caiwen.bean.JsonOutputHelper"></bean>
-    <bean id="xOutput" class="com.jikexueyuan.caiwen.bean.XmlOutputHelper"></bean> 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd"> 
+        
+    <context:component-scan base-package="com.jikexueyuan.caiwen.bean"/>
     
-    <bean id="empPrinter1" class="com.jikexueyuan.caiwen.util.EmployeePrinter" 
-        c:_0-ref="xOutput"/>
+   <!--        
+    <bean id="jout" class="com.jikexueyuan.caiwen.bean.JsonOutputHelper"></bean>
+    <bean id="xout" class="com.jikexueyuan.caiwen.bean.XmlOutputHelper"></bean> 
+    -->
+    
+    
+    
+    
+    <!--  
+    <bean id="employeeService1" class="com.jikexueyuan.caiwen.service.EmployeeService" 
+        c:_0-ref="xout"/> -->
         <!-- 构造函数仅一个参数，下划线后可不跟索引值 -->
-        <!-- c:_-ref="xOutput"/> -->
+        <!-- c:_-ref="xout"/> -->
         <!-- 指定构造函数参数的名称 -->        
-        <!-- c:iOutputHelper-ref="xOutput"/>-->
+        <!-- c:iOutputHelper-ref="xout"/>-->
         
         <!-- setter注入 -->
-        <!-- <property name="iOutputHelper" ref="xOutput"/> -->
+        <!-- <property name="iOutputHelper" ref="xout"/> -->
         <!-- 构造器注入 -->
-        <!-- <constructor-arg ref="xOutput"/> -->  
+        <!-- <constructor-arg ref="xout"/> -->  
     <!-- </bean> -->
-    
-    <bean id="empPrinter2" class="com.jikexueyuan.caiwen.util.EmployeePrinter">
-         <property name="iOutputHelper" ref="jOutput"/>
-    </bean>
+    <!--  
+    <bean id="employeeService2" class="com.jikexueyuan.caiwen.service.EmployeeService">
+         <property name="iOutputHelper" ref="jout"/>
+    </bean>-->
 </beans>

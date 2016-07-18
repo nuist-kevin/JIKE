@@ -15,8 +15,11 @@ public class PoetryDaoImpl extends BaseDaoImpl implements PoetryDao {
 
     public List<Poetry> getPoetriesBytitle(String title) {
         List<Poetry> poetryContents;
-        poetryContents = (List<Poetry>) sessionFactory.getCurrentSession().createCriteria(Poetry.class).add(Restrictions.like("title", "%" + title + "%")).list();
-//        poetryContents = sessionFactory.getCurrentSession().createQuery("select p from Poetry p where p.title like :title ").setString("title", "%" + title + "%").list();
+//        poetryContents = (List<Poetry>) sessionFactory.getCurrentSession().createCriteria(Poetry.class).add(Restrictions.like("title", "%" + title + "%")).list();
+        poetryContents = sessionFactory.getCurrentSession().createQuery("select p from Poetry p where p.title like :title ").setString("title", "%" + title + "%").list();
         return poetryContents;
     }
+
+
+
 }

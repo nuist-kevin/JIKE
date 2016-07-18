@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.jikexueyuan.caiwen.dao.PoetryDao;
 import com.jikexueyuan.caiwen.domain.Poetry;
+import com.jikexueyuan.caiwen.service.PoetService;
 import com.jikexueyuan.caiwen.service.PoetryService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.FieldExpressionValidator;
@@ -14,6 +15,9 @@ public class PoetryAction extends ActionSupport {
 
 	@Autowired
 	private PoetryService poetryService;
+	@Autowired
+	private PoetService poetService;
+
 	private String searchOption;
 	private String searchValue;
 	List<Poetry> poetryList;
@@ -43,7 +47,9 @@ public class PoetryAction extends ActionSupport {
 //		if (searchOption != null && searchValue != null && !("".equals(searchValue)) ) {
 //			poetryList = poetryDao.getPoetries(searchOption, searchValue);
 //		}
-		poetryList = poetryService.getPoetriesBytitle(searchValue);
+//		poetryList = poetryService.getPoetriesBytitle(searchValue);
+
+		poetryList = poetService.getPoetriesByPoetName(searchValue);
 		return SUCCESS;	}
 
 	public String input() throws Exception {
