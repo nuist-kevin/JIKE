@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+          
+    <bean id="jOutput" class="com.jikexueyuan.caiwen.bean.JsonOutputHelper"></bean>
+    <bean id="xOutput" class="com.jikexueyuan.caiwen.bean.XmlOutputHelper"></bean> 
+    
+    <bean id="empPrinter1" class="com.jikexueyuan.caiwen.util.EmployeePrinter" 
+        c:_0-ref="xOutput"/>
+        <!-- 构造函数仅一个参数，下划线后可不跟索引值 -->
+        <!-- c:_-ref="xOutput"/> -->
+        <!-- 指定构造函数参数的名称 -->        
+        <!-- c:iOutputHelper-ref="xOutput"/>-->
+        
+        <!-- setter注入 -->
+        <!-- <property name="iOutputHelper" ref="xOutput"/> -->
+        <!-- 构造器注入 -->
+        <!-- <constructor-arg ref="xOutput"/> -->  
+    <!-- </bean> -->
+    
+    <bean id="empPrinter2" class="com.jikexueyuan.caiwen.util.EmployeePrinter">
+         <property name="iOutputHelper" ref="jOutput"/>
+    </bean>
+</beans>
