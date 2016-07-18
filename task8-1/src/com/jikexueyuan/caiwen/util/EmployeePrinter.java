@@ -37,8 +37,9 @@ public class EmployeePrinter {
 		EmployeePrinter employeePrinter2 = (EmployeePrinter) applicationContext.getBean("empPrinter2");
 		
 		//分别用两个输出器输出员工信息
-		employeePrinter1.getiOutputHelper().print(new Employee());
-		employeePrinter2.getiOutputHelper().print(new Employee());
+		employeePrinter1.getiOutputHelper().print(new Employee("caiwen",33, "男"));
+		System.out.println();
+		employeePrinter2.getiOutputHelper().print(new Employee("caiwen",33, "男"));
 
 	}
 }
