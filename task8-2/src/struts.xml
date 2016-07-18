@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.ui.theme" value="simple"/>
+	<constant name="struts.ui.templateDir" value="template"/>
+	<constant name="struts.ui.templateSuffix" value="ftl"/>
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+
+	<package name="default"  namespace="/" extends="struts-default, json-default" strict-method-invocation="false">
+		<default-action-ref name="index"/>
+		<action name="index">
+			<result>/WEB-INF/jsp/ajaxSearch.jsp</result>
+		</action>
+
+		<action name="*ShowSearch" class="com.jikexueyuan.caiwen.action.{1}.PoetryAction" method="input">
+			<result name="input">/WEB-INF/jsp/{1}Search.jsp</result>
+
+			<!--<result name="json" type="json">-->
+			<!--<param name="root">poetryJson</param>-->
+			<!--</result>-->
+		</action>
+		<action name="*DoSearch" class="com.jikexueyuan.caiwen.action.{1}.PoetryAction" method="submit">
+			<result name="input">/WEB-INF/jsp/{1}Search.jsp</result>
+			<result type="dispatcher">/WEB-INF/jsp/{1}Search.jsp</result>
+			<result name="json" type="json">
+				<param name="root">poetryJson</param>
+			</result>
+		</action>
+	</package>
+</struts>
