@@ -31,9 +31,9 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 
 	@Override
-	public T save(T model) {
+	public Integer save(T model) {
 		Session session = HibernateUtil.getSession();
-		return (T) session.save(model);
+		return (Integer) session.save(model);
 	}
 
 	@Override
@@ -58,5 +58,12 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	public Long totalCount() {
 		Session session = HibernateUtil.getSession();
 		return (Long) session.createCriteria(entityClass).setProjection(Projections.count("id")).uniqueResult();
+	}
+
+	@Override
+	public List<T> findByPage(int pageSize, int startIndex) {
+		Session session = HibernateUtil.getSession();
+		return (List<T>)session.createCriteria(entityClass)
+				.setFirstResult(startIndex).setMaxResults(pageSize).list();
 	}
 }

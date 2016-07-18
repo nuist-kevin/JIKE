@@ -5,7 +5,7 @@ import java.util.List;
 public interface BaseDao<T> {
 	public T get(Integer id);
 	
-	public T save(T model);
+	public Integer save(T model);
 	
 	public void delete(Integer id);
 	
@@ -14,5 +14,6 @@ public interface BaseDao<T> {
 	public List<T> findAll();
 	
 	public Long totalCount();
-		
+
+    public List<T> findByPage(int pageSize, int startIndex);
 }

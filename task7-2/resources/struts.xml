@@ -4,36 +4,101 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
-	<constant name="struts.ui.theme" value="simple"/>
-	<constant name="struts.ui.templateDir" value="template"/>
-	<constant name="struts.ui.templateSuffix" value="ftl"/>
-	<constant name="struts.devMode" value="true"></constant>
-	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.ui.theme" value="simple"/>
+    <constant name="struts.ui.templateDir" value="template"/>
+    <constant name="struts.ui.templateSuffix" value="ftl"/>
+    <constant name="struts.devMode" value="true"></constant>
+    <constant name="struts.enable.SlashesInActionNames" value="true"/>
+    <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
 
-	<package name="default"  namespace="/" extends="struts-default" strict-method-invocation="false">
-		<default-action-ref name="index"/>
-		<action name="index">
-			<result>/login.html</result>
-		</action>
-		<action name="login" class="com.jikexueyuan.caiwen.action.LoginAction" >
-			<result name="success">/WEB-INF/jsp/user/view.jsp</result>
-			<result name="error" type="redirect">/login.html</result>
-			<result name="list">/WEB-INF/jsp/user/list.jsp</result>
-		</action>
-		
-	</package>
-	<package name="user" namespace="/user" extends="struts-default" strict-method-invocation="false">
-		<action name="edit" class="com.jikexueyuan.caiwen.action.UserAction" >
-			<result name="input">/WEB-INF/jsp/user/edit.jsp</result>
-			<result name="success">/WEB-INF/jsp/user/view.jsp</result>
-			<result name="error">/WEB-INF/jsp/user/edit.jsp</result>
-		</action>
-		<action name="list" class="com.jikexueyuan.caiwen.action.UserAction" method="list">
-			<result name="success">/WEB-INF/jsp/user/list.jsp</result>
-		</action>		
-		<action name="view" class="com.jikexueyuan.caiwen.action.UserAction" method="view">
-			<result name="success">/WEB-INF/jsp/user/"view".jsp</result>
-		</action>	
-	</package>
+
+    <package name="default" namespace="/" extends="struts-default" strict-method-invocation="false">
+        <default-action-ref name="index"/>
+        <action name="index">
+            <result>/WEB-INF/jsp/login.jsp</result>
+        </action>
+        <action name="login" class="com.jikexueyuan.caiwen.action.LoginAction">
+            <result name="success" type="chain">
+                <param name="actionName">view</param>
+                <param name="namespace">/user</param>
+            </result>
+            <result name="error">/WEB-INF/jsp/login.jsp</result>
+            <result name="input">/WEB-INF/jsp/login.jsp</result>
+            <result name="list" type="redirectAction">
+                <param name="actionName">list</param>
+                <param name="namespace">/user</param>
+            </result>
+        </action>
+        <action name="register" class="com.jikexueyuan.caiwen.action.LoginAction" method="register">
+            <result name="success" type="chain">
+                <param name="actionName">view</param>
+                <param name="namespace">/user</param>
+            </result>
+            <result name="input" type="redirect">/register.html</result>
+        </action>
+        <action name="logout" class="com.jikexueyuan.caiwen.action.LoginAction" method="logout">
+            <result name="success">/WEB-INF/jsp/login.jsp</result>
+        </action>
+    </package>
+
+    <package name="user" namespace="/user" extends="struts-default" strict-method-invocation="false">
+
+        <interceptors>
+            <interceptor name="authority" class="com.jikexueyuan.caiwen.interceptor.AuthorityInterceptor"/>
+            <interceptor-stack name="defaultStackWithAuth">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="authority"/>
+            </interceptor-stack>
+        </interceptors>
+        <global-results>
+            <result name="authFailed" type="redirectAction">
+                <param name="actionName">view</param>
+                <param name="namespace">/user</param>
+            </result>
+        </global-results>
+        <action name="/list" class="com.jikexueyuan.caiwen.action.UserAction" method="list">
+            <param name="page">1</param>
+            <result name="success">/WEB-INF/jsp/user/list.jsp</result>
+        </action>
+        <action name="/list/*" class="com.jikexueyuan.caiwen.action.UserAction" method="list">
+            <param name="page">{1}</param>
+            <result name="success">/WEB-INF/jsp/user/list.jsp</result>
+            <interceptor-ref name="defaultStackWithAuth"/>
+        </action>
+
+        <action name="edit" class="com.jikexueyuan.caiwen.action.UserAction" method="edit">
+            <result name="success">/WEB-INF/jsp/user/edit.jsp</result>
+        </action>
+        <action name="/edit/*" class="com.jikexueyuan.caiwen.action.UserAction" method="edit">
+            <param name="userId">{1}</param>
+            <result name="success">/WEB-INF/jsp/user/edit.jsp</result>
+            <interceptor-ref name="defaultStackWithAuth"/>
+        </action>
+        <action name="/doEdit/*" class="com.jikexueyuan.caiwen.action.UserAction" method="doEdit">
+            <param name="userId">{1}</param>
+            <result name="success">/WEB-INF/jsp/user/view.jsp</result>
+            <result name="input">/WEB-INF/jsp/user/edit.jsp</result>
+            <result name="error">/WEB-INF/jsp/user/edit.jsp</result>
+            <interceptor-ref name="defaultStackWithAuth"/>
+        </action>
+
+        <action name="/delete/*" class="com.jikexueyuan.caiwen.action.UserAction" method="delete">
+            <interceptor-ref name="defaultStackWithAuth"/>
+            <param name="userId">{1}</param>
+            <result name="success" type="redirectAction">
+                <param name="actionName">list</param>
+                <param name="namespace">/user</param>
+            </result>
+        </action>
+
+        <action name="view" class="com.jikexueyuan.caiwen.action.UserAction" method="view">
+            <result name="success">/WEB-INF/jsp/user/view.jsp</result>
+        </action>
+        <action name="/view/*" class="com.jikexueyuan.caiwen.action.UserAction" method="view">
+            <param name="userId">{1}</param>
+            <result name="success">/WEB-INF/jsp/user/view.jsp</result>
+            <interceptor-ref name="defaultStackWithAuth"/>
+        </action>
+    </package>
 
 </struts>
