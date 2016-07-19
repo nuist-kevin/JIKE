@@ -12,6 +12,7 @@ public class Poetry {
 	private String title;
 
 	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "poet_id")
 	private Poet poet;
 
 	private String content;

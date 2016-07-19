@@ -8,5 +8,7 @@ import java.util.List;
  * Created by caiwen on 2016/7/18.
  */
 public interface PoetryDao extends BaseDao{
+    public List<Poetry> getPoetriesByPoetName(String name);
     public List<Poetry> getPoetriesBytitle(String title);
+    public List<Poetry> getPoetriesByContent(String content);
 }

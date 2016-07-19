@@ -10,25 +10,18 @@
 	<constant name="struts.devMode" value="true"></constant>
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 
-	<package name="default"  namespace="/" extends="struts-default, json-default" strict-method-invocation="false">
+	<package name="default"  namespace="/" extends="struts-default" strict-method-invocation="false">
 		<default-action-ref name="index"/>
 		<action name="index">
-			<result>/WEB-INF/jsp/ajaxSearch.jsp</result>
+			<result>/WEB-INF/jsp/search.jsp</result>
 		</action>
-
-		<action name="*ShowSearch" class="com.jikexueyuan.caiwen.action.{1}.PoetryAction" method="input">
-			<result name="input">/WEB-INF/jsp/{1}Search.jsp</result>
-
-			<!--<result name="json" type="json">-->
-			<!--<param name="root">poetryJson</param>-->
-			<!--</result>-->
+		<action name="search" class="com.jikexueyuan.caiwen.action.PoetryAction" method="input">
+			<result name="input">/WEB-INF/jsp/search.jsp</result>
+			<result name="success">/WEB-INF/jsp/search.jsp</result>
 		</action>
-		<action name="*DoSearch" class="com.jikexueyuan.caiwen.action.{1}.PoetryAction" method="submit">
-			<result name="input">/WEB-INF/jsp/{1}Search.jsp</result>
-			<result type="dispatcher">/WEB-INF/jsp/{1}Search.jsp</result>
-			<result name="json" type="json">
-				<param name="root">poetryJson</param>
-			</result>
+		<action name="doSearch" class="com.jikexueyuan.caiwen.action.PoetryAction" method="submit">
+			<result name="input">/WEB-INF/jsp/search.jsp</result>
+			<result name="success">/WEB-INF/jsp/search.jsp</result>
 		</action>
 	</package>
 </struts>

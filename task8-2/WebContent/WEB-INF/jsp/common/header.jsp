@@ -33,7 +33,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand">struts版唐诗三百首</a>
+                    <a class="navbar-brand">SSH版唐诗三百首</a>
                 </div>
             </div>
         </div>

@@ -18,9 +18,17 @@ public class PoetryService {
     private PoetryDao poetryDao;
 
     @Transactional(readOnly = true)
+    public List<Poetry> getPoetriesByPoetName(String name) {
+        return poetryDao.getPoetriesByPoetName(name);
+    }
+
+    @Transactional(readOnly = true)
     public List<Poetry> getPoetriesBytitle(String title) {
         return poetryDao.getPoetriesBytitle(title);
     }
 
-
+    @Transactional(readOnly = true)
+    public List<Poetry> getPoetriesByContent(String content) {
+        return poetryDao.getPoetriesByContent(content);
+    }
 }

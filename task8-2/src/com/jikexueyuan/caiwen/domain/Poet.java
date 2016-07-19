@@ -21,18 +21,6 @@ public class Poet {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updateTime;
 
-	@OneToMany(mappedBy = "poet")
-	private List<Poetry> poetries;
-
-	public List<Poetry> getPoetries() {
-		return poetries;
-	}
-
-	public void setPoetries(List<Poetry> poetries) {
-		this.poetries = poetries;
-	}
-
-
 	public Date getCreateTime() {
 		return this.createTime;
 	}
