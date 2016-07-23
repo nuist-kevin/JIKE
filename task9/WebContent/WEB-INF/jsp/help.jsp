@@ -1,21 +1,24 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String path = request.getContextPath();
-%>
-<!DOCTYPE html>
-<html class="bootstrap-admin-vertical-centered">
-<head>
-    <title>title</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" media="screen" href="<%=path%>/css/bootstrap.min.css">
-    <link rel="stylesheet" media="screen" href="<%=path%>/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" media="screen" href="<%=path%>/css/bootstrap-admin-theme.css">
-</head>
-<body>
-Help
-<script type="text/javascript" src="<%=path%>/js/jquery-3.0.0.min.js"></script>
-<script type="text/javascript" src="<%=path%>/js/bootstrap.min.js"></script>
-</body>
+<%@include file="/WEB-INF/jsp/common/header.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 
-</html>
+<div class="col-md-10">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="text-muted bootstrap-admin-box-title">帮助</div>
+                </div>
+                <div class="bootstrap-admin-panel-content">
+                    HELP
+                    <s:debug/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+<%@include file="/WEB-INF/jsp/common/footer.jsp"%>

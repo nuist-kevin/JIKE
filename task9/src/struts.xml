@@ -17,13 +17,19 @@
             <result>/WEB-INF/jsp/login.jsp</result>
         </action>
         <action name="login" class="com.jikexueyuan.caiwen.action.UserAction" method="login">
-            <result>/WEB-INF/jsp/help.jsp</result>
+            <result type="redirectAction">
+                <param name="actionName">help</param>
+                <param name="namespace">/</param>
+            </result>
             <result name="maintain" type="redirectAction">
                 <param name="actionName">maintain</param>
                 <param name="namespace">/user</param>
             </result>
             <result name="error">/WEB-INF/jsp/login.jsp</result>
             <result name="input">/WEB-INF/jsp/login.jsp</result>
+        </action>
+        <action name="help" class="com.jikexueyuan.caiwen.action.UserAction" method="help">
+            <result>/WEB-INF/jsp/help.jsp</result>
         </action>
     </package>
     <package name="user" namespace="/user" extends="struts-default"

@@ -1,6 +1,9 @@
+<%@ page import="org.apache.struts2.dispatcher.mapper.ActionMapping" %>
+<%@ page import="com.opensymphony.xwork2.ActionContext" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,3 +47,17 @@
         </div>
     </div>
 </nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 bootstrap-admin-col-left">
+            <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
+                <li><a href="commodity/add">商品信息录入</a></li>
+                <li><a href="commodity/list">商品信息查询</a></li>
+                <li><a href="vip/manage">VIP信息管理</a></li>
+                <li><a href="vip/consumeList">VIP信息查询</a></li>
+                <li><a href="vip/consumeAdd">IP购物登记</a></li>
+                <s:if test="#session.loginRole=='admin'"><li><a href="user/maintain">系统维护</a></li>
+                </s:if>
+                <li><a href="help">帮助</a></li>
+            </ul>
+        </div>

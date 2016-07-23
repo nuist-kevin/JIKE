@@ -5,6 +5,8 @@ import com.jikexueyuan.caiwen.domain.User;
 import com.jikexueyuan.caiwen.service.impl.jpa.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.dispatcher.mapper.ActionMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -93,6 +95,9 @@ public class UserAction extends ActionSupport {
         }
     }
 
+    public String help() throws  Exception {
+        return SUCCESS;
+    }
     public String view() throws  Exception {
         setUser(userService.getByUsername(username));
         return SUCCESS;

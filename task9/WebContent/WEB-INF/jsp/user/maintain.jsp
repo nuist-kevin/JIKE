@@ -2,14 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
-<div class="container">
-    <div class="row">
-        <div class="col-md-2 bootstrap-admin-col-left">
-            <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
-                <li
-                        class="active"><a href="user/maintain">系统维护</a></li>
-            </ul>
-        </div>
+
+
         <div class="col-md-10">
             <div class="row">
                 <div class="col-lg-12">
@@ -28,6 +22,7 @@
                                     <th>密码</th>
                                     <th>权限</th>
                                     <th class="text-center">操作</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -61,6 +56,7 @@
                                         </td>
                                     </tr>
                                 </s:iterator>
+                                <s:property value="#request.request.struts.request_uri"/>
                                 </tbody>
                             </table>
                             <%--分页按钮--%>

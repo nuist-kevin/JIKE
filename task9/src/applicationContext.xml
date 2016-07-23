@@ -13,6 +13,7 @@
 
     <context:component-scan base-package="com.jikexueyuan.caiwen.service"/>
 
+    <!--Srping Data Jpa扫描继承了JpaRepositry的接口，自动生成实现类，注入时即可使用-->
     <jpa:repositories base-package="com.jikexueyuan.caiwen.repositry"/>
 
     <bean id="myDataSource" class="com.mchange.v2.c3p0.DriverManagerDataSource" destroy-method="clearDriver" >
@@ -22,6 +23,7 @@
         <property name="password" value="caiwen"/>
     </bean>
 
+    <!--选择hibernate的JPA实现-->
     <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
         <property name="database" value="MYSQL"/>
         <property name="showSql" value="true"/>
@@ -37,7 +39,5 @@
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
-
-    <!--<tx:annotation-driven transaction-manager="transactionManager"/>-->
 
 </beans>

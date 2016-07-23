@@ -19,7 +19,7 @@ public class UserService {
 	}
 
 	public User getByUsername(String username) {
-		return userReposotory.getByUsername(username);
+        return userReposotory.findOne(username);
 	}
 
 	public List<User> findAll() {
@@ -27,7 +27,7 @@ public class UserService {
     }
 
     public void delete(String username) {
-        userReposotory.removeByUsername(username);
+        userReposotory.delete(username);
     }
 
     public boolean validateUser(UserCommand userCommand) {
