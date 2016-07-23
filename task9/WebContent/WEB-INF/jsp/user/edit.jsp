@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-2 bootstrap-admin-col-left">
             <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
-                <li><a href="user/list">用户管理</a></li>
+                <li><a href="user/maintain">用户管理</a></li>
             </ul>
         </div>
         <div class="col-md-10">
@@ -17,54 +17,50 @@
                             <div class="text-muted bootstrap-admin-box-title">编辑</div>
                         </div>
                         <div class="bootstrap-admin-panel-content">
-                            <form class="form-horizontal" action="user/doEdit/${user.id}" method="post">
+                            <form class="form-horizontal"
+                                  <s:if test="user.username!= null">action='user/doEdit/${user.username}'</s:if>
+                                  <s:else>action='user/doAdd'</s:else>
+                                  method="post">
                                 <div class="form-group">
                                     <label class="col-sm-4 control-label">用户名</label>
-                                    <div class="col-sm-6">
-                                        <input class="form-control" type="text" name="user.username"
-                                               value="${user.username}"/>
+                                    <div class="col-sm-4">
+                                        <input name="user.username" class="form-control" type="text"
+
+                                               <s:if test="user != null">disabled value="${user.username}"</s:if>  />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-4 control-label">密码</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <input class="form-control" type="text" name="user.password"
                                                value="${user.password}"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-4 control-label">真名</label>
-                                    <div class="col-sm-6">
-                                        <input class="form-control" type="text" name="user.realName"
-                                               value="${user.realName}"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">年龄</label>
-                                    <div class="col-sm-6">
-                                        <input class="form-control" type="text" name="user.age" value="${user.age}"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">电话</label>
-                                    <div class="col-sm-6">
-                                        <input class="form-control" type="text" name="user.phoneNum"
-                                               value="${user.phoneNum}"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-4 control-label">地址</label>
-                                    <div class="col-sm-6">
-                                        <input class="form-control" type="text" name="user.address"
-                                               value="${user.address}"/>
-                                    </div>
+                                    <label class="col-sm-4 control-label">权限</label>
+                                    <label class="checkbox-inline ">
+                                        <input type="radio" name="user.authority" value="1"
+                                               <s:if test="user.authority.equals(1)">checked</s:if> />管理员
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="radio" name="user.authority" value="2"
+                                               <s:if test="user.authority.equals(2)">checked</s:if>/>普通
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="radio" name="user.authority" value="0"
+                                               <s:if test="user.authority.equals(0)">checked</s:if> />无权限
+                                    </label>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-offset-4 col-sm-offset-4 col-sm-4 col-md-4">
                                         <button class="btn  btn-primary" type="submit">提交</button>
-                                        <a class="btn  btn-primary" href="user/view/${user.id}">取消</a>
+                                        <a class="btn  btn-primary"
+                                           <s:if test="user == null">href="user/maintain"</s:if>
+                                           <s:else>href="user/view/${user.username}"</s:else>
+                                        >取消</a>
                                     </div>
                                 </div>
+                                <%--<s:debug/>--%>
                             </form>
                         </div>
                     </div>

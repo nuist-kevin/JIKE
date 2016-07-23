@@ -21,6 +21,7 @@
         <div class="col-lg-12">
             <form method="post" action="login" class="bootstrap-admin-login-form">
                 <div class="form-group">
+                    <%--如果有错误信息，显示错误信息块--%>
                     <s:if test="fieldErrors.size > 0">
                     <div class="alert alert-danger">
                         <a class="close" data-dismiss="alert" onclick="$(function () {
@@ -29,12 +30,12 @@
                         <s:property value="fieldErrors.username"/>
                     </div>
                     </s:if>
-                    <input class="form-control" type="text" name="userCommand.username" placeholder="请输入用户名">
+                    <input class="form-control" type="text" name="userCommand.username" placeholder="请输入用户名"/>
                 </div>
                 <div class="form-group">
-                    <input  class="form-control"  type="password" name="userCommand.password" placeholder="请输入密码">
+                    <input  class="form-control"  type="password" name="userCommand.password" placeholder="请输入密码"/>
                 </div>
-                    <button type="submit" class="btn btn-sm btn-primary">登录</button><label class="right">还没有帐号？<a href="register.html">注册</a></label>
+                    <button type="submit" class="btn btn-sm btn-primary">登录</button><label class="right">管理员使用 admin/123456</label>
             </form>
         </div>
     </div>
