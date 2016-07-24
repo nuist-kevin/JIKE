@@ -8,5 +8,6 @@
 /task3/
 /teset/
 /test/
-.*/
+out/
+build/
 *.zip
