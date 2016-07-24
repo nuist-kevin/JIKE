@@ -123,5 +123,20 @@
             <result name="input">/WEB-INF/jsp/vip/edit.jsp</result>
         </action>
     </package>
+    
+    <package name="consume" namespace="/consume" extends="struts-default">
+        <action name="add" class="com.jikexueyuan.caiwen.action.ConsumeAction" method="addView">
+            <result name="success">/WEB-INF/jsp/consume/add.jsp</result>
+        </action>
+        <action name="doAdd" class="com.jikexueyuan.caiwen.action.ConsumeAction" method="doAdd">
+            <result name="success" type="redirectAction">
+                <param name="actionName">list</param>
+                <param name="namespace">/consume</param>
+            </result>
+        </action>
+        <action name="list" class="com.jikexueyuan.caiwen.action.ConsumeAction" method="list">
+            <result name="success">/WEB-INF/jsp/consume/list.jsp</result>
+        </action>
+    </package>
 
 </struts>

@@ -20,6 +20,9 @@
         src="js/twitter-bootstrap-hover-dropdown.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="js/jquery.paging.min.js"></script>
+<%--<script src="js/jquery.easy-paging.js"></script>--%>
+<script src="js/vip/vip.js"></script>
 
 
 <script type="text/javascript">

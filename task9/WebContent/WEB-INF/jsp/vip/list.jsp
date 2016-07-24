@@ -58,21 +58,21 @@
                         </tbody>
                     </table>
                     <%--分页按钮--%>
-                    <%--<s:if test="pageNum > 1">--%>
-                    <%--<div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">--%>
-                    <%--<div class="pagination-container">--%>
-                    <%--<ul class="pagination pagination-sm">--%>
-                    <%--<s:iterator value="indexList" status="st">--%>
-                    <%--<s:set var="aii" value="#st.index+1"/>--%>
-                    <%--<li <s:if--%>
-                    <%--test="#aii == page"> class="active"</s:if> >--%>
-                    <%--<a href="user/list/<s:property/>"><s:property/></a>--%>
-                    <%--</li>--%>
-                    <%--</s:iterator>--%>
-                    <%--</ul>--%>
-                    <%--</div>--%>
-                    <%--</div>--%>
-                    <%--</s:if>--%>
+                    <s:if test="pageNum > 1">
+                    <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
+                    <div class="pagination-container">
+                    <ul class="pagination pagination-sm">
+                    <s:iterator value="indexList" status="st">
+                    <s:set var="aii" value="#st.index+1"/>
+                    <li <s:if
+                    test="#aii == page"> class="active"</s:if> >
+                    <a href="user/list/<s:property/>"><s:property/></a>
+                    </li>
+                    </s:iterator>
+                    </ul>
+                    </div>
+                    </div>
+                    </s:if>
 
                 </div>
             </div>

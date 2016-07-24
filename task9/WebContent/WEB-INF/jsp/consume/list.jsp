@@ -7,32 +7,43 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <div class="text-muted bootstrap-admin-box-title">商品列表</div>
-                    <a href="commodity/add" class="right">添加商品</a>
+                    <div class="text-muted bootstrap-admin-box-title">消费列表</div>
+                    <a href="consume/add" class="right">购物登记</a>
                 </div>
                 <div class="bootstrap-admin-panel-content">
                     <table
                             class="table bootstrap-admin-table-with-actions table-hover">
                         <thead>
                         <tr>
-                            <th>商品编号</th>
+                            <th>消费编号</th>
+                            <th>VIP编号</th>
+                            <th>姓名</th>
                             <th>商品名称</th>
                             <th>商品价格</th>
-                            <th>商品折扣</th>
-                            <%--<th class="text-center">操作</th>--%>
+                            <th>实收金额</th>
+                        <%--<th class="text-center">操作</th>--%>
                         </tr>
                         </thead>
                         <tbody>
-                        <s:iterator value="commodities" status="commodityStatus">
+                        <s:iterator value="consumes">
                             <tr>
-                                <td class="col-lg-2 col-md-2">
+                                <td class="col-lg-1 col-md-1">
                                     <s:property value="id"/>
                                 </td>
-                                <td class="col-lg-3 col-md-3">
-                                    <s:property value="name"/>
+                                <td class="col-lg-1 col-md-1">
+                                    <s:property value="vip.id"/>
                                 </td>
-                                <td class="col-lg-3 col-md-3">
-                                    <s:property value="price"/>
+                                <td class="col-lg-1 col-md-1">
+                                    <s:property value="vip.name"/>
+                                </td>
+                                <td class="col-lg-2 col-md-2">
+                                    <s:property value="commodity.name"/>
+                                </td>
+                                <td class="col-lg-2 col-md-2">
+                                    <s:property value="commodity.price"/>
+                                </td>
+                                <td class="col-lg-2 col-md-2">
+                                    <s:property value="practicePrice"/>
                                 </td>
 
                                     <%--<td class="actions col-lg-2 col-md-2 ">--%>

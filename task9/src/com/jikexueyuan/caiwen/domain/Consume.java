@@ -1,6 +1,12 @@
 package com.jikexueyuan.caiwen.domain;
 
+import com.jikexueyuan.caiwen.command.CommodityCommand;
+import com.jikexueyuan.caiwen.command.VipCommand;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -11,8 +17,8 @@ import java.math.BigDecimal;
 public class Consume implements Serializable {
     private Integer id;
     private BigDecimal practicePrice;
-    private Vip vip;
-    private Commodity commodity;
+    private VipCommand vip;
+    private CommodityCommand commodity;
 
     @Id
     @Column(name = "CONSUMEID")
@@ -21,42 +27,33 @@ public class Consume implements Serializable {
         return id;
     }
 
-    public BigDecimal getPracticePrice() {
-        return practicePrice;
-    }
-
-    @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name="VIPID", referencedColumnName = "VIPID"),
-            @JoinColumn(name="NAME",referencedColumnName = "NAME")
-    })
-    public Vip getVip() {
-        return vip;
-    }
-
-    @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name="COMMODITYID",referencedColumnName = "COMMODITYID"),
-            @JoinColumn(name="COMMODITYNAME",referencedColumnName = "COMMODITYNAME"),
-            @JoinColumn(name= "PRICE",referencedColumnName = "PRICE")
-    })
-    public Commodity getCommodity() {
-        return commodity;
-    }
-
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public BigDecimal getPracticePrice() {
+        return practicePrice;
     }
 
     public void setPracticePrice(BigDecimal practicePrice) {
         this.practicePrice = practicePrice;
     }
 
-    public void setVip(Vip vip) {
+    @Embedded
+    public VipCommand getVip() {
+        return vip;
+    }
+
+    public void setVip(VipCommand vip) {
         this.vip = vip;
     }
 
-    public void setCommodity(Commodity commodity) {
+    @Embedded
+    public CommodityCommand getCommodity() {
+        return commodity;
+    }
+
+    public void setCommodity(CommodityCommand commodity) {
         this.commodity = commodity;
     }
 }
