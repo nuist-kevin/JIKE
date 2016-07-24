@@ -34,7 +34,7 @@ public class Vip implements Serializable{
         return profession;
     }
 
-    @Temporal(value = TemporalType.TIMESTAMP)
+    @Temporal(value = TemporalType.DATE)
     public Date getJoinTime() {
         return joinTime;
     }

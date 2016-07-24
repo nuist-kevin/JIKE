@@ -72,5 +72,56 @@
         </action>
     </package>
 
+    <package name="commodity" namespace="/commodity" extends="struts-default">
+        <action name="/view/*" class="com.jikexueyuan.caiwen.action.CommodityAction" method="view">
+            <param name="id">{1}</param>
+            <result>/WEB-INF/jsp/commodity/view.jsp</result>
+        </action>
+        <action name="list"  class="com.jikexueyuan.caiwen.action.CommodityAction" method="list">
+            <result>/WEB-INF/jsp/commodity/list.jsp</result>
+        </action>
+        <action name="add" class="com.jikexueyuan.caiwen.action.CommodityAction" method="addView">
+            <result>/WEB-INF/jsp/commodity/add.jsp</result>
+        </action>
+        <action name="doAdd" class="com.jikexueyuan.caiwen.action.CommodityAction" method="doAdd">
+            <result type="redirectAction">
+                <param name="actionName">list</param>
+                <param name="namespace">/commodity</param>
+            </result>
+            <result name="input">/WEB-INF/jsp/commodity/add.jsp</result>
+        </action>
+    </package>
+
+    <package name="vip" namespace="/vip" extends="struts-default">
+        <action name="/view/*" class="com.jikexueyuan.caiwen.action.VipAction" method="view">
+            <param name="id">{1}</param>
+            <result>/WEB-INF/jsp/vip/view.jsp</result>
+        </action>
+        <action name="list"  class="com.jikexueyuan.caiwen.action.VipAction" method="list">
+            <result>/WEB-INF/jsp/vip/list.jsp</result>
+        </action>
+        <action name="add" class="com.jikexueyuan.caiwen.action.VipAction" method="addView">
+            <result>/WEB-INF/jsp/vip/edit.jsp</result>
+        </action>
+        <action name="doAdd" class="com.jikexueyuan.caiwen.action.VipAction" method="doAdd">
+            <result type="redirectAction">
+                <param name="actionName">list</param>
+                <param name="namespace">/vip</param>
+            </result>
+            <result name="input">/WEB-INF/jsp/vip/add.jsp</result>
+        </action>
+        <action name="/edit/*" class="com.jikexueyuan.caiwen.action.VipAction" method="editView">
+            <param name="id">{1}</param>
+            <result name="success">/WEB-INF/jsp/vip/edit.jsp</result>
+        </action>
+        <action name="/doEdit/*" class="com.jikexueyuan.caiwen.action.VipAction" method="doEdit">
+            <param name="id">{1}</param>
+            <result name="success" type="redirectAction">
+                <param name="actionName">list</param>
+                <param name="namespace">/vip</param>
+            </result>
+            <result name="input">/WEB-INF/jsp/vip/edit.jsp</result>
+        </action>
+    </package>
 
 </struts>

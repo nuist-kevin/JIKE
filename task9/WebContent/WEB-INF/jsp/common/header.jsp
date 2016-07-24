@@ -16,6 +16,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" media="screen" href="css/bootstrap.min.css">
     <link rel="stylesheet" media="screen" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" media="screen" href="css/bootstrap-datetimepicker.min.css">
 
     <!-- Bootstrap Admin Theme -->
     <link rel="stylesheet" media="screen"
@@ -53,9 +54,9 @@
             <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
                 <li><a href="commodity/add">商品信息录入</a></li>
                 <li><a href="commodity/list">商品信息查询</a></li>
-                <li><a href="vip/manage">VIP信息管理</a></li>
+                <li><a href="vip/list">VIP信息管理</a></li>
+                <li><a href="vip/consumeAdd">VIP购物登记</a></li>
                 <li><a href="vip/consumeList">VIP信息查询</a></li>
-                <li><a href="vip/consumeAdd">IP购物登记</a></li>
                 <s:if test="#session.loginRole=='admin'"><li><a href="user/maintain">系统维护</a></li>
                 </s:if>
                 <li><a href="help">帮助</a></li>

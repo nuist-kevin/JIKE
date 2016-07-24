@@ -13,36 +13,44 @@
                 <div class="bootstrap-admin-panel-content">
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">用户名</label>
+                            <label class="col-sm-5 control-label">姓名</label>
                             <div class="col-sm-6">
-                                <s:set var="thisuser" value="user"/>
                                 <p class="form-control-static"><s:property
-                                        value="user.username"/></p>
+                                        value="vip.name"/></p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">密码</label>
+                            <label class="col-sm-5 control-label">年龄</label>
                             <div class="col-sm-6">
-                                <p class="form-control-static">${user.password}</p>
+                                <p class="form-control-static">${vip.age}</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">权限</label>
+                            <label class="col-sm-5 control-label">成分</label>
                             <div class="col-sm-6">
                                 <p class="form-control-static">
-                                    <s:if test="user.authority == 0">无权限</s:if>
-                                    <s:elseif test="user.authority == 1">管理员</s:elseif>
-                                    <s:else>普通</s:else>
+                                    ${vip.profession}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">入会时间</label>
+                            <div class="col-sm-6">
+                                <p class="form-control-static">
+                                    <s:date name="vip.joinTime"
+                                            format="yyyy-MM-dd"/>
                                 </p>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-4 col-sm-offset-4 col-sm-4 col-md-4">
-                                <a class="btn btn-primary" href="user/edit/${user.username}">编辑</a>
+                                <a class="btn btn-primary"
+                                   href="vip/edit/${vip.id}">编辑
+                                </a>
                             </div>
                         </div>
                     </form>
-                    <s:debug/>
+                    <%--<s:debug/>--%>
                 </div>
             </div>
         </div>
