@@ -8,6 +8,8 @@
     <constant name="struts.ui.templateDir" value="template"/>
     <constant name="struts.ui.templateSuffix" value="ftl"/>
     <constant name="struts.devMode" value="true"></constant>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.i18n.reload" value="true"/>
     <constant name="struts.enable.SlashesInActionNames" value="true"/>
     <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
 
@@ -93,6 +95,12 @@
     </package>
 
     <package name="vip" namespace="/vip" extends="struts-default">
+        <action name="jsonVips" class="com.jikexueyuan.caiwen.action.VipAction" method="jsonList">
+            <result name="json" type="stream">
+            <param name="contentType">text/json</param>
+            <param name="inputName">result</param>
+            </result>
+        </action>
         <action name="/view/*" class="com.jikexueyuan.caiwen.action.VipAction" method="view">
             <param name="id">{1}</param>
             <result>/WEB-INF/jsp/vip/view.jsp</result>

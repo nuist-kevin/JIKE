@@ -45,12 +45,6 @@ body.bootstrap-admin-with-small-navbar{
 }
 
 /** Forms */
-.form-group label.control-label{
-    line-height: normal;
-}
-.form-group label{
-    line-height: 25px;
-}
 .form-group input[type="checkbox"]{
     margin-top: 9px;
 }

@@ -1,10 +1,14 @@
 package com.jikexueyuan.caiwen.action;
 
+import com.google.gson.Gson;
 import com.jikexueyuan.caiwen.domain.Vip;
 import com.jikexueyuan.caiwen.service.impl.jpa.VipService;
 import com.opensymphony.xwork2.ActionSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -15,6 +19,16 @@ public class VipAction extends ActionSupport{
     private Vip vip;
     private List<Vip> vips;
     private VipService vipService;
+
+    private InputStream inputStream;
+
+    public InputStream getResult() {
+        return inputStream;
+    }
+
+    public void setInputStream(InputStream inputStream) {
+        this.inputStream = inputStream;
+    }
 
     public Integer getId() {
         return id;
@@ -47,6 +61,13 @@ public class VipAction extends ActionSupport{
     @Autowired
     public void setVipService(VipService vipService) {
         this.vipService = vipService;
+    }
+
+    public String jsonList() throws Exception {
+        vips = vipService.findAll();
+        Gson gson = new Gson();
+        inputStream = new ByteArrayInputStream(gson.toJson(vips).getBytes("UTF-8"));
+        return "json";
     }
 
     public String addView() throws Exception {
