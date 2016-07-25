@@ -11,17 +11,33 @@ $("a[href='#vipList']").on('click', function () {
                 for (var i = this.slice[0]; i < this.slice[1]; i++) {
                     $("#vipTable > tbody").append(
                         "<tr>" +
-                        "<td class='col-lg-1 col-md-1'><input id='select-" + i + "' type='radio'/></td>" +
-                        "<td class='col-lg-1 col-md-1'>" + vips[i].id + "</td>" +
-                        "<td class='col-lg-2 col-md-2'>" + vips[i].name + "</td>" +
-                        "<td class='col-lg-2 col-md-2'>" + vips[i].age + "</td>" +
-                        "<td class='col-lg-2 col-md-2'>" + vips[i].profession + "</td>" +
-                        "<td class='col-lg-2 col-md-2'>" + vips[i].joinTime + "</td>" +
+                        "<td><div class='iradio'><input type='radio'/></div></td>" +
+                        "<td>" + vips[i].id + "</td>" +
+                        "<td>" + vips[i].name + "</td>" +
+                        "<td>" + vips[i].age + "</td>" +
+                        "<td>" + vips[i].profession + "</td>" +
+                        "<td>" + vips[i].joinTime + "</td>" +
                         "</tr>");
                 }
+                $("td input").click(function() {
+                    $("td input").iCheck("uncheck");
+                    $(this).iCheck("check");
+                    var theNext = $(this).parent().parent().next('td');
+                    vipId = $(theNext).text();
+                    vipName = $(theNext).next('td').text();
+                });
+                $("input[type='radio']").on('ifChecked',function() {
+                    $(this).addClass("radioChecked");
+                });
+                $("input[type='radio']").on('ifUnchecked',function() {
+                    $(this).removeClass("radioChecked");
+                });
+                $("#chooseBtn").click(function() {
+                    $("input[name='consume.vip.vipId']").val(vipId);
+                    $("input[name='consume.vip.name']").val(vipName);
+                });
             },
             onFormat: function (type) {
-
                 switch (type) {
                     case 'block':
 
@@ -66,20 +82,9 @@ $("a[href='#vipList']").on('click', function () {
                 }
             }
         });
-        $("input[type='radio']").each(function () {
-            $(this).on('click', function () {
-                console.log('clicked')
-                var thisId = $(this).attr("id");
-                $("td > input").each(function () {
-                    var thisEl = $(this);
-                    if ($(thisEl).attr("id") != thisId) {
-                        $(thisEl).removeAttr("checked");
-                    }
-                })
-            })
-        });
     });
 });
+
 
 
 
