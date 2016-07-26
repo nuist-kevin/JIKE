@@ -15,7 +15,7 @@ import java.util.List;
  * Created by caiwen on 2016/7/24.
  */
 public class VipAction extends ActionSupport{
-    private Integer id;
+    private Integer vid;
     private Vip vip;
     private List<Vip> vips;
     private VipService vipService;
@@ -30,12 +30,12 @@ public class VipAction extends ActionSupport{
         this.inputStream = inputStream;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getVid() {
+        return vid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setVid(Integer vid) {
+        this.vid = vid;
     }
 
     public Vip getVip() {
@@ -85,23 +85,23 @@ public class VipAction extends ActionSupport{
     }
 
     public String view() throws  Exception {
-        setVip(vipService.get(id));
+        setVip(vipService.get(vid));
         return SUCCESS;
     }
 
     public String editView() throws  Exception {
-        setVip(vipService.get(id));
+        setVip(vipService.get(vid));
         return SUCCESS;
     }
 
     public String doEdit() throws  Exception {
-        vip.setId(id);
+        vip.setId(vid);
         vip = vipService.update(vip);
         return SUCCESS;
     }
 
     public String delete() throws  Exception {
-        vipService.delete(id);
+        vipService.delete(vid);
         return SUCCESS;
     }
 }

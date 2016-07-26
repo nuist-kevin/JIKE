@@ -31,7 +31,7 @@
                                         <h4 id="vipListTitle" class="modal-title">VIP列表</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <table id="vipTable" class="table bootstrap-admin-table-with-actions table-hover">
+                                        <table id="vipTable" class="table bootstrap-admin-table-with-actions table-hover table-bordered">
                                             <thead>
                                             <tr>
                                                 <th></th>
@@ -43,41 +43,23 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <%--<s:iterator value="vips">--%>
-                                                <%--<tr>--%>
-                                                    <%--<td class="col-lg-1 col-md-1">--%>
-                                                        <%--<input type="radio" />--%>
-                                                    <%--</td>--%>
-                                                    <%--<td class="col-lg-1 col-md-1">--%>
-                                                        <%--<s:property value="id"/>a</td>--%>
-                                                    <%--<td class="col-lg-2 col-md-2">--%>
-                                                        <%--<s:property value="name"/>b</td>--%>
-                                                    <%--<td class="col-lg-2 col-md-2">--%>
-                                                        <%--<s:property value="age"/>c</td>--%>
-                                                    <%--<td class="col-lg-2 col-md-2">--%>
-                                                        <%--<s:property value="profession"/>d--%>
-                                                    <%--</td>--%>
-                                                    <%--<td class="col-lg-2 col-md-2">--%>
-                                                        <%--<s:date format="yyyy-MM-dd" name="joinTime"/>e--%>
-                                                    <%--</td>--%>
-                                                <%--</tr>--%>
-                                            <%--</s:iterator>--%>
+
                                             </tbody>
                                         </table>
-                                        <div class="col-lg-offset-2 col-md-offset-2 right col-lg-pull-8">
-                                            <ul id="vipPaging" class="pagination pagination-sm">
-                                                <li>Prev</li>
-                                                <li>#n</li>
-                                                <li>#n</li>
-                                                <li>#c</li>
-                                                <li>#n</li>
-                                                <li>#n</li>
-                                                <li>Next</li>
-                                            </ul>
+                                        <div class="col-lg-offset-3">
+                                        <ul id="vipPaging" class="pagination pagination-sm ">
+                                            <li>Prev</li>
+                                            <li>#n</li>
+                                            <li>#n</li>
+                                            <li>#c</li>
+                                            <li>#n</li>
+                                            <li>#n</li>
+                                            <li>Next</li>
+                                        </ul>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                        <button id="chooseBtn" type="button" class="btn btn-primary" data-dismiss="modal"
                                                 aria-hidden="true">确定
                                         </button>
                                     </div>
@@ -114,7 +96,7 @@
 
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                        <button  type="button" class="btn btn-primary" data-dismiss="modal"
                                                 aria-hidden="true">确定
                                         </button>
                                     </div>

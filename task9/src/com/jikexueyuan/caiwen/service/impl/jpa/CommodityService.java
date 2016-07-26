@@ -3,6 +3,9 @@ package com.jikexueyuan.caiwen.service.impl.jpa;
 import com.jikexueyuan.caiwen.domain.Commodity;
 import com.jikexueyuan.caiwen.repositry.CommodityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,5 +33,11 @@ public class CommodityService {
 
     public List<Commodity> findAll() {
         return commodityRepository.findAll();
+    }
+
+    public List<Commodity> findByPage(int page) {
+        Pageable pageable = new PageRequest(page, 10);
+        Page<Commodity> commodityPage = commodityRepository.findAll(pageable);
+        return commodityPage.getContent();
     }
 }

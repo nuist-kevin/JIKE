@@ -17,6 +17,15 @@ public class CommodityAction extends ActionSupport {
     private Commodity commodity;
     private Integer id;
     private List<Commodity> commodities;
+    private Integer page;
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
 
     public List<Commodity> getCommodities() {
         return commodities;
@@ -61,7 +70,11 @@ public class CommodityAction extends ActionSupport {
     }
 
     public String list() throws Exception {
-        commodities = commodityService.findAll();
+        if (page == null) {
+            commodities = commodityService.findByPage(0);
+        } else {
+            commodities = commodityService.findByPage(getPage()-1);
+        }
         return SUCCESS;
     }
 }
