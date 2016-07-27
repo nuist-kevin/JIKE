@@ -1,7 +1,6 @@
 package com.jikexueyuan.caiwen.service.impl.hibernate;
 
 import com.jikexueyuan.caiwen.domain.User;
-import com.jikexueyuan.caiwen.repositry.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

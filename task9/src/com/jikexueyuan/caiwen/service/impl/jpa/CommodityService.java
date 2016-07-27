@@ -35,9 +35,18 @@ public class CommodityService {
         return commodityRepository.findAll();
     }
 
+    public Long totalCount() {
+        return commodityRepository.count();
+    }
+
     public List<Commodity> findByPage(int page) {
         Pageable pageable = new PageRequest(page, 10);
         Page<Commodity> commodityPage = commodityRepository.findAll(pageable);
         return commodityPage.getContent();
+    }
+    public Page<Commodity> listByPage(int page) {
+        //每页5条数据
+        Pageable pageable = new PageRequest(page, 5);
+        return commodityRepository.findAll(pageable);
     }
 }

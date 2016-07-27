@@ -27,7 +27,7 @@
                         <div class="form-group">
                             <label class="col-sm-5 control-label">折扣</label>
                             <div class="col-sm-4">
-                                <input class="form-control" type="text" name="commodity.agio"/>
+                                <input class="form-control" type="text" name="commodity.agio" placeholder="请输入10以内的正数"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -43,5 +43,17 @@
         </div>
     </div>
 </div>
-
+</div>
+</div>
+<div class="navbar navbar-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <footer role="contentinfo">
+                    <p class="right">&copy; 2016 by 蔡文</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
 <%@include file="/WEB-INF/jsp/common/footer.jsp" %>

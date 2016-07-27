@@ -62,5 +62,17 @@
         </div>
     </div>
 </div>
-
+</div>
+</div>
+<div class="navbar navbar-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <footer role="contentinfo">
+                    <p class="right">&copy; 2016 by 蔡文</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
 <%@include file="/WEB-INF/jsp/common/footer.jsp" %>

@@ -52,12 +52,12 @@
     <div class="row">
         <div class="col-md-2 bootstrap-admin-col-left">
             <ul class="nav navbar-collapse collapse bootstrap-admin-navbar-side">
-                <li><a href="commodity/add">商品信息录入</a></li>
-                <li><a href="commodity/list">商品信息查询</a></li>
-                <li><a href="vip/list">VIP信息管理</a></li>
-                <li><a href="consume/add">VIP购物登记</a></li>
-                <li><a href="consume/list">VIP信息查询</a></li>
-                <s:if test="#session.loginRole=='admin'"><li><a href="user/maintain">系统维护</a></li>
+                <li><a href="commodity/list">商品信息</a></li>
+                <li><a href="vip/list">VIP信息</a></li>
+                <li><a href="consume/list">购物信息</a></li>
+                <s:if test="#session.loginRole=='admin'">
+                    <%--如果非管理员用户登录，不显示系统维护入口--%>
+                    <li><a href="user/maintain">系统维护</a></li>
                 </s:if>
                 <li><a href="help">帮助</a></li>
             </ul>
