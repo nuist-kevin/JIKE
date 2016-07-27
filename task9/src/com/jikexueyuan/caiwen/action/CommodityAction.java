@@ -5,6 +5,8 @@ import com.jikexueyuan.caiwen.service.impl.jpa.CommodityService;
 import com.opensymphony.xwork2.ActionSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,8 +22,63 @@ public class CommodityAction extends ActionSupport {
     private Integer page;
     //列表查看页所需的总页数
     private Long totalPages;
+
     //用于响应json格式列表请求
     private Map<String, Object> pageData;
+    private Integer id;
+    private String name;
+    private BigDecimal upAgio;
+    private BigDecimal lowAgio;
+    private BigDecimal lowPrice;
+    private BigDecimal upPrice;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public BigDecimal getUpAgio() {
+        return upAgio;
+    }
+
+    public void setUpAgio(BigDecimal upAgio) {
+        this.upAgio = upAgio;
+    }
+
+    public BigDecimal getLowAgio() {
+        return lowAgio;
+    }
+
+    public void setLowAgio(BigDecimal lowAgio) {
+        this.lowAgio = lowAgio;
+    }
+
+    public BigDecimal getLowPrice() {
+        return lowPrice;
+    }
+
+    public void setLowPrice(BigDecimal lowPrice) {
+        this.lowPrice = lowPrice;
+    }
+
+    public BigDecimal getUpPrice() {
+        return upPrice;
+    }
+
+    public void setUpPrice(BigDecimal upPrice) {
+        this.upPrice = upPrice;
+    }
 
     public Long getTotalPages() {
         return totalPages;
@@ -90,7 +147,7 @@ public class CommodityAction extends ActionSupport {
      */
     public String list() throws Exception {
         Long totalCount = commodityService.totalCount();
-        totalPages = totalCount%5 > 0 ? totalCount/5 : totalCount/5 + 1;
+        totalPages = (totalCount % 5 > 0) ? (totalCount/5 + 1) : (totalCount/5);
         return SUCCESS;
     }
 
@@ -100,9 +157,11 @@ public class CommodityAction extends ActionSupport {
         if (page == null) {
             commodityPage = commodityService.listByPage(0);
         } else {
-            commodityPage = commodityService.listByPage(getPage()-1);
+//            commodityPage = commodityService.listByPage(getPage()-1);
+            commodityPage = commodityService.query(id, name, lowPrice, upPrice, lowAgio, upAgio, page);
         }
         map.put("commodityList",commodityPage.getContent());
+        map.put("totalPages",commodityPage.getTotalPages());
         setPageData(map);
         return SUCCESS;
     }

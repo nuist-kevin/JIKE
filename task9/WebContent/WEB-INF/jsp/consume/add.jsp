@@ -152,3 +152,4 @@
 <%@include file="/WEB-INF/jsp/common/footer.jsp" %>
 <script type="text/javascript" src="js/jquery.paging.min.js"></script>
 <script type="text/javascript" src="js/vip/vip.js"></script>
+<script type="text/javascript" src="js/icheck.min.js"></script>
