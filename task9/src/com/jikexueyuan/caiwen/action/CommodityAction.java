@@ -22,9 +22,9 @@ public class CommodityAction extends ActionSupport {
     private Integer page;
     //列表查看页所需的总页数
     private Long totalPages;
-
     //用于响应json格式列表请求
-    private Map<String, Object> pageData;
+    private Map<String, Object> pageData = new HashMap<>();
+
     private Integer id;
     private String name;
     private BigDecimal upAgio;
@@ -123,7 +123,7 @@ public class CommodityAction extends ActionSupport {
 
     /**
      * 添加页面处理方法
-     * @return
+     * @return 返回添加页面
      * @throws Exception
      */
     public String addView() throws Exception {
@@ -132,7 +132,7 @@ public class CommodityAction extends ActionSupport {
 
     /**
      * 添加商品请求处理方法
-     * @return
+     * @return 添加成功返回商品列表
      * @throws Exception
      */
     public String doAdd() throws Exception {
@@ -142,27 +142,26 @@ public class CommodityAction extends ActionSupport {
 
     /**
      * 列表页处理方法
-     * @return
+     * @return 返回列表页面
      * @throws Exception
      */
     public String list() throws Exception {
-        Long totalCount = commodityService.totalCount();
-        totalPages = (totalCount % 5 > 0) ? (totalCount/5 + 1) : (totalCount/5);
         return SUCCESS;
     }
 
+    /**
+     * 列表数据异步查询方法，借助struts-json插件，result的type为json
+     * @return json格式的查询结果，json格式为{dataList:[……], totalPages: x}
+     * @throws Exception
+     */
     public String jsonList() throws Exception {
-        Map<String, Object> map = new HashMap<String, Object>();
+//        Map<String, Object> map = new HashMap<>();
         Page<Commodity> commodityPage;
-        if (page == null) {
-            commodityPage = commodityService.listByPage(0);
-        } else {
-//            commodityPage = commodityService.listByPage(getPage()-1);
-            commodityPage = commodityService.query(id, name, lowPrice, upPrice, lowAgio, upAgio, page);
-        }
-        map.put("commodityList",commodityPage.getContent());
-        map.put("totalPages",commodityPage.getTotalPages());
-        setPageData(map);
+        commodityPage = commodityService.query(id, name, lowPrice, upPrice, lowAgio, upAgio, page - 1);
+
+        pageData.put("dataList",commodityPage.getContent());
+        pageData.put("totalPages",commodityPage.getTotalPages());
+//        setPageData(map);
         return SUCCESS;
     }
 }

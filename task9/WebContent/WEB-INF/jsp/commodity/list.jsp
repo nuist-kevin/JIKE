@@ -14,7 +14,7 @@
                                    name="id"
                                    placeholder="商品编号"/>
                         </div>
-                        <label class="control-label col-md-2 col-lg-2">商品名称：</label>
+                        <label class="control-label col-md-offset-1 col-lg-offset-1 col-md-2 col-lg-2 text-left">商品名称：</label>
                         <div class="col-md-4 col-lg-4">
                             <input type="text" class="form-control"
                                    name="name"
@@ -27,7 +27,7 @@
                             <input type="number" class="form-control" name="lowPrice" min="0.01" step="0.01"
                                    placeholder="价格下限">
                         </div>
-                        <p class="form-control-static col-md-1 text-center">至</p>
+                        <p class="form-control-static col-md-1 col-lg-1 text-center">至</p>
                         <div class="col-md-2 col-lg-2">
                             <input type="number" class="form-control" name="upPrice" min="0.01" step="0.01"
                                    placeholder="价格上限">
@@ -46,7 +46,7 @@
                                    placeholder="折扣上限">
                         </div>
                         <div class="col-md-offset-11 col-lg-offset-11">
-                            <a class="btn btn-info btn-sm">查询</a>
+                            <a id="queryBtn" class="btn btn-info btn-sm">查询</a>
                         </div>
                     </div>
                 </form>
@@ -74,7 +74,7 @@
 
             </div>
             <%--分页按钮： 通过插件实现，详见页尾jqeury代码--%>
-            <div class="col-lg-offset-4 col-md-offset-4">
+            <div class="col-lg-offset-4 col-md-offset-4 pagingDiv">
                 <ul id="commodityPaging" class="pagination pagination-sm ">
                 </ul>
             </div>
@@ -82,7 +82,7 @@
     </div>
 </div>
 </div>
-<s:debug/>
+<%--<s:debug/>--%>
 </div>
 <div class="navbar navbar-footer">
     <div class="container">
@@ -97,50 +97,6 @@
 </div>
 <%@include file="/WEB-INF/jsp/common/footer.jsp" %>
 <script type="text/javascript" src="js/jqPaginator.min.js"></script>
-<script type="text/javascript">
-    $(function () {
-        $("#commodityPaging").jqPaginator({
-            totalPages: <s:property value="totalPages"/>, //总页数，通过CommodityAction的totalPages返回
-            pageSize: 5, //每页记录数量，与CommodityService.listByPage中设置的数量一致
-            currentPage: 1, //初始化时的当前页码
-            visiblePages: 5, //最多显示几个页码
-            //各个按钮的html格式
-            first: '<li class="first"><a href="javascript:void(0);">首页<\/a><\/li>',
-            prev: '<li class="prev"><a href="javascript:void(0);">上一页<\/a><\/li>',
-            next: '<li class="next"><a href="javascript:void(0);">下一页<\/a><\/li>',
-            last: '<li class="last"><a href="javascript:void(0);">末页<\/a><\/li>',
-            page: '<li class="page"><a href="javascript:void(0);">{{page}}<\/a><\/li>',
-            activeClass: 'active',  //当前页码的样式
-            disableClass: 'disabled', //禁用的样式
-            //页码发生变更时的回调函数，参数值为当前页码值
-            onPageChange: function (n) {
-                //先去除原先显示的数据
-                $("#commodityTable > tbody > tr").remove();
-                //发送异步请求，获取指定页码的商品列表数据，json格式为{'commodityList',[……]}
-                $.post("commodity/list/" + n,
-                        {
-                            "id": $("input[name = 'id']").val(),
-                            "name": $("input[name = 'name']").val(),
-                            "lowPrice": $("input[name = 'lowPrice']").val(),
-                            "upPrice": $("input[name = 'upPrice']").val(),
-                            "lowAgio": $("input[name = 'lowAgio']").val(),
-                            "upAgio": $("input[name = 'upAgio']").val()
-                        }, function (data) {
-                            //循环添加到商品的table中
-                            for (var i = 0; i < data.commodityList.length; i++) {
-                                $("#commodityTable > tbody").append(
-                                        "<tr>" +
-                                        "" +
-                                        "<td class='col-lg-3 col-md-3'>" + data.commodityList[i].id + "</td>" +
-                                        "<td class='col-lg-3 col-md-3'>" + data.commodityList[i].name + "</td>" +
-                                        "<td class='col-lg-3 col-md-3'>" + data.commodityList[i].price + "</td>" +
-                                        "<td class='col-lg-3 col-md-3'>" + data.commodityList[i].agio + "</td>" +
-                                        "</tr>");
-                            }
-                        });
-            }
-        });
-    });
-</script>
+<script type="text/javascript" src="js/commodity/query.js"></script>
 
 

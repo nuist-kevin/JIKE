@@ -68,13 +68,13 @@ public class CommodityService {
                     predicate.getExpressions().add(criteriaBuilder.equal(root.<Integer>get("id"), id));
                 }
                 if (StringUtils.isNotEmpty(name)) {
-                    predicate.getExpressions().add(criteriaBuilder.like(root.<Integer>get("name"), name));
+                    predicate.getExpressions().add(criteriaBuilder.like(root.<Integer>get("name"), "%" + name + "%"));
                 }
                 if (lowPrice != null && upPrice != null) {
                     predicate.getExpressions().add(criteriaBuilder.between(root.<BigDecimal>get("price"),lowPrice, upPrice));
                 }
                 if (lowAgio != null && upAgio != null) {
-                    predicate.getExpressions().add(criteriaBuilder.between(root.<BigDecimal>get("price"),lowAgio, upAgio));
+                    predicate.getExpressions().add(criteriaBuilder.between(root.<BigDecimal>get("agio"),lowAgio, upAgio));
                 }
                 return predicate;
             }
