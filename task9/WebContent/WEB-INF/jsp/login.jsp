@@ -36,7 +36,10 @@
                     <input class="form-control" type="password" name="userCommand.password" placeholder="请输入密码"/>
                 </div>
                 <button type="submit" class="btn btn-sm btn-primary">登录</button>
-                <label class="right">管理员设请置quanxian=1登录</label>
+                <div class="form-group">
+                    <label>管理员设请置quanxian=1登录</label>
+                    <label>普通用户设请置quanxian=2登录</label>
+                </div>
             </form>
         </div>
     </div>

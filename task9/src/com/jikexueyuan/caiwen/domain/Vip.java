@@ -1,12 +1,11 @@
 package com.jikexueyuan.caiwen.domain;
 
+import org.apache.struts2.json.annotations.JSON;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Created by caiwen on 2016/7/21.
- */
 @Entity
 public class Vip implements Serializable{
 
@@ -35,6 +34,7 @@ public class Vip implements Serializable{
     }
 
     @Temporal(value = TemporalType.DATE)
+    @JSON(format = "yyyy-MM-dd")
     public Date getJoinTime() {
         return joinTime;
     }

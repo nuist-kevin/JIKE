@@ -1,16 +1,16 @@
 package com.jikexueyuan.caiwen.domain;
 
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.GenerationType;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-/**
- * Created by caiwen on 2016/7/21.
- */
 @Entity
-public class Commodity implements Serializable{
+public class Commodity implements Serializable {
 
     private Integer id;
     private String name;
@@ -32,6 +32,7 @@ public class Commodity implements Serializable{
     public BigDecimal getPrice() {
         return price;
     }
+
 
     public BigDecimal getAgio() {
         return agio;

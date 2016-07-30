@@ -1,11 +1,10 @@
 package com.jikexueyuan.caiwen.action;
 
 import com.jikexueyuan.caiwen.domain.Commodity;
-import com.jikexueyuan.caiwen.service.impl.jpa.CommodityService;
+import com.jikexueyuan.caiwen.service.CommodityService;
 import com.opensymphony.xwork2.ActionSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,6 +15,7 @@ import java.util.Map;
  */
 public class CommodityAction extends ActionSupport {
 
+
     private CommodityService commodityService;
     private Commodity commodity;
     //列表查看请求的页码
@@ -25,6 +25,7 @@ public class CommodityAction extends ActionSupport {
     //用于响应json格式列表请求
     private Map<String, Object> pageData = new HashMap<>();
 
+    /*查询方法所需的几个参数*/
     private Integer id;
     private String name;
     private BigDecimal upAgio;
@@ -150,18 +151,15 @@ public class CommodityAction extends ActionSupport {
     }
 
     /**
-     * 列表数据异步查询方法，借助struts-json插件，result的type为json
+     * 列表数据异步动态查询方法，借助struts-json插件，result的type为json
      * @return json格式的查询结果，json格式为{dataList:[……], totalPages: x}
      * @throws Exception
      */
     public String jsonList() throws Exception {
-//        Map<String, Object> map = new HashMap<>();
         Page<Commodity> commodityPage;
-        commodityPage = commodityService.query(id, name, lowPrice, upPrice, lowAgio, upAgio, page - 1);
-
+        commodityPage = commodityService.query(id, name, lowPrice, upPrice, lowAgio, upAgio, page);
         pageData.put("dataList",commodityPage.getContent());
         pageData.put("totalPages",commodityPage.getTotalPages());
-//        setPageData(map);
         return SUCCESS;
     }
 }

@@ -3,13 +3,14 @@ package com.jikexueyuan.caiwen.service.impl.jpa;
 import com.jikexueyuan.caiwen.command.UserCommand;
 import com.jikexueyuan.caiwen.domain.User;
 import com.jikexueyuan.caiwen.repositry.UserRepository;
+import com.jikexueyuan.caiwen.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserService {
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userReposotory;

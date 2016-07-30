@@ -2,18 +2,14 @@ package com.jikexueyuan.caiwen.action;
 
 import com.jikexueyuan.caiwen.command.UserCommand;
 import com.jikexueyuan.caiwen.domain.User;
-import com.jikexueyuan.caiwen.service.impl.jpa.UserService;
+import com.jikexueyuan.caiwen.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.dispatcher.mapper.ActionMapping;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-/**
- * Created by caiwen on 2016/7/21.
- */
 public class UserAction extends ActionSupport {
 
     private UserCommand userCommand;

@@ -1,33 +1,99 @@
 package com.jikexueyuan.caiwen.action;
 
-import com.google.gson.Gson;
 import com.jikexueyuan.caiwen.domain.Vip;
-import com.jikexueyuan.caiwen.service.impl.jpa.VipService;
+import com.jikexueyuan.caiwen.service.VipService;
 import com.opensymphony.xwork2.ActionSupport;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import org.springframework.data.domain.Page;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
-/**
- * Created by caiwen on 2016/7/24.
- */
 public class VipAction extends ActionSupport{
     private Integer vid;
     private Vip vip;
-    private List<Vip> vips;
     private VipService vipService;
 
-    private InputStream inputStream;
+    private Map<String, Object> pageData = new HashMap<>();
+    private Integer page;
+    private Integer id;
+    private String name;
+    private Integer fromAge;
+    private Integer toAge;
+    private String profession;
+    private Date fromDate;
+    private Date toDate;
 
-    public InputStream getResult() {
-        return inputStream;
+    public Integer getPage() {
+        return page;
     }
 
-    public void setInputStream(InputStream inputStream) {
-        this.inputStream = inputStream;
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getFromAge() {
+        return fromAge;
+    }
+
+    public void setFromAge(Integer fromAge) {
+        this.fromAge = fromAge;
+    }
+
+    public Integer getToAge() {
+        return toAge;
+    }
+
+    public void setToAge(Integer toAge) {
+        this.toAge = toAge;
+    }
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
+    }
+
+    public Date getFromDate() {
+        return fromDate;
+    }
+
+    public void setFromDate(Date fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public Date getToDate() {
+        return toDate;
+    }
+
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
+    }
+
+    public Map<String, Object> getPageData() {
+        return pageData;
+    }
+
+    public void setPageData(Map<String, Object> pageData) {
+        this.pageData = pageData;
     }
 
     public Integer getVid() {
@@ -46,14 +112,6 @@ public class VipAction extends ActionSupport{
         this.vip = vip;
     }
 
-    public List<Vip> getVips() {
-        return vips;
-    }
-
-    public void setVips(List<Vip> vips) {
-        this.vips = vips;
-    }
-
     public VipService getVipService() {
         return vipService;
     }
@@ -63,11 +121,21 @@ public class VipAction extends ActionSupport{
         this.vipService = vipService;
     }
 
+    public String list() throws Exception {
+        return SUCCESS;
+    }
+
+    /**
+     * 列表数据异步动态查询方法，借助struts-json插件，result的type为json
+     * @return json格式的查询结果，json格式为{dataList:[……], totalPages: x}
+     * @throws Exception
+     */
     public String jsonList() throws Exception {
-        vips = vipService.findAll();
-        Gson gson = new Gson();
-        inputStream = new ByteArrayInputStream(gson.toJson(vips).getBytes("UTF-8"));
-        return "json";
+        Page<Vip> VipPage;
+        VipPage = vipService.query(id, name, fromAge, toAge, profession, fromDate, toDate, page);
+        pageData.put("dataList",VipPage.getContent());
+        pageData.put("totalPages",VipPage.getTotalPages());
+        return SUCCESS;
     }
 
     public String addView() throws Exception {
@@ -79,10 +147,7 @@ public class VipAction extends ActionSupport{
         return SUCCESS;
     }
 
-    public String list() throws Exception {
-        vips = vipService.findAll();
-        return SUCCESS;
-    }
+
 
     public String view() throws  Exception {
         setVip(vipService.get(vid));

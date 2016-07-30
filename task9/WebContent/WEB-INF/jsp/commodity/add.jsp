@@ -13,21 +13,28 @@
                 <div class="bootstrap-admin-panel-content">
                     <form class="form-horizontal" action='commodity/doAdd' method="post">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">品名</label>
-                            <div class="col-sm-4">
-                                <input name="commodity.name" class="form-control" type="text"/>
+                            <label class="col-sm-4 control-label">品名</label>
+                                <div class="col-sm-4">
+                                    <input required name="commodity.name" class="form-control" type="text"/>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">价格</label>
+                            <div class="col-lg-8 col-md-8">
+                                <div class="input-group col-sm-6">
+                                    <input required class="form-control" type="text" name="commodity.price"/>
+                                    <span class="input-group-addon">元</span>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">价格</label>
-                            <div class="col-sm-4">
-                                <input class="form-control" type="text" name="commodity.price"/>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label">折扣</label>
-                            <div class="col-sm-4">
-                                <input class="form-control" type="text" name="commodity.agio" placeholder="请输入10以内的正数"/>
+                            <label class="col-sm-4 control-label">折扣</label>
+                            <div class="col-lg-8 col-md-8">
+                                <div class="input-group col-sm-6">
+                                    <input required class="form-control" type="text"
+                                           name="commodity.agio" placeholder="请输入10以内的正数"/>
+                                    <span class="input-group-addon">折</span>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">

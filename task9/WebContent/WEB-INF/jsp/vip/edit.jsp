@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <label class="col-sm-5 control-label">姓名</label>
                             <div class="col-sm-4">
-                                <input name="vip.name" class="form-control"
+                                <input required name="vip.name" class="form-control"
                                        type="text"
                                        value="<s:property value="vip.name"/>"/>
                             </div>
@@ -36,7 +36,7 @@
                         <div class="form-group">
                             <label class="col-sm-5 control-label">年龄</label>
                             <div class="col-sm-4">
-                                <input class="form-control" type="text"
+                                <input required class="form-control" type="text"
                                        name="vip.age"
                                        value="<s:property value="vip.age"/>"/>
                             </div>
@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <label class="col-sm-5 control-label">成分</label>
                             <div class="col-sm-4">
-                                <input class="form-control" type="text"
+                                <input required class="form-control" type="text"
                                        name="vip.profession"
                                        value="<s:property value="vip.profession"/>"/>
                             </div>
@@ -53,7 +53,7 @@
                             <label class="col-sm-5 control-label">入会时间</label>
 
                             <div class="col-sm-4">
-                                <input type="text"
+                                <input required type="text"
                                        class="form-control datetimepicker"
                                        id="datepicker" name="vip.joinTime"
                                        value="<s:date name="vip.joinTime" format="yyyy-MM-dd"/>">

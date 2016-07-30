@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="page-header">
-                <form class="form-horizontal">
+                <form id="queryOptionForm" class="form-horizontal">
                     <div class="form-group">
                         <label class="control-label col-md-2 col-lg-2">商品编号：</label>
                         <div class="col-md-2 col-lg-2">
@@ -54,10 +54,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="text-muted bootstrap-admin-box-title">商品列表</div>
-                    <a href="commodity/add" class="right btn btn-info btn-sm">商品信息录入</a>
+                    <a href="commodity/add" class="right">添加商品</a>
                 </div>
                 <div class="bootstrap-admin-panel-content">
-                    <table id="commodityTable" class="table bootstrap-admin-table-with-actions table-hover">
+                    <table  class="table bootstrap-admin-table-with-actions table-hover listTable">
                         <thead>
                         <tr>
                             <th>商品编号</th>
@@ -75,7 +75,7 @@
             </div>
             <%--分页按钮： 通过插件实现，详见页尾jqeury代码--%>
             <div class="col-lg-offset-4 col-md-offset-4 pagingDiv">
-                <ul id="commodityPaging" class="pagination pagination-sm ">
+                <ul class="pagination pagination-sm ">
                 </ul>
             </div>
         </div>

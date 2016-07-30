@@ -5,6 +5,58 @@
 <div class="col-md-10">
     <div class="row">
         <div class="col-lg-12">
+            <div class="page-header">
+                <form id="queryOptionForm" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-lg-2">VIP编号：</label>
+                        <div class="col-md-4 col-lg-4">
+                            <input type="number" class="form-control" min="1" step="1"
+                                   name="id"
+                                   placeholder="VIP编号"/>
+                        </div>
+                        <label class="control-label col-md-2 col-lg-2 text-left">姓名：</label>
+                        <div class="col-md-4 col-lg-4">
+                            <input type="text" class="form-control"
+                                   name="name"
+                                   placeholder="VIP姓名">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <label class="control-label col-md-2 col-lg-2 text-left">成分：</label>
+                        <div class="col-md-4 col-lg-4">
+                            <input type="text" class="form-control"
+                                   name="profession"
+                                   placeholder="VIP成分">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-lg-2">年龄：</label>
+                        <div class="col-md-2 col-lg-2">
+                            <input type="number" class="form-control" name="fromAge" min="1" step="1" max="150"
+                                   placeholder="年龄下限">
+                        </div>
+                        <p class="form-control-static col-md-1 col-lg-1 text-center">至</p>
+                        <div class="col-md-2 col-lg-2">
+                            <input type="number" class="form-control" name="toAge" min="1" step="1" max="150"
+                                   placeholder="年龄上限">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-lg-2">入会时间：</label>
+                        <div class="col-md-2 col-lg-2">
+                            <input type="text" class="form-control datetimepicker" name="fromDate" placeholder=" 日期下限">
+                        </div>
+                        <p class="form-control-static col-md-1 text-center">至</p>
+                        <div class="col-md-2 col-lg-2">
+                            <input type="text" class="form-control datetimepicker" name="toDate" placeholder=" 日期上限">
+                        </div>
+                        <div class="col-md-offset-11 col-lg-offset-11">
+                            <a id="queryBtn" class="btn btn-info btn-sm">查询</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="text-muted bootstrap-admin-box-title">VIP列表
@@ -12,7 +64,7 @@
                     <a href="vip/add" class="right">添加VIP</a>
                 </div>
                 <div class="bootstrap-admin-panel-content">
-                    <table class="table bootstrap-admin-table-with-actions table-hover">
+                    <table class="table bootstrap-admin-table-with-actions table-hover listTable">
                         <thead>
                         <tr>
                             <th>VIP编号</th>
@@ -24,56 +76,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <s:iterator value="vips">
-                            <tr>
-                                <td class="col-lg-1 col-md-1">
-                                    <s:property value="id"/></td>
-                                <td class="col-lg-2 col-md-2">
-                                    <s:property value="name"/></td>
-                                <td class="col-lg-2 col-md-2">
-                                    <s:property value="age"/></td>
-                                <td class="col-lg-2 col-md-2">
-                                    <s:property value="profession"/>
-                                </td>
-                                <td class="col-lg-2 col-md-2">
-                                    <s:date format="yyyy-MM-dd" name="joinTime"/>
-                                </td>
 
-                                <td class="actions col-lg-2 col-md-2 ">
-                                    <a href="vip/view/<s:property value="id"/>"
-                                       class="btn btn-sm btn-info ">
-                                        <i class="glyphicon glyphicon-eye-open"></i>
-                                    </a>
-                                    <a href="vip/edit/<s:property value="id"/>"
-                                       class="btn btn-sm btn-primary">
-                                        <i class="glyphicon glyphicon-pencil"></i>
-                                    </a>
-                                    <a href="vip/delete/<s:property value="id"/>"
-                                       class="btn btn-sm btn-danger">
-                                        <i class="glyphicon glyphicon-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        </s:iterator>
                         </tbody>
                     </table>
-                    <%--分页按钮--%>
-                    <s:if test="pageNum > 1">
-                    <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
-                    <div class="pagination-container">
-                    <ul class="pagination pagination-sm">
-                    <s:iterator value="indexList" status="st">
-                    <s:set var="aii" value="#st.index+1"/>
-                    <li <s:if
-                    test="#aii == page"> class="active"</s:if> >
-                    <a href="user/list/<s:property/>"><s:property/></a>
-                    </li>
-                    </s:iterator>
-                    </ul>
+                    <%--分页按钮： 通过插件实现，详见页尾jqeury代码--%>
+                    <div class="col-lg-offset-4 col-md-offset-4 pagingDiv">
+                        <ul class="pagination pagination-sm ">
+                        </ul>
                     </div>
-                    </div>
-                    </s:if>
-
                 </div>
             </div>
         </div>
@@ -94,3 +104,22 @@
     </div>
 </div>
 <%@include file="/WEB-INF/jsp/common/footer.jsp" %>
+<script type="text/javascript" src="js/jqPaginator.min.js"></script>
+<script type="text/javascript" src="js/vip/query.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript">
+    $('.datetimepicker').datetimepicker({
+        language: 'zh-CN',
+        format: 'yyyy-mm-dd',//选择完日期后，input框里的时间值的格式
+//            startDate: new Date(),//开始日期时间，在此之前的都不可选，同理也有endDate
+        weekStart: 1,
+        todayBtn: 1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1,
+        minView: 2,
+    });
+</script>

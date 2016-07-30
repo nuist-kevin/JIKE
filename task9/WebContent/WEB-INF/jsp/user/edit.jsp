@@ -18,7 +18,7 @@
                         <div class="form-group">
                             <label class="col-sm-5 control-label">用户名</label>
                             <div class="col-sm-4">
-                                <input name="user.username" class="form-control" type="text"
+                                <input required name="user.username" class="form-control" type="text"
 
                                        <s:if test="user != null">disabled
                                        value="${user.username}"</s:if>  />
@@ -27,14 +27,14 @@
                         <div class="form-group">
                             <label class="col-sm-5 control-label">密码</label>
                             <div class="col-sm-4">
-                                <input class="form-control" type="text" name="user.password"
+                                <input required class="form-control" type="text" name="user.password"
                                        value="${user.password}"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-5 control-label">权限</label>
                             <label class="checkbox-inline ">
-                                <input type="radio" name="user.authority" value="1"
+                                <input  type="radio" name="user.authority" value="1"
                                        <s:if test="user.authority.equals(1)">checked</s:if> />管理员
                             </label>
                             <label class="checkbox-inline">

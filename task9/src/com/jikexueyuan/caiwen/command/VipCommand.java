@@ -1,9 +1,7 @@
 package com.jikexueyuan.caiwen.command;
-
 /**
- * Created by caiwen on 2016/7/24.
+ * Consume所需的组件属性
  */
-//@Embeddable
 public class VipCommand {
     private Integer vipId;
     private String name;

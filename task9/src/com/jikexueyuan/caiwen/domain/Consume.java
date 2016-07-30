@@ -2,17 +2,11 @@ package com.jikexueyuan.caiwen.domain;
 
 import com.jikexueyuan.caiwen.command.CommodityCommand;
 import com.jikexueyuan.caiwen.command.VipCommand;
-import org.hibernate.annotations.*;
-import org.hibernate.annotations.CascadeType;
-
 import javax.persistence.*;
 import javax.persistence.Entity;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-/**
- * Created by caiwen on 2016/7/21.
- */
 @Entity
 public class Consume implements Serializable {
     private Integer id;

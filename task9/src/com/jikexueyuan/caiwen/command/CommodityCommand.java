@@ -1,9 +1,8 @@
 package com.jikexueyuan.caiwen.command;
 
 import java.math.BigDecimal;
-
 /**
- * Created by caiwen on 2016/7/24.
+ * Consume所需的组件属性
  */
 public class CommodityCommand {
     private Integer commodityId;

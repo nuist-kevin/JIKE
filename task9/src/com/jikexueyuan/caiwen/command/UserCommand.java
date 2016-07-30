@@ -1,8 +1,5 @@
 package com.jikexueyuan.caiwen.command;
 
-/**
- * Created by caiwen on 2016/7/22.
- */
 public class UserCommand {
     private String username;
     private String password;

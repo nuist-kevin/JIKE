@@ -96,23 +96,28 @@
         </action>
     </package>
 
-    <package name="vip" namespace="/vip" extends="struts-default">
-        <action name="jsonVips" class="com.jikexueyuan.caiwen.action.VipAction" method="jsonList">
-            <result name="json" type="stream">
-            <param name="contentType">text/json</param>
-            <param name="inputName">result</param>
-            </result>
-        </action>
+    <package name="vip" namespace="/vip" extends="struts-default, json-default">
+
         <action name="/view/*" class="com.jikexueyuan.caiwen.action.VipAction" method="view">
             <param name="vid">{1}</param>
             <result>/WEB-INF/jsp/vip/view.jsp</result>
         </action>
+
         <action name="list"  class="com.jikexueyuan.caiwen.action.VipAction" method="list">
             <result>/WEB-INF/jsp/vip/list.jsp</result>
         </action>
+
+        <action name="/list/*"  class="com.jikexueyuan.caiwen.action.VipAction" method="jsonList">
+            <param name="page">{1}</param>
+            <result name="success" type="json">
+                <param name="root">pageData</param>
+            </result>
+        </action>
+
         <action name="add" class="com.jikexueyuan.caiwen.action.VipAction" method="addView">
             <result>/WEB-INF/jsp/vip/edit.jsp</result>
         </action>
+
         <action name="doAdd" class="com.jikexueyuan.caiwen.action.VipAction" method="doAdd">
             <result type="redirectAction">
                 <param name="actionName">list</param>
@@ -120,10 +125,12 @@
             </result>
             <result name="input">/WEB-INF/jsp/vip/add.jsp</result>
         </action>
+
         <action name="/edit/*" class="com.jikexueyuan.caiwen.action.VipAction" method="editView">
             <param name="vid">{1}</param>
             <result name="success">/WEB-INF/jsp/vip/edit.jsp</result>
         </action>
+
         <action name="/doEdit/*" class="com.jikexueyuan.caiwen.action.VipAction" method="doEdit">
             <param name="vid">{1}</param>
             <result name="success" type="redirectAction">
@@ -132,9 +139,10 @@
             </result>
             <result name="input">/WEB-INF/jsp/vip/edit.jsp</result>
         </action>
+
     </package>
     
-    <package name="consume" namespace="/consume" extends="struts-default">
+    <package name="consume" namespace="/consume" extends="struts-default, json-default">
         <action name="add" class="com.jikexueyuan.caiwen.action.ConsumeAction" method="addView">
             <result name="success">/WEB-INF/jsp/consume/add.jsp</result>
         </action>
@@ -146,6 +154,13 @@
         </action>
         <action name="list" class="com.jikexueyuan.caiwen.action.ConsumeAction" method="list">
             <result name="success">/WEB-INF/jsp/consume/list.jsp</result>
+        </action>
+
+        <action name="/list/*"  class="com.jikexueyuan.caiwen.action.ConsumeAction" method="jsonList">
+            <param name="page">{1}</param>
+            <result name="success" type="json">
+                <param name="root">pageData</param>
+            </result>
         </action>
     </package>
 

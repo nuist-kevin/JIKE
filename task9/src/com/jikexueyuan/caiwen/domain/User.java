@@ -4,9 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/**
- * Created by caiwen on 2016/7/23.
- */
 @Entity
 public class User {
 
