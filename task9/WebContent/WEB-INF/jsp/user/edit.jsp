@@ -19,7 +19,7 @@
                             <label class="col-sm-5 control-label">用户名</label>
                             <div class="col-sm-4">
                                 <input required name="user.username" class="form-control" type="text"
-
+                                       placeholder="只能输入数字和字母"
                                        <s:if test="user != null">disabled
                                        value="${user.username}"</s:if>  />
                             </div>
@@ -76,3 +76,11 @@
     </div>
 </div>
 <%@include file="/WEB-INF/jsp/common/footer.jsp" %>
+<script type="text/javascript">
+     $("input[type='text']").blur(function() {
+         var reg = /^[A-Za-z0-9]+$/;
+         if (!($(this).val()).match(reg)) {
+             $(this).val('');
+         }
+     });
+</script>

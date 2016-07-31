@@ -22,7 +22,8 @@
                             <label class="col-sm-4 control-label">价格</label>
                             <div class="col-lg-8 col-md-8">
                                 <div class="input-group col-sm-6">
-                                    <input required class="form-control" type="text" name="commodity.price"/>
+                                    <input required class="form-control" type="number" step="0.01" min="0.01"
+                                           name="commodity.price"/>
                                     <span class="input-group-addon">元</span>
                                 </div>
                             </div>
@@ -31,7 +32,7 @@
                             <label class="col-sm-4 control-label">折扣</label>
                             <div class="col-lg-8 col-md-8">
                                 <div class="input-group col-sm-6">
-                                    <input required class="form-control" type="text"
+                                    <input required class="form-control" type="number" max="9.999" step="0.001"
                                            name="commodity.agio" placeholder="请输入10以内的正数"/>
                                     <span class="input-group-addon">折</span>
                                 </div>

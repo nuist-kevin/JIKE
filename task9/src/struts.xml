@@ -140,6 +140,15 @@
             <result name="input">/WEB-INF/jsp/vip/edit.jsp</result>
         </action>
 
+        <action name="delete/*" class="com.jikexueyuan.caiwen.action.VipAction" method="delete">
+            <param name="vid">{1}</param>
+            <result type="redirectAction">
+                <param name="actionName">list</param>
+                <param name="namespace">/vip</param>
+            </result>
+            <result name="input">/WEB-INF/jsp/vip/add.jsp</result>
+        </action>
+
     </package>
     
     <package name="consume" namespace="/consume" extends="struts-default, json-default">

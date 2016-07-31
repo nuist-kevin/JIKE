@@ -13,49 +13,57 @@
                 <div class="bootstrap-admin-panel-content">
                     <form class="form-horizontal" action='consume/doAdd' method="post">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">VIP编号</label>
+                            <label class="col-sm-4 control-label">VIP编号</label>
                             <div class="col-sm-4">
-                                <input required name="consume.vip.vipId" class="form-control" type="text"  readonly = "readonly"/>
+                                <input required name="consume.vip.vipId" class="form-control" type="text"
+                                       readonly="readonly"/>
                             </div>
                             <div class="col-sm-3">
                                 <a href="#vipModal" id='vipList' class="btn btn-primary btn-sm" data-toggle="modal">选择VIP</a>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">姓名</label>
+                            <label class="col-sm-4 control-label">姓名</label>
                             <div class="col-sm-4">
-                                <input required name="consume.vip.name" class="form-control" type="text"  readonly = "readonly"/>
+                                <input required name="consume.vip.name" class="form-control" type="text"
+                                       readonly="readonly"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">商品编号</label>
+                            <label class="col-sm-4 control-label">商品编号</label>
                             <div class="col-sm-4">
-                                <input class="form-control" type="text" name="consume.commodity.commodityId"  readonly = "readonly"/>
+                                <input class="form-control" type="text" name="consume.commodity.commodityId"
+                                       readonly="readonly"/>
                             </div>
                             <div class="col-sm-3">
                                 <a href="#commodityModal" class="btn btn-primary btn-sm" data-toggle="modal">选择商品</a>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">商品名称</label>
+                            <label class="col-sm-4 control-label">商品名称</label>
                             <div class="col-sm-4">
                                 <input required class="form-control" type="text" name="consume.commodity.commodityName"
-                                       readonly = "readonly"/>
+                                       readonly="readonly"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">商品价格</label>
-                            <div class="col-sm-4">
-                                <input required class="form-control" type="text" name="consume.commodity.price"  readonly = "readonly"/>
-                                <span class="input-group-addon">元</span>
+                            <label class="col-sm-4 control-label">商品价格</label>
+                            <div class="col-sm-8">
+                                <div class="input-group col-sm-6">
+                                    <input required class="form-control" type="text" name="consume.commodity.price"
+                                           readonly="readonly"/>
+                                    <span class="input-group-addon">元</span>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">实收金额</label>
-                            <div class="col-sm-4">
-                                <input required class="form-control" type="number" step="0.01"
-                                       name="consume.practicePrice" required/>
-                                <span class="input-group-addon">元</span>
+                            <label class="col-sm-4 control-label">实收金额</label>
+                            <div class="col-sm-8">
+                                <div class="input-group col-sm-6">
+                                    <input required class="form-control" type="number" step="0.01"
+                                           name="consume.practicePrice" required/>
+                                    <span class="input-group-addon">元</span>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -102,23 +110,27 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-2 col-lg-2 small">年龄：</label>
                                             <div class="col-md-3 col-lg-3">
-                                                <input type="number" class="form-control input-sm" name="fromAge" min="1" step="1" max="150"
+                                                <input type="number" class="form-control input-sm" name="fromAge"
+                                                       min="1" step="1" max="150"
                                                        placeholder="年龄下限">
                                             </div>
                                             <p class="form-control-static col-md-1 col-lg-1 text-center small">至</p>
                                             <div class="col-md-3 col-lg-3">
-                                                <input type="number" class="form-control input-sm" name="toAge" min="1" step="1" max="150"
+                                                <input type="number" class="form-control input-sm" name="toAge" min="1"
+                                                       step="1" max="150"
                                                        placeholder="年龄上限">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-2 col-lg-2 small">入会时间：</label>
                                             <div class="col-md-3 col-lg-3">
-                                                <input type="text" class="form-control datetimepicker input-sm" name="fromDate" placeholder=" 日期下限">
+                                                <input type="text" class="form-control datetimepicker input-sm"
+                                                       name="fromDate" placeholder=" 日期下限">
                                             </div>
                                             <p class="form-control-static col-md-1 text-center small">至</p>
                                             <div class="col-md-3 col-lg-3">
-                                                <input type="text" class="form-control datetimepicker input-sm" name="toDate" placeholder=" 日期上限">
+                                                <input type="text" class="form-control datetimepicker input-sm"
+                                                       name="toDate" placeholder=" 日期上限">
                                             </div>
                                             <div class="col-md-3 col-lg-3">
                                                 <a id="vipSearch" class="btn btn-info btn-sm right">搜索</a>
@@ -185,23 +197,27 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-2 col-lg-2 small">商品价格：</label>
                                             <div class="col-md-3 col-lg-3">
-                                                <input type="number" class="form-control input-sm" name="lowPrice" min="1" step="1" max="150"
+                                                <input type="number" class="form-control input-sm" name="lowPrice"
+                                                       min="1" step="1" max="150"
                                                        placeholder="价格下限">
                                             </div>
                                             <p class="form-control-static col-md-1 col-lg-1 text-center small">至</p>
                                             <div class="col-md-3 col-lg-3">
-                                                <input type="number" class="form-control input-sm" name="upPrice" min="1" step="1" max="150"
+                                                <input type="number" class="form-control input-sm" name="upPrice"
+                                                       min="1" step="1" max="150"
                                                        placeholder="价格上限">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-2 col-lg-2 small">商品折扣：</label>
                                             <div class="col-md-3 col-lg-3">
-                                                <input type="text" class="form-control input-sm" name="lowAgio" placeholder=" 折扣下限">
+                                                <input type="text" class="form-control input-sm" name="lowAgio"
+                                                       placeholder=" 折扣下限">
                                             </div>
                                             <p class="form-control-static col-md-1 text-center small">至</p>
                                             <div class="col-md-3 col-lg-3">
-                                                <input type="text" class="form-control input-sm" name="upAgio" placeholder=" 折扣上限">
+                                                <input type="text" class="form-control input-sm" name="upAgio"
+                                                       placeholder=" 折扣上限">
                                             </div>
                                             <div class="col-md-3 col-lg-3">
                                                 <a id="commoditySearch" class="btn btn-info btn-sm right">搜索</a>
@@ -231,7 +247,8 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button id="commodityComfirmBtn" type="button" class="btn btn-primary" data-dismiss="modal"
+                                    <button id="commodityComfirmBtn" type="button" class="btn btn-primary"
+                                            data-dismiss="modal"
                                             aria-hidden="true">确定
                                     </button>
                                 </div>

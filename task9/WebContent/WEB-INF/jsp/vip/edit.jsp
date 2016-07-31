@@ -36,7 +36,7 @@
                         <div class="form-group">
                             <label class="col-sm-5 control-label">年龄</label>
                             <div class="col-sm-4">
-                                <input required class="form-control" type="text"
+                                <input required class="form-control" type="number" max="150" step="1" min="18"
                                        name="vip.age"
                                        value="<s:property value="vip.age"/>"/>
                             </div>
