@@ -1,10 +1,6 @@
 package com.jikexueyuan.caiwen.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="USERS")
@@ -21,6 +17,7 @@ public class User {
 	private String email;
 	
 	@Id
+	@Column(name = "ID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;

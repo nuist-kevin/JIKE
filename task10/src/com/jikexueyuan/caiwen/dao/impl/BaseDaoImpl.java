@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,12 +17,15 @@ import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jikexueyuan.caiwen.dao.BaseDao;
+import org.springframework.stereotype.Repository;
 
+@Repository
+//@Transactional
 public class BaseDaoImpl<T , PK extends Serializable> implements BaseDao<T, PK> {
-
 	SessionFactory SessionFactory;
 	Class<T> entityClass;
-	
+
+
 	public BaseDaoImpl() {
 	       this.entityClass = null;
 	        Class c = getClass();
