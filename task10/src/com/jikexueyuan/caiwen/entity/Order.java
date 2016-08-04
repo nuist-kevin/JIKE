@@ -1,28 +1,38 @@
 package com.jikexueyuan.caiwen.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name="ORDERS")
-public class Order {
+public class Order implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6799683664472251908L;
 	private Integer id;
-	private String username;
+	private User user;
 	private Integer num;
 	private BigDecimal sum;
 	private Date createTime;
 	private List<OrderDetail> orderDetails;
 	
 	@Id
+	@Column(name = "ORDERSID")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
@@ -30,11 +40,14 @@ public class Order {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return username;
+
+	@ManyToOne
+	@JoinColumn(name = "userName", referencedColumnName = "USERNAME")
+	public User getUser() {
+		return user;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public Integer getNum() {
 		return num;
@@ -57,7 +70,7 @@ public class Order {
 	
 	//TODO 双向多对一的用法
 	@OneToMany
-	@JoinColumn(name="ORDERID")
+	@JoinColumn(name="ORDERSID")
 	public List<OrderDetail> getOrderDetails() {
 		return orderDetails;
 	}

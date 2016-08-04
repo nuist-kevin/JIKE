@@ -19,8 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.jikexueyuan.caiwen.dao.BaseDao;
 import org.springframework.stereotype.Repository;
 
-@Repository
-//@Transactional
 public class BaseDaoImpl<T , PK extends Serializable> implements BaseDao<T, PK> {
 	SessionFactory SessionFactory;
 	Class<T> entityClass;

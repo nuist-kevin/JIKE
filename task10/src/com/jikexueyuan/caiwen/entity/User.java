@@ -1,11 +1,17 @@
 package com.jikexueyuan.caiwen.entity;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name="USERS")
-public class User {
-	
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7951026165703863807L;
 	private Integer id;
 	private String userName;
 	private String realName;
@@ -15,7 +21,17 @@ public class User {
 	private String address;
 	private String phoneNo;
 	private String email;
-	
+	private List<Order> orders;
+//	
+//	(fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user")
+//	@JoinColumn(name = "username", referencedColumnName = "username")
+	public List<Order> getOrders() {
+		return orders;
+	}
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
 	@Id
 	@Column(name = "ID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

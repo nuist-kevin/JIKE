@@ -1,5 +1,7 @@
 package com.jikexueyuan.caiwen.dao;
 
-public interface UserDao<User, Integer> extends BaseDao {
+import com.jikexueyuan.caiwen.entity.User;
+
+public interface UserDao extends BaseDao<User, Integer> {
 	
 }

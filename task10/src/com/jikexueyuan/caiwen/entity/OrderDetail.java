@@ -1,5 +1,6 @@
 package com.jikexueyuan.caiwen.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -9,12 +10,16 @@ import javax.persistence.Id;
 
 @Entity
 @Table(name="ORDERS_DETAILS")
-public class OrderDetail {
+public class OrderDetail implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6015749977406248432L;
 	private Integer id;
 	private String goodsName;
 	private BigDecimal price;
 	private Integer num;
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getId() {

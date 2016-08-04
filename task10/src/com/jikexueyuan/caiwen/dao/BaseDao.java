@@ -1,9 +1,8 @@
 package com.jikexueyuan.caiwen.dao;
 
-import java.io.Serializable;
 import java.util.List;
 
-public interface BaseDao<T, PK extends Serializable> {
+public interface BaseDao<T, PK> {
     public T findOne(PK pk);
 
     public PK save(T model);
