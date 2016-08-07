@@ -20,7 +20,6 @@ import com.jikexueyuan.caiwen.entity.User;
  * Created by caiwen on 2016/8/3.
  */
 
-@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:applicationContext.xml")
 @Transactional(transactionManager = "transactionManager")
 public class UserDaoTest extends AbstractTransactionalJUnit4SpringContextTests {

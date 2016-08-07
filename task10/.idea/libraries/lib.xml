@@ -6,6 +6,11 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://F:/迅雷下载/spring-framework-4.3.1.RELEASE/libs/spring-test-4.3.1.RELEASE-sources.jar!/" />
+      <root url="file://F:/迅雷下载/hibernate-release-4.3.11.Final/project/hibernate-core/src/main/java" />
+      <root url="jar://F:/迅雷下载/spring-framework-4.3.1.RELEASE/libs/spring-test-4.3.1.RELEASE-sources.jar!/" />
+      <root url="jar://F:/迅雷下载/spring-framework-4.3.1.RELEASE/libs/spring-jdbc-4.3.1.RELEASE-sources.jar!/" />
+      <root url="jar://E:/Repository/org/unitils/unitils-dbunit/3.4.2/unitils-dbunit-3.4.2-sources.jar!/" />
+      <root url="jar://E:/Repository/org/dbunit/dbunit/2.4.9/dbunit-2.4.9-sources.jar!/" />
     </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/WebContent/WEB-INF/lib" recursive="false" />
   </library>

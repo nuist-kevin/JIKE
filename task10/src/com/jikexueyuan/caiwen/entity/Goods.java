@@ -59,5 +59,32 @@ public class Goods {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-	
+
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Goods goods = (Goods) o;
+
+		if (!id.equals(goods.id)) return false;
+		if (!goodsname.equals(goods.goodsname)) return false;
+		if (description != null ? !description.equals(goods.description) : goods.description != null) return false;
+		if (!price.equals(goods.price)) return false;
+		if (!category.equals(goods.category)) return false;
+		return imgUrl != null ? imgUrl.equals(goods.imgUrl) : goods.imgUrl == null;
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id.hashCode();
+		result = 31 * result + goodsname.hashCode();
+		result = 31 * result + (description != null ? description.hashCode() : 0);
+		result = 31 * result + price.hashCode();
+		result = 31 * result + category.hashCode();
+		result = 31 * result + (imgUrl != null ? imgUrl.hashCode() : 0);
+		return result;
+	}
 }
