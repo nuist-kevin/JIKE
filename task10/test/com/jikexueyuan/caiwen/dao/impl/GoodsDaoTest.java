@@ -20,7 +20,7 @@ public class GoodsDaoTest extends UnitilsJUnit4{
     GoodsDao goodsDao;
 
     @Test
-    @DataSet("GoodsDaoTest.xls")
+    @DataSet("GoodsDaoTest.xml")
 //    @ExpectedDataSet("GoodsDaoTest.xml")
     public void testfindAll() {
         goodsDao.findAll();

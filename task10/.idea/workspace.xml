@@ -2,50 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d52060b1-0bf9-40d2-bddd-8703fc7e39aa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/commons-dbcp-1.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/commons-lang-2.5.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/commons-pool-1.5.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/dbunit-2.4.9.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/poi-3.14-20160307.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/unitils-core-3.4.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/unitils-database-3.4.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/unitils-dbmaintainer-3.4.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/unitils-dbunit-3.4.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/lib/unitils-spring-3.4.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/GoodsDaoTest.xls" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/dao/GoodsDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/dao/impl/GoodsDaoImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/MultiSchemaXlsDataSetFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/MultiSchemaXlsDataSetReader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/MySqlDbUnitModule.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/BaseDaoTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/GoodsDaoImplTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/GoodsDaoTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/GoodsDaoTest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/dataSet/GoodsDaoImplTest/testFindAll.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/sql/GoodsDaoImplTest/testFindAll.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/sql/GoodsDaoImplTest/testSave.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/sql/GoodsDaoImplTest/testTotalCount.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/sql/GoodsDaoImplTest/testfindOne.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unitils.properties" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/lib/commons-lang3-3.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/BaseTest.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/task10.iml" afterPath="$PROJECT_DIR$/.idea/task10.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/applicationContext.xml" afterPath="$PROJECT_DIR$/src/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/dao/impl/BaseDaoImpl.java" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/dao/impl/BaseDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/dao/impl/ShoppingCartDaoImpl.java" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/dao/impl/ShoppingCartDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/entity/Category.java" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/entity/Category.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/entity/Goods.java" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/entity/Goods.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/init.sql" afterPath="$PROJECT_DIR$/src/init.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/log4j2.xml" afterPath="$PROJECT_DIR$/src/log4j2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/ShoppingCartDaoTest.java" afterPath="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/ShoppingCartDaoTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/UserDaoTest.java" afterPath="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/UserDaoTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/GoodsDaoTest.java" afterPath="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/GoodsDaoTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unitils.properties" afterPath="$PROJECT_DIR$/test/unitils.properties" />
     </list>
     <ignored path="task10.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,15 +33,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="AbstractOperation.java" pinned="false" current-in-tab="true">
+        <entry file="jar://E:/Repository/org/dbunit/dbunit/2.4.9/dbunit-2.4.9-sources.jar!/org/dbunit/operation/AbstractOperation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33333334">
+              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="GoodsDaoTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/GoodsDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+              <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
               <folding>
-                <element signature="e#787#788#0" expanded="true" />
                 <element signature="e#821#822#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractTableMetaData.java" pinned="false" current-in-tab="false">
+        <entry file="jar://E:/Repository/org/dbunit/dbunit/2.4.9/dbunit-2.4.9-sources.jar!/org/dbunit/dataset/AbstractTableMetaData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractBatchOperation.java" pinned="false" current-in-tab="false">
+        <entry file="jar://E:/Repository/org/dbunit/dbunit/2.4.9/dbunit-2.4.9-sources.jar!/org/dbunit/operation/AbstractBatchOperation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -111,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="unitils.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="unitils.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/unitils.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="46" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -163,8 +151,8 @@
         <option value="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/GoodsDaoImplTest.java" />
         <option value="$PROJECT_DIR$/test/MultiSchemaXlsDataSetFactory.java" />
         <option value="$PROJECT_DIR$/test/MultiSchemaXlsDataSetReader.java" />
-        <option value="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/GoodsDaoTest.java" />
         <option value="$PROJECT_DIR$/test/unitils.properties" />
+        <option value="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/GoodsDaoTest.java" />
       </list>
     </option>
   </component>
@@ -986,9 +974,6 @@
     <configuration />
   </component>
   <component name="TestHistory">
-    <history-entry file="GoodsDaoTest_testfindAll - 2016.08.08 at 00h 17m 22s.xml">
-      <configuration name="GoodsDaoTest.testfindAll" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="GoodsDaoTest_testfindAll - 2016.08.08 at 00h 17m 33s.xml">
       <configuration name="GoodsDaoTest.testfindAll" configurationId="JUnit" />
     </history-entry>
@@ -1016,6 +1001,9 @@
     <history-entry file="GoodsDaoTest_testfindAll - 2016.08.08 at 00h 30m 11s.xml">
       <configuration name="GoodsDaoTest.testfindAll" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="GoodsDaoTest_testfindAll - 2016.08.08 at 00h 38m 33s.xml">
+      <configuration name="GoodsDaoTest.testfindAll" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1031,7 +1019,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41603467" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41603467" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1977612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1040,7 +1028,7 @@
       <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21002132" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2524377" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2524377" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1064,7 +1052,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="添加单元测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加单元测试" />
+    <MESSAGE value="尝试整合unitils-dbunit，失败" />
+    <option name="LAST_COMMIT_MESSAGE" value="尝试整合unitils-dbunit，失败" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1104,6 +1093,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1264,13 +1254,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/Repository/org/dbunit/dbunit/2.4.9/dbunit-2.4.9-sources.jar!/org/dbunit/operation/AbstractBatchOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/log4j2.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.096774">
@@ -1322,13 +1305,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/Repository/org/dbunit/dbunit/2.4.9/dbunit-2.4.9-sources.jar!/org/dbunit/dataset/AbstractTableMetaData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15705766">
-          <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/GoodsDaoTest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25287357">
@@ -1356,14 +1332,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://E:/Repository/org/dbunit/dbunit/2.4.9/dbunit-2.4.9-sources.jar!/org/dbunit/operation/AbstractOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/Repository/org/dbunit/dbunit/2.4.9/dbunit-2.4.9-sources.jar!/org/dbunit/dataset/excel/XlsDataSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1984536">
@@ -1385,7 +1353,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
           <folding>
-            <element signature="e#1394#1412#0" expanded="true" />
+            <element signature="e#1394#1412#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1407,18 +1375,6 @@
         <state vertical-scroll-proportion="0.76862746">
           <caret line="83" column="65" selection-start-line="83" selection-start-column="65" selection-end-line="83" selection-end-column="65" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/MultiSchemaXlsDataSetReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1469,18 +1425,7 @@
         <state vertical-scroll-proportion="0.7836611">
           <caret line="87" column="57" selection-start-line="87" selection-start-column="51" selection-end-line="87" selection-end-column="57" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/GoodsDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-          <folding>
-            <element signature="e#787#788#0" expanded="true" />
-            <element signature="e#821#822#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1496,7 +1441,53 @@
     <entry file="file://$PROJECT_DIR$/test/unitils.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="46" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/MultiSchemaXlsDataSetReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#874#875#0" expanded="true" />
+            <element signature="e#932#933#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/GoodsDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+          <folding>
+            <element signature="e#821#822#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Repository/org/dbunit/dbunit/2.4.9/dbunit-2.4.9-sources.jar!/org/dbunit/dataset/AbstractTableMetaData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Repository/org/dbunit/dbunit/2.4.9/dbunit-2.4.9-sources.jar!/org/dbunit/operation/AbstractBatchOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Repository/org/dbunit/dbunit/2.4.9/dbunit-2.4.9-sources.jar!/org/dbunit/operation/AbstractOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding />
         </state>
       </provider>
