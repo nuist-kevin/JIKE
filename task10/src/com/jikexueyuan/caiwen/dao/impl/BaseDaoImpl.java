@@ -23,6 +23,7 @@ import org.springframework.stereotype.Repository;
 public class BaseDaoImpl<T , PK extends Serializable> implements BaseDao<T, PK> {
 	SessionFactory SessionFactory;
 	Class<T> entityClass;
+	final Integer RECORD_PER_PAGE = 5;
 
 
 	public BaseDaoImpl() {
@@ -71,9 +72,14 @@ public class BaseDaoImpl<T , PK extends Serializable> implements BaseDao<T, PK> 
 	}
 
 	@Override
-	public Long totalCount() {
+	public Integer totalCount() {
 		// TODO Auto-generated method stub
-		return (Long) getSession().createCriteria(entityClass).setProjection(Projections.rowCount()).uniqueResult();
+		return (Integer) getSession().createCriteria(entityClass).setProjection(Projections.rowCount()).uniqueResult();
+	}
+
+	public Integer totalPages() {
+		return ((totalCount() % RECORD_PER_PAGE) == 0) ? (totalCount() / RECORD_PER_PAGE) : (totalCount() /
+				RECORD_PER_PAGE + 1) ;
 	}
 
 	@Override

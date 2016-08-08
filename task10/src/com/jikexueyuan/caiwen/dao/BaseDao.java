@@ -11,7 +11,7 @@ public interface BaseDao<T, PK> {
 
     public List<T> findAll();
 
-    public Long totalCount();
+    public Integer totalCount();
 
     public List<T> findByPage(int pageSize, int startIndex);
 }

@@ -65,9 +65,7 @@ public class Goods {
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-
 		Goods goods = (Goods) o;
-
 		if (!id.equals(goods.id)) return false;
 		if (!goodsname.equals(goods.goodsname)) return false;
 		if (description != null ? !description.equals(goods.description) : goods.description != null) return false;

@@ -2,10 +2,14 @@ package com.jikexueyuan.caiwen.dao.impl;
 
 import javax.annotation.Resource;
 
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.Matcher;
+import org.hamcrest.MatcherAssert;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.springframework.transaction.annotation.Transactional;
-
+import static org.hamcrest.CoreMatchers.*;
 import com.jikexueyuan.caiwen.dao.ShoppingCartDao;
 import org.testng.annotations.Test;
 
@@ -16,16 +20,10 @@ public class ShoppingCartDaoTest extends AbstractTransactionalTestNGSpringContex
 	@Resource
 	ShoppingCartDao shoppingCartDao;
 
-//	@Sql
+	@Sql("sql/ShoppingCartDaoTest/testFindOne.sql")
 	@Test
 	public void testFindOne() {
-		
-	}
 
-//	@Test
-//	public void testAdd() {
-		
-//		shoppingCartDao.save(model);
-//	}
+	}
 
 }
