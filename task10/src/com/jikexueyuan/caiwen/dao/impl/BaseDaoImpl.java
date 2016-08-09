@@ -64,6 +64,7 @@ public class BaseDaoImpl<T , PK extends Serializable> implements BaseDao<T, PK> 
 	@Override
 	public void delete(PK pk) {
 		getSession().delete(findOne(pk));
+		getSession().flush();
 	}
 
 	@Override
@@ -74,19 +75,14 @@ public class BaseDaoImpl<T , PK extends Serializable> implements BaseDao<T, PK> 
 	@Override
 	public Integer totalCount() {
 		// TODO Auto-generated method stub
-		return (Integer) getSession().createCriteria(entityClass).setProjection(Projections.rowCount()).uniqueResult();
+		return  new Long((Long) getSession().createCriteria(entityClass).setProjection(Projections.rowCount())
+				.uniqueResult()).intValue();
 	}
 
 	public Integer totalPages() {
-		return ((totalCount() % RECORD_PER_PAGE) == 0) ? (totalCount() / RECORD_PER_PAGE) : (totalCount() /
+		Integer totalCount = totalCount();
+		return ((totalCount % RECORD_PER_PAGE) == 0) ? (totalCount() / RECORD_PER_PAGE) : (totalCount() /
 				RECORD_PER_PAGE + 1) ;
 	}
 
-	@Override
-	public List<T> findByPage(int pageSize, int startIndex) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
 }

@@ -2,12 +2,10 @@ package com.jikexueyuan.caiwen.dao;
 
 import com.jikexueyuan.caiwen.entity.Goods;
 
-import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 public interface GoodsDao extends BaseDao<Goods, Integer> {
 
-    List<Goods> findByPage(String name, Integer categoryId, BigDecimal fromPrice, BigDecimal toPrice, Integer
-            page);
-
+    List<Goods> conditionQuery(Map parameterMap, Integer page);
 }

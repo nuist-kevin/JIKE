@@ -85,4 +85,16 @@ public class Goods {
 		result = 31 * result + (imgUrl != null ? imgUrl.hashCode() : 0);
 		return result;
 	}
+
+	@Override
+	public String toString() {
+		return "Goods{" +
+				"id=" + id +
+				", goodsname='" + goodsname + '\'' +
+				", description='" + description + '\'' +
+				", price=" + price +
+				", category=" + category +
+				", imgUrl='" + imgUrl + '\'' +
+				'}';
+	}
 }

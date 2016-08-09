@@ -3,15 +3,14 @@ package com.jikexueyuan.caiwen.dao;
 import java.util.List;
 
 public interface BaseDao<T, PK> {
-    public T findOne(PK pk);
+    T findOne(PK pk);
 
-    public PK save(T model);
+    PK save(T model);
 
-    public void delete(PK pk);
+    void delete(PK pk);
 
-    public List<T> findAll();
+    List<T> findAll();
 
-    public Integer totalCount();
+    Integer totalCount();
 
-    public List<T> findByPage(int pageSize, int startIndex);
 }
