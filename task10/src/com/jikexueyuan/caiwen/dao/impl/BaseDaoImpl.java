@@ -1,9 +1,12 @@
 package com.jikexueyuan.caiwen.dao.impl;
 
 import java.io.Serializable;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -11,6 +14,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
@@ -23,9 +27,6 @@ import org.springframework.stereotype.Repository;
 public class BaseDaoImpl<T , PK extends Serializable> implements BaseDao<T, PK> {
 	SessionFactory SessionFactory;
 	Class<T> entityClass;
-	final Integer RECORD_PER_PAGE = 5;
-
-
 	public BaseDaoImpl() {
 	       this.entityClass = null;
 	        Class c = getClass();
@@ -50,15 +51,23 @@ public class BaseDaoImpl<T , PK extends Serializable> implements BaseDao<T, PK> 
 	
 	@Override
 	public T findOne(PK pk) {
-		return (T) getSession().load(entityClass, pk);
+		return (T) getSession().get(entityClass, pk);
 	}
 
 	/**
-	 * 新增和修改都使用这个方法，返回主键ID
+	 * 新增方法，返回主键ID
 	 */
 	@Override
 	public PK save(T model) {
-		return (PK) getSession().save(model);
+		PK pk =   (PK) getSession().save(model);
+		getSession().flush();
+		return pk;
+	}
+
+	@Override
+	public void saveOrUpdate(T model) {
+		getSession().saveOrUpdate(model);
+		getSession().flush();
 	}
 
 	@Override
@@ -79,10 +88,28 @@ public class BaseDaoImpl<T , PK extends Serializable> implements BaseDao<T, PK> 
 				.uniqueResult()).intValue();
 	}
 
-	public Integer totalPages() {
+	@Override
+	public Integer totalPages(Integer recordPerPage) {
 		Integer totalCount = totalCount();
-		return ((totalCount % RECORD_PER_PAGE) == 0) ? (totalCount() / RECORD_PER_PAGE) : (totalCount() /
-				RECORD_PER_PAGE + 1) ;
+		if (recordPerPage == null) {
+			recordPerPage = RECORD_PER_PAGE;
+		}
+		return ((totalCount % recordPerPage) == 0) ? (totalCount() / recordPerPage) : (totalCount() /
+				recordPerPage + 1) ;
+	}
+
+	@Override
+	public Map pagedQuery(Integer page, Integer recordPerPage) {
+		if (recordPerPage == null) {
+			recordPerPage = RECORD_PER_PAGE;
+		}
+		Map<String, Object> result = new HashMap<>();
+		result.put("totalPages", totalPages(recordPerPage));
+		Criteria criteria = getSession().createCriteria(entityClass);
+		criteria.setMaxResults(recordPerPage);
+		criteria.setFirstResult(recordPerPage * (page - 1));
+		result.put("pageData", criteria.list());
+		return result;
 	}
 
 }

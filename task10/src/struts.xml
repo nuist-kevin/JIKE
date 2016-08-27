@@ -18,6 +18,19 @@
         <action name="index">
             <result>/WEB-INF/jsp/login.jsp</result>
         </action>
+        <action name="register" class="com.jikexueyuan.caiwen.action.UserAction" method="register">
+            <result name="success">/WEB-INF/jsp/register.jsp</result>
+            <result name="error">/WEB-INF/jsp/register.jsp</result>
+            <result name="input">/WEB-INF/jsp/register.jsp</result>
+        </action>
+        <action name="doRegister" class="com.jikexueyuan.caiwen.action.UserAction" method="doRegister">
+            <result type="chain">
+                <param name="actionName">index</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="error">/WEB-INF/jsp/register.jsp</result>
+            <result name="input">/WEB-INF/jsp/register.jsp</result>
+        </action>
         <action name="login" class="com.jikexueyuan.caiwen.action.UserAction" method="login">
             <result type="redirectAction">
                 <param name="actionName">help</param>
@@ -34,19 +47,25 @@
             <result>/WEB-INF/jsp/help.jsp</result>
         </action>
     </package>
-    <package name="user" namespace="/user" extends="struts-default"
+    <package name="user" namespace="/user" extends="struts-default,json-default"
              strict-method-invocation="false">
-        <action name="maintain" class="com.jikexueyuan.caiwen.action.UserAction" method="list">
-            <result>/WEB-INF/jsp/user/maintain.jsp</result>
+        <action name="list" class="com.jikexueyuan.caiwen.action.UserAction" method="list">
+            <result>/WEB-INF/jsp/user/list.jsp</result>
         </action>
-        <action name="/edit/*" class="com.jikexueyuan.caiwen.action.UserAction" method="editView">
-            <param name="username">{1}</param>
+        <action name="list/*" class="com.jikexueyuan.caiwen.action.UserAction" method="pagedList">
+            <param name="page">{1}</param>
+            <result name="success" type="json">
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+        <action name="/edit/*" class="com.jikexueyuan.caiwen.action.UserAction" method="edit">
+            <param name="user.id">{1}</param>
             <result name="success">/WEB-INF/jsp/user/edit.jsp</result>
         </action>
         <action name="/doEdit/*" class="com.jikexueyuan.caiwen.action.UserAction" method="doEdit">
-            <param name="username">{1}</param>
+            <param name="user.id">{1}</param>
             <result name="success" type="redirectAction">
-                <param name="actionName">maintain</param>
+                <param name="actionName">list</param>
                 <param name="namespace">/user</param>
             </result>
             <result name="input">/WEB-INF/jsp/user/edit.jsp</result>
@@ -56,43 +75,69 @@
             <result name="success">/WEB-INF/jsp/user/view.jsp</result>
         </action>
         <action name="/delete/*" class="com.jikexueyuan.caiwen.action.UserAction" method="delete">
-            <param name="username">{1}</param>
-            <result name="success" type="redirectAction">
-                <param name="actionName">maintain</param>
-                <param name="namespace">/user</param>
+            <param name="user.id">{1}</param>
+            <result name="success" type="json">
+                <param name="root">jsonResult</param>
             </result>
         </action>
-        <action name="add" class="com.jikexueyuan.caiwen.action.UserAction" method="addView">
-            <result name="success">/WEB-INF/jsp/user/edit.jsp</result>
+        <action name="add" class="com.jikexueyuan.caiwen.action.UserAction" method="add">
+            <result name="success">/WEB-INF/jsp/user/add.jsp</result>
         </action>
         <action name="doAdd" class="com.jikexueyuan.caiwen.action.UserAction" method="doAdd">
             <result name="success" type="redirectAction">
-                <param name="actionName">maintain</param>
+                <param name="actionName">list</param>
                 <param name="namespace">/user</param>
             </result>
-            <result name="input">/WEB-INF/jsp/user/edit.jsp</result>
+            <result name="input">/WEB-INF/jsp/user/add.jsp</result>
+            <result name="error">/WEB-INF/jsp/user/add.jsp</result>
         </action>
     </package>
 
-    <package name="commodity" namespace="/commodity" extends="struts-default,json-default" strict-method-invocation="false">
-        <action name="list"  class="com.jikexueyuan.caiwen.action.CommodityAction" method="list">
-            <result>/WEB-INF/jsp/commodity/list.jsp</result>
+    <package name="category" namespace="/category" extends="struts-default,json-default">
+        <action name="list"  class="com.jikexueyuan.caiwen.action.CategoryAction" method="list">
+            <result>/WEB-INF/jsp/category/list.jsp</result>
         </action>
-        <action name="/list/*"  class="com.jikexueyuan.caiwen.action.CommodityAction" method="jsonList">
+        <action name="list/*"  class="com.jikexueyuan.caiwen.action.CategoryAction" method="getAll">
+            <param name="page">{1}</param>
+            <result name="success" type="json">
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+        <action name="add" class="com.jikexueyuan.caiwen.action.CategoryAction" method="add">
+            <result name="success" type="json">
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+        <action name="delete/*" class="com.jikexueyuan.caiwen.action.CategoryAction" method="delete">
+            <param name="category.id">{1}</param>
+            <result name="success" type="json">
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+    </package>
+    <package name="goods" namespace="/goods" extends="struts-default,json-default" strict-method-invocation="false">
+        <action name="/view/*" class="com.jikexueyuan.caiwen.action.GoodsAction" method="view">
+            <param name="goodsDto.id">{1}</param>
+            <result name="success">/WEB-INF/jsp/goods/view.jsp</result>
+        </action>
+        <action name="list"  class="com.jikexueyuan.caiwen.action.GoodsAction" method="list">
+            <result>/WEB-INF/jsp/goods/list.jsp</result>
+        </action>
+        <action name="/list/*"  class="com.jikexueyuan.caiwen.action.GoodsAction" method="jsonList">
             <param name="page">{1}</param>
             <result name="success" type="json">
                 <param name="root">pageData</param>
             </result>
         </action>
-        <action name="add" class="com.jikexueyuan.caiwen.action.CommodityAction" method="addView">
-            <result>/WEB-INF/jsp/commodity/add.jsp</result>
+        <action name="add" class="com.jikexueyuan.caiwen.action.GoodsAction" method="add">
+            <result>/WEB-INF/jsp/goods/add.jsp</result>
         </action>
-        <action name="doAdd" class="com.jikexueyuan.caiwen.action.CommodityAction" method="doAdd">
+        <action name="doAdd" class="com.jikexueyuan.caiwen.action.GoodsAction" method="doAdd">
             <result type="redirectAction">
                 <param name="actionName">list</param>
-                <param name="namespace">/commodity</param>
+                <param name="namespace">/goods</param>
             </result>
-            <result name="input">/WEB-INF/jsp/commodity/add.jsp</result>
+            <result name="input">/WEB-INF/jsp/goods/add.jsp</result>
         </action>
     </package>
 

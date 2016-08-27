@@ -1,18 +1,18 @@
 package com.jikexueyuan.caiwen.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="CATEGORY")
-public class Category {
+public class Category implements Serializable {
+
+	private static final long serialVersionUID = 3332664472251908L;
 	private Integer id;
 	private String categoryName;
 	
 	@Id
+	@Column(name = "CATEGORY_ID")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
@@ -20,6 +20,8 @@ public class Category {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
+	@Column(name = "CATEGORY_NAME")
 	public String getCategoryName() {
 		return categoryName;
 	}

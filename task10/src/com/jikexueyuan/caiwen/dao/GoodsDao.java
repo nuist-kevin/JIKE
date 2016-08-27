@@ -7,5 +7,5 @@ import java.util.Map;
 
 public interface GoodsDao extends BaseDao<Goods, Integer> {
 
-    List<Goods> conditionQuery(Map parameterMap, Integer page);
+    List<Goods> conditionQuery(Map<String,String>  parameterMap, Integer page);
 }

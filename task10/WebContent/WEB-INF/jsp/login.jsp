@@ -30,12 +30,15 @@
                             <s:property value="fieldErrors.username"/>
                         </div>
                     </s:if>
-                    <input class="form-control" type="text" name="userCommand.username" placeholder="请输入用户名"/>
+                    <input class="form-control" type="text" name="userDto.userName" placeholder="请输入用户名"/>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="password" name="userCommand.password" placeholder="请输入密码"/>
+                    <input class="form-control" type="password" name="userDto.password" placeholder="请输入密码"/>
                 </div>
-                <button type="submit" class="btn btn-sm btn-primary">登录</button>
+                <div class="form-inline">
+                    <button type="submit" class="btn btn-sm btn-primary">登录</button>
+                    <a href="register" class="right">注册</a>
+                </div>
                 <div class="form-group">
                     <label>管理员使用caiwen=123456登录</label>
                 </div>

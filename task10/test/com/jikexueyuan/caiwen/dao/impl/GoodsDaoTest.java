@@ -4,14 +4,11 @@ import com.jikexueyuan.caiwen.dao.GoodsDao;
 import com.jikexueyuan.caiwen.entity.Category;
 import com.jikexueyuan.caiwen.entity.Goods;
 import static org.hamcrest.MatcherAssert.assertThat;
-
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.transaction.annotation.Transactional;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import javax.annotation.Resource;
+import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,8 +21,7 @@ import static org.hamcrest.Matchers.*;
 /**
  * Created by caiwen on 2016/8/6.
  */
-@ContextConfiguration(locations = "classpath:applicationContext.xml")
-@Transactional(transactionManager = "transactionManager")
+
 public class GoodsDaoTest extends BaseDaoTest {
     @Resource
     GoodsDao goodsDao;
@@ -35,7 +31,7 @@ public class GoodsDaoTest extends BaseDaoTest {
     public void testfindOne() {
         Goods goods = goodsDao.findOne(5);
         Assert.assertTrue(goods.getId() == 5);
-        Assert.assertEquals(goods.getGoodsname(), "茉莉花");
+        Assert.assertEquals(goods.getGoodsName(), "茉莉花");
         Assert.assertTrue(goods.getCategory().getId() == 1);
         Assert.assertEquals(goods.getDescription(), "花的一种");
         Assert.assertEquals(goods.getPrice(), BigDecimal.valueOf(15.32));
@@ -49,7 +45,7 @@ public class GoodsDaoTest extends BaseDaoTest {
         category.setId(1);
         Goods goods = new Goods();
         goods.setCategory(category);
-        goods.setGoodsname("茉莉花");
+        goods.setGoodsName("茉莉花");
         goods.setDescription("花的一种");
         goods.setPrice(BigDecimal.valueOf(15.32));
         goods.setImgUrl("img/flowers/pasm.jpg");
@@ -65,7 +61,7 @@ public class GoodsDaoTest extends BaseDaoTest {
 
     @Test(dependsOnMethods = "testTotalCount")
     @Sql("classpath:/sql/GoodsDaoTest/testDelete.sql")
-    public void testDelete() {
+    public void testDelete() throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         goodsDao.delete(1);
         assertThat(goodsDao.totalCount(), is(0));
     }
@@ -79,7 +75,7 @@ public class GoodsDaoTest extends BaseDaoTest {
         Goods goods1 = new Goods();
         goods1.setId(1);
         goods1.setCategory(category1);
-        goods1.setGoodsname("茉莉花1");
+        goods1.setGoodsName("茉莉花1");
         goods1.setDescription("花的一种1");
         goods1.setPrice(BigDecimal.valueOf(15.31));
         goods1.setImgUrl("img/flowers/pasm1.jpg");
@@ -90,7 +86,7 @@ public class GoodsDaoTest extends BaseDaoTest {
         Goods goods2 = new Goods();
         goods2.setId(2);
         goods2.setCategory(category2);
-        goods2.setGoodsname("茉莉花2");
+        goods2.setGoodsName("茉莉花2");
         goods2.setDescription("花的一种2");
         goods2.setPrice(BigDecimal.valueOf(15.32));
         goods2.setImgUrl("img/flowers/pasm2.jpg");
@@ -102,7 +98,7 @@ public class GoodsDaoTest extends BaseDaoTest {
     @Test
     @Sql("classpath:/sql/GoodsDaoTest/testConditionQuery.sql")
     public void testConditionQuery() {
-        Map<String, Object> parameterMap = new HashMap<>();
+        Map<String, String> parameterMap = new HashMap<>();
         parameterMap.put("goodsname", "茉莉");
         List<Goods> expected = new ArrayList<>();
         List<Goods> goodsList = goodsDao.conditionQuery(parameterMap, 1);
@@ -113,7 +109,7 @@ public class GoodsDaoTest extends BaseDaoTest {
             Goods goods1 = new Goods();
             goods1.setId(i);
             goods1.setCategory(category1);
-            goods1.setGoodsname("茉莉花" + i);
+            goods1.setGoodsName("茉莉花" + i);
             goods1.setDescription("花的一种" + i);
             goods1.setPrice(BigDecimal.valueOf(i).setScale(2));
             goods1.setImgUrl("img/flowers/pasm" + i + ".jpg");
@@ -130,7 +126,7 @@ public class GoodsDaoTest extends BaseDaoTest {
             Goods goods1 = new Goods();
             goods1.setId(i);
             goods1.setCategory(category1);
-            goods1.setGoodsname("茉莉花" + i);
+            goods1.setGoodsName("茉莉花" + i);
             goods1.setDescription("花的一种" + i);
             goods1.setPrice(BigDecimal.valueOf(i).setScale(2));
             goods1.setImgUrl("img/flowers/pasm" + i + ".jpg");
@@ -140,7 +136,7 @@ public class GoodsDaoTest extends BaseDaoTest {
         assertThat(goodsList1, hasSize(5));
         assertThat(goodsList1.toArray(), arrayContainingInAnyOrder(expected1.toArray()));
 
-        parameterMap.put("categoryId", 2);
+        parameterMap.put("categoryId", "2");
         List<Goods> goodsList2 = goodsDao.conditionQuery(parameterMap, 1);
         Category category1 = new Category();
         category1.setId(2);
@@ -148,7 +144,7 @@ public class GoodsDaoTest extends BaseDaoTest {
         Goods goods5 = new Goods();
         goods5.setId(2);
         goods5.setCategory(category1);
-        goods5.setGoodsname("茉莉花2");
+        goods5.setGoodsName("茉莉花2");
         goods5.setDescription("花的一种2");
         goods5.setPrice(BigDecimal.valueOf(2).setScale(2));
         goods5.setImgUrl("img/flowers/pasm2.jpg");
@@ -156,20 +152,20 @@ public class GoodsDaoTest extends BaseDaoTest {
         Goods goods6 = new Goods();
         goods6.setId(22);
         goods6.setCategory(category1);
-        goods6.setGoodsname("茉莉花22");
+        goods6.setGoodsName("茉莉花22");
         goods6.setDescription("花的一种22");
         goods6.setPrice(BigDecimal.valueOf(22).setScale(2));
         goods6.setImgUrl("img/flowers/pasm22.jpg");
         assertThat(goodsList2, hasSize(2));
         assertThat(goodsList2.toArray(), arrayContainingInAnyOrder(is(goods5), is(goods6)));
 
-        parameterMap.put("fromPrice", BigDecimal.valueOf(5).setScale(2));
+        parameterMap.put("fromPrice", "5");
         List<Goods> goodsList3 = goodsDao.conditionQuery(parameterMap, 1);
 
         assertThat(goodsList3, hasSize(1));
         assertThat(goodsList3.toArray(), arrayContainingInAnyOrder(is(goods6)));
 
-        parameterMap.put("toPrice", BigDecimal.valueOf(30).setScale(2));
+        parameterMap.put("toPrice", "5");
         List<Goods> goodsList4 = goodsDao.conditionQuery(parameterMap, 1);
         assertThat(goodsList4, hasSize(1));
         assertThat(goodsList4.toArray(), arrayContainingInAnyOrder(is(goods6)));

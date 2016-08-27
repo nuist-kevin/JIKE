@@ -1,0 +1,1 @@
+INSERT INTO `shopping`.`role` (`ROLE_ID`, `ROLENAME`) VALUES ('1', 'admin');

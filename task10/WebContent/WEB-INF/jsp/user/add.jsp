@@ -1,0 +1,95 @@
+<%@include file="/WEB-INF/jsp/common/header.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<div class="col-md-10">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="page-header">
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="text-muted bootstrap-admin-box-title">添加用户</div>
+                </div>
+                <div class="bootstrap-admin-panel-content">
+                    <form method="post" action="user/doAdd" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">用户名</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" type="text" name="userDto.userName" placeholder="请输入用户名"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">密码</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" type="password" name="userDto.password"
+                                       placeholder="请输入密码"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">真名</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" type="text" name="userDto.realName" placeholder="请输入真名"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">密码问题</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" type="text" name="userDto.pwdQuestion"
+                                       placeholder="请输入密码问题"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">密码问题答案</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" type="text" name="userDto.pwdQuestionAnswer"
+                                       placeholder="请输入密码问题答案"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">地址</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" type="text" name="userDto.address" placeholder="请输入地址"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">email</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" type="email" name="userDto.email" placeholder="请输入email"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">电话号码</label>
+                            <div class="col-sm-4">
+                                <input class="form-control" type="text" name="userDto.phoneNo" placeholder="请输入电话号码"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-5">
+                            <button type="submit" class="btn btn-sm btn-primary">提交</button>
+                            <a href="user/list" class="btn btn-sm btn-primary">返回</a>
+                                </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<%--<s:debug/>--%>
+</div>
+<div class="navbar navbar-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <footer role="contentinfo">
+                    <p class="right">&copy; 2016 by 蔡文</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+<%@include file="/WEB-INF/jsp/common/footer.jsp" %>
+
+
