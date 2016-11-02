@@ -9,8 +9,15 @@ import java.util.Map;
  * Created by caiwen on 2016/8/20.
  */
 public interface GoodsService {
-    List<Goods> getGoodsByConditionMap(Map condition, Integer page);
+    Map<String, Object> getGoodsByConditionMap(Map condition, Integer page, Integer recordPerPage);
     Goods add(Goods goods);
     Goods getGoodsById(Integer id);
     Integer getTotalPages();
+
+    void update(Goods goods);
+
+    void delete(Integer id);
+
+    List<Goods> getAll();
+
 }

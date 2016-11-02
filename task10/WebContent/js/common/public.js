@@ -9,7 +9,7 @@
  * @param formId——序列化的表单id
  * @param appendTrFun——添加数据到表格中的方法，由于每个页面的表格字段不同，所以留到每个页面各自编写添加表格数据的方法
  */
-$.pagingQueryRequest = function(url, page , seletor, appendTrFun) {
+$.pagingQueryRequest = function(url, pageSize, page , seletor, appendTrFun) {
     //发送异步请求，获取指定页码的列表数据，json格式为{'dataList':[……], totalPages: x}
     $.post(url + page, $(seletor).serialize(), function (data) {
         //查询到数据才做页面的更新
@@ -20,7 +20,7 @@ $.pagingQueryRequest = function(url, page , seletor, appendTrFun) {
             $(".pagingDiv").append("<ul class='pagination pagination-sm'></ul>");
             $(".pagination").jqPaginator({
                 totalPages: data.totalPages, //总页数，通过data的totalPages返回
-                pageSize: 10, //每页记录数量，与CommodityService.listByPage中设置的数量一致
+                pageSize: pageSize, //每页记录数量，与CommodityService.listByPage中设置的数量一致
                 visiblePages: 5, //最多显示几个页码
                 //各个按钮的html格式
                 first: "<li class='first'><a href='javascript:void(0);'>首页</a></li>",

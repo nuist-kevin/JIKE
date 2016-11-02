@@ -6,6 +6,9 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.apache.commons.lang3.StringUtils;
+
+import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,32 +22,48 @@ import java.util.Map;
 @Repository
 public class GoodsDaoImpl extends BaseDaoImpl<Goods, Integer> implements GoodsDao {
 
-    public List<Goods> conditionQuery(Map<String,String> parameterMap, Integer page) {
+    public Map<String, Object> conditionQuery(Map<String, String> parameterMap, Integer page, Integer recordPerPage) {
+        Map<String, Object> resultMap = new HashMap<>();
         Criteria criteria = getSession().createCriteria(Goods.class);
         if (parameterMap != null) {
-            if (parameterMap.get("goodsName") != null) {
+            if (StringUtils.isNotEmpty(parameterMap.get("goodsName"))) {
                 criteria.add(Restrictions.like("goodsName", "%" + parameterMap.get("goodsName") + "%"));
             }
             if (StringUtils.isNotEmpty(parameterMap.get("categoryId"))) {
-                criteria.add(Restrictions.eq("category.id", Integer.valueOf(parameterMap.get
-                        ("categoryId").toString())));
+                criteria.createAlias("category", "ca").add(Restrictions.eq("ca.id", Integer.valueOf(parameterMap
+                        .get("categoryId"))));
             }
-            if (StringUtils.isNotEmpty(parameterMap.get("fromPrice") ) && StringUtils.isNotEmpty(parameterMap.get
+            if (StringUtils.isNotEmpty(parameterMap.get("fromPrice")) && StringUtils.isNotEmpty(parameterMap.get
                     ("toPrice"))) {
-                criteria.add(Restrictions.between("price", parameterMap.get("fromPrice"), parameterMap.get("toPrice")));
+                criteria.add(Restrictions.between("price", BigDecimal.valueOf(Double.valueOf(parameterMap.get
+                                ("fromPrice"))),
+                        BigDecimal.valueOf(Double.valueOf(parameterMap.get("toPrice")))));
             }
             if (StringUtils.isNotEmpty(parameterMap.get("fromPrice")) && StringUtils.isEmpty(parameterMap.get
                     ("toPrice"))) {
-                criteria.add(Restrictions.ge("price", parameterMap.get("fromPrice")));
+                criteria.add(Restrictions.ge("price", BigDecimal.valueOf(Double.valueOf(parameterMap.get("fromPrice")
+                ))));
             }
             if (StringUtils.isEmpty(parameterMap.get("fromPrice")) && StringUtils.isNotEmpty(parameterMap.get
                     ("toPrice"))) {
-                criteria.add(Restrictions.le("price", parameterMap.get("toPrice")));
+                criteria.add(Restrictions.le("price", BigDecimal.valueOf(Double.valueOf(parameterMap.get("toPrice")))));
             }
+            criteria.setFirstResult(recordPerPage * (page - 1));
+            criteria.setMaxResults(recordPerPage);
+            List<Goods> goodsList = criteria.list();
+            Integer resultCount = goodsList.size();
+            Integer resultPage = ((resultCount % recordPerPage) == 0) ? (resultCount / recordPerPage) :
+                    (resultCount / recordPerPage + 1);
+            resultMap.put("goodsList", goodsList);
+            resultMap.put("resultCount", resultCount);
+            resultMap.put("totalPages", resultPage);
+        } else {
+            Map pagedQuery = pagedQuery(page, recordPerPage);
+            resultMap.put("goodsList", pagedQuery.get("pageData"));
+            resultMap.put("totalPages", pagedQuery.get("totalPages"));
         }
-        criteria.setFirstResult(RECORD_PER_PAGE * (page - 1));
-        criteria.setMaxResults(RECORD_PER_PAGE);
-        return criteria.list();
+        return resultMap;
+
     }
 
 }

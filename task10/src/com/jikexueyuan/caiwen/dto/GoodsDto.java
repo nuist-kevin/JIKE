@@ -1,5 +1,6 @@
 package com.jikexueyuan.caiwen.dto;
 
+import com.jikexueyuan.caiwen.entity.Category;
 import com.jikexueyuan.caiwen.entity.Goods;
 import org.springframework.beans.BeanUtils;
 
@@ -76,6 +77,8 @@ public class GoodsDto {
 
     public void toGoods(Goods goods) {
         BeanUtils.copyProperties(this, goods, "category");
-        goods.getCategory().setId(this.categoryId);
+        Category category = new Category();
+        category.setId(this.categoryId);
+        goods.setCategory(category);
     }
 }

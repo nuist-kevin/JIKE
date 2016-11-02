@@ -53,5 +53,6 @@
                 <li><a href="category/list">目录管理</a></li>
                 <li><a href="goods/list">商品管理</a></li>
                 <li><a href="user/list">用户管理</a></li>
+                <li><a href="order/list">订单管理</a></li>
             </ul>
         </div>

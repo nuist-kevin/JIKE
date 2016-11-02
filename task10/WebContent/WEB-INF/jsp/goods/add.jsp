@@ -10,7 +10,7 @@
                     <div class="text-muted bootstrap-admin-box-title">编辑</div>
                 </div>
                 <div class="bootstrap-admin-panel-content">
-                    <form class="form-horizontal"
+                    <s:form cssClass="form-horizontal"
                           action='goods/doAdd'
                           method="post">
                         <div class="form-group">
@@ -37,13 +37,18 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label">商品图片</label>
                             <div class="col-sm-4">
-                                <input type="file" id="inputfile">
+                                <s:file id="file" name="goodsPic" accept="image/*"/>
                             </div>
+                            <div class="col-sm-4">
+                            <a id = "uploadBtn" class="btn btn-sm btn-info">上传</a>
+                            </div>
+
                         </div>
                         <div class="form-group">
                             <label class="col-sm-4 control-label"></label>
                             <div class="col-sm-4">
-                                <img src="<s:property value="goodsDto.imgUrl"/>" height="200" width="200">
+                                <img src="" height="200" width="200">
+                                <input type="hidden" name="goodsDto.imgUrl" >
                             </div>
                         </div>
                         <div class="form-group">
@@ -59,7 +64,7 @@
                             </div>
                         </div>
                         <s:debug/>
-                    </form>
+                    </s:form>
                 </div>
             </div>
         </div>
@@ -79,11 +84,25 @@
     </div>
 </div>
 <%@include file="/WEB-INF/jsp/common/footer.jsp" %>
+<script type="text/javascript" src="js/goods/ajaxfileupload.js"></script>
+
 <script type="text/javascript">
     $("input[type='text']").blur(function () {
         var reg = /^[A-Za-z0-9]+$/;
         if (!($(this).val()).match(reg)) {
             $(this).val('');
         }
+    });
+
+    $("#uploadBtn").on("click", function() {
+        $.ajaxFileUpload({
+            url: 'upload',
+            fileElementId: 'file',
+            dataType: 'json',
+            success: function(data, status) {
+                $("img").attr("src", data.url);
+                $("input[name='goodsDto.imgUrl']").val(data.url);
+            }
+        })
     });
 </script>

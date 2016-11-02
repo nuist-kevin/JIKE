@@ -21,7 +21,7 @@ $.appendTrForUsers = function (data) {
         event.preventDefault();
         $.post($(this).attr("href"), function () {
             $(".pagination").remove();
-            $.pagingQueryRequest("user/list/", 1, "", $.appendTrForUsers);
+            $.pagingQueryRequest("user/list/",5 , 1, "", $.appendTrForUsers);
         });
     });
 }
@@ -29,6 +29,6 @@ $.appendTrForUsers = function (data) {
 //初始化页面时获取一次数据
 $(function () {
     $(".pagination").remove();
-    $.pagingQueryRequest("user/list/", 1, "", $.appendTrForUsers);
+    $.pagingQueryRequest("user/list/",5, 1, "", $.appendTrForUsers);
 });
 

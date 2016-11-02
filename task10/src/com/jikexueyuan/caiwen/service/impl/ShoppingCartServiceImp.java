@@ -2,6 +2,7 @@ package com.jikexueyuan.caiwen.service.impl;
 
 import com.jikexueyuan.caiwen.dao.ShoppingCartDao;
 import com.jikexueyuan.caiwen.dao.ShoppingCartDetailDao;
+import com.jikexueyuan.caiwen.entity.Goods;
 import com.jikexueyuan.caiwen.entity.ShoppingCart;
 import com.jikexueyuan.caiwen.entity.ShoppingCartDetail;
 import com.jikexueyuan.caiwen.entity.User;

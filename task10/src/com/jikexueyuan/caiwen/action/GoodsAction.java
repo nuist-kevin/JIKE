@@ -18,10 +18,18 @@ public class GoodsAction extends ActionSupport {
     private GoodsService goodsService;
     @Autowired
     private CategoryService categoryService;
-    private GoodsDto goodsDto = new GoodsDto();
+    private GoodsDto goodsDto;
     private Map<String, String> conditions;
     private Integer page;
-    private List<Goods> goodsList;
+    private Integer recordPerPage;
+
+    public Integer getRecordPerPage() {
+        return recordPerPage;
+    }
+
+    public void setRecordPerPage(Integer recordPerPage) {
+        this.recordPerPage = recordPerPage;
+    }
 
     //用于响应json格式列表请求
     private Map<String, Object> pageData = new HashMap<>();
@@ -68,14 +76,6 @@ public class GoodsAction extends ActionSupport {
         this.page = page;
     }
 
-    public List<Goods> getGoodsList() {
-        return goodsList;
-    }
-
-    public void setGoodsList(List<Goods> goodsList) {
-        this.goodsList = goodsList;
-    }
-
     public Map<String, Object> getPageData() {
         return pageData;
     }
@@ -85,14 +85,11 @@ public class GoodsAction extends ActionSupport {
     }
 
     public String list() throws Exception {
-        goodsList = goodsService.getGoodsByConditionMap(conditions, 1);
         return SUCCESS;
     }
 
     public String jsonList() throws Exception {
-        goodsList = goodsService.getGoodsByConditionMap(conditions, 1);
-        pageData.put("goodsList", goodsList);
-        pageData.put("totalPages", 2);
+        pageData = goodsService.getGoodsByConditionMap(conditions, page, recordPerPage);
         return SUCCESS;
     }
 
@@ -111,6 +108,25 @@ public class GoodsAction extends ActionSupport {
     public String view() throws Exception {
         Goods goods = goodsService.getGoodsById(goodsDto.getId());
         goodsDto = goods.toDto();
+        return SUCCESS;
+    }
+
+    public String edit() throws Exception {
+        categoryList = categoryService.getAllCategories();
+        Goods goods = goodsService.getGoodsById(goodsDto.getId());
+        goodsDto = goods.toDto();
+        return SUCCESS;
+    }
+
+    public String doEdit() throws Exception {
+        Goods goods = new Goods();
+        goodsDto.toGoods(goods);
+        goodsService.update(goods);
+        return SUCCESS;
+    }
+
+    public String delete() throws Exception {
+        goodsService.delete(goodsDto.getId());
         return SUCCESS;
     }
 }

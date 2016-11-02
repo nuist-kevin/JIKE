@@ -1,5 +1,6 @@
 package com.jikexueyuan.caiwen.service;
 
+import com.jikexueyuan.caiwen.entity.Goods;
 import com.jikexueyuan.caiwen.entity.ShoppingCart;
 import com.jikexueyuan.caiwen.entity.User;
 

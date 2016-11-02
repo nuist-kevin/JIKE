@@ -5,6 +5,7 @@ import com.jikexueyuan.caiwen.entity.Role;
 import com.jikexueyuan.caiwen.entity.User;
 import com.jikexueyuan.caiwen.service.RoleService;
 import com.jikexueyuan.caiwen.service.UserService;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,6 +88,8 @@ public class UserAction extends ActionSupport {
 
     public String login() throws Exception {
         if (userService.validateUser(userDto.getUserName(), userDto.getPassword())) {
+            user = userService.getUserByUserName(userDto.getUserName());
+            ActionContext.getContext().getSession().put("userId",user.getId());
             return SUCCESS;
         } else {
             return ERROR;

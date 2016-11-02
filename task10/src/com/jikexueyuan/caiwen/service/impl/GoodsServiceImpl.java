@@ -18,8 +18,8 @@ public class GoodsServiceImpl implements GoodsService {
     GoodsDao goodsDao;
 
     @Override
-    public List<Goods> getGoodsByConditionMap(Map condition, Integer page) {
-        return goodsDao.conditionQuery(condition, page);
+    public Map<String, Object> getGoodsByConditionMap(Map condition, Integer page, Integer recordPerPage) {
+        return goodsDao.conditionQuery(condition, page, recordPerPage);
     }
 
     @Override
@@ -37,6 +37,21 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Override
     public Integer getTotalPages() {
-        return goodsDao.totalPages(10);
+        return goodsDao.totalPages(5);
+    }
+
+    @Override
+    public void update(Goods goods) {
+        goodsDao.saveOrUpdate(goods);
+    }
+
+    @Override
+    public void delete(Integer id) {
+        goodsDao.delete(id);
+    }
+
+    @Override
+    public List<Goods> getAll() {
+        return goodsDao.findAll();
     }
 }

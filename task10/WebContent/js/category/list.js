@@ -30,7 +30,7 @@ $.appendTrForCategories = function (data) {
         event.preventDefault();
         $.post($(this).attr("href"), function () {
             $(".pagination").remove();
-            $.pagingQueryRequest("category/list/", 1, "", $.appendTrForCategories);
+            $.pagingQueryRequest("category/list/",5 , 1, "", $.appendTrForCategories);
         });
     });
 }
@@ -38,6 +38,6 @@ $.appendTrForCategories = function (data) {
 //初始化页面时获取一次数据
 $(function () {
     $(".pagination").remove();
-    $.pagingQueryRequest("category/list/", 1, "", $.appendTrForCategories);
+    $.pagingQueryRequest("category/list/", 5, 1, "", $.appendTrForCategories);
 });
 

@@ -12,8 +12,9 @@
     <constant name="struts.i18n.reload" value="true"/>
     <constant name="struts.enable.SlashesInActionNames" value="true"/>
     <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/>
+    <constant name="struts.multipart.saveDir" value="/img/goods/"/>
 
-    <package name="default" namespace="/" extends="struts-default" strict-method-invocation="false">
+    <package name="default" namespace="/" extends="struts-default, json-default" strict-method-invocation="false">
         <default-action-ref name="index"/>
         <action name="index">
             <result>/WEB-INF/jsp/login.jsp</result>
@@ -45,6 +46,11 @@
         </action>
         <action name="help" class="com.jikexueyuan.caiwen.action.UserAction" method="help">
             <result>/WEB-INF/jsp/help.jsp</result>
+        </action>
+        <action name="upload" class="com.jikexueyuan.caiwen.action.UploadAction" method="upload">
+            <result name="success" type="json">
+                <param name="root">data</param>
+            </result>
         </action>
     </package>
     <package name="user" namespace="/user" extends="struts-default,json-default"
@@ -92,7 +98,6 @@
             <result name="error">/WEB-INF/jsp/user/add.jsp</result>
         </action>
     </package>
-
     <package name="category" namespace="/category" extends="struts-default,json-default">
         <action name="list"  class="com.jikexueyuan.caiwen.action.CategoryAction" method="list">
             <result>/WEB-INF/jsp/category/list.jsp</result>
@@ -116,14 +121,14 @@
         </action>
     </package>
     <package name="goods" namespace="/goods" extends="struts-default,json-default" strict-method-invocation="false">
-        <action name="/view/*" class="com.jikexueyuan.caiwen.action.GoodsAction" method="view">
+        <action name="view/*" class="com.jikexueyuan.caiwen.action.GoodsAction" method="view">
             <param name="goodsDto.id">{1}</param>
             <result name="success">/WEB-INF/jsp/goods/view.jsp</result>
         </action>
         <action name="list"  class="com.jikexueyuan.caiwen.action.GoodsAction" method="list">
             <result>/WEB-INF/jsp/goods/list.jsp</result>
         </action>
-        <action name="/list/*"  class="com.jikexueyuan.caiwen.action.GoodsAction" method="jsonList">
+        <action name="list/*"  class="com.jikexueyuan.caiwen.action.GoodsAction" method="jsonList">
             <param name="page">{1}</param>
             <result name="success" type="json">
                 <param name="root">pageData</param>
@@ -139,83 +144,42 @@
             </result>
             <result name="input">/WEB-INF/jsp/goods/add.jsp</result>
         </action>
+        <action name="edit/*" class="com.jikexueyuan.caiwen.action.GoodsAction" method="edit">
+            <param name="goodsDto.id">{1}</param>
+            <result>/WEB-INF/jsp/goods/edit.jsp</result>
+        </action>
+        <action name="doEdit" class="com.jikexueyuan.caiwen.action.GoodsAction" method="doEdit">
+            <result type="redirectAction">
+                <param name="actionName">list</param>
+                <param name="namespace">/goods</param>
+            </result>
+            <result name="input">/WEB-INF/jsp/goods/add.jsp</result>
+        </action>
+        <action name="delete/*" class="com.jikexueyuan.caiwen.action.GoodsAction" method="delete">
+            <param name="goodsDto.id">{1}</param>
+            <result type="redirectAction">
+                <param name="actionName">list</param>
+                <param name="namespace">/goods</param>
+            </result>
+            <result name="input">/WEB-INF/jsp/goods/add.jsp</result>
+        </action>
     </package>
-
-    <package name="vip" namespace="/vip" extends="struts-default, json-default">
-
-        <action name="/view/*" class="com.jikexueyuan.caiwen.action.VipAction" method="view">
-            <param name="vid">{1}</param>
-            <result>/WEB-INF/jsp/vip/view.jsp</result>
+    <package name="shopping" namespace="/shopping" extends="struts-default, json-default" strict-method-invocation="false">
+        <action name="view" class="com.jikexueyuan.caiwen.action.ShoppingAction" method="view">
+            <!--<param name="goodsDto.id">{1}</param>-->
+            <result name="success">/WEB-INF/jsp/shopping/view.jsp</result>
         </action>
-
-        <action name="list"  class="com.jikexueyuan.caiwen.action.VipAction" method="list">
-            <result>/WEB-INF/jsp/vip/list.jsp</result>
-        </action>
-
-        <action name="/list/*"  class="com.jikexueyuan.caiwen.action.VipAction" method="jsonList">
+        <action name="/jsonResult/*" class="com.jikexueyuan.caiwen.action.ShoppingAction" method="jsonResult">
             <param name="page">{1}</param>
             <result name="success" type="json">
                 <param name="root">pageData</param>
             </result>
         </action>
-
-        <action name="add" class="com.jikexueyuan.caiwen.action.VipAction" method="addView">
-            <result>/WEB-INF/jsp/vip/edit.jsp</result>
-        </action>
-
-        <action name="doAdd" class="com.jikexueyuan.caiwen.action.VipAction" method="doAdd">
-            <result type="redirectAction">
-                <param name="actionName">list</param>
-                <param name="namespace">/vip</param>
-            </result>
-            <result name="input">/WEB-INF/jsp/vip/add.jsp</result>
-        </action>
-
-        <action name="/edit/*" class="com.jikexueyuan.caiwen.action.VipAction" method="editView">
-            <param name="vid">{1}</param>
-            <result name="success">/WEB-INF/jsp/vip/edit.jsp</result>
-        </action>
-
-        <action name="/doEdit/*" class="com.jikexueyuan.caiwen.action.VipAction" method="doEdit">
-            <param name="vid">{1}</param>
-            <result name="success" type="redirectAction">
-                <param name="actionName">list</param>
-                <param name="namespace">/vip</param>
-            </result>
-            <result name="input">/WEB-INF/jsp/vip/edit.jsp</result>
-        </action>
-
-        <action name="delete/*" class="com.jikexueyuan.caiwen.action.VipAction" method="delete">
-            <param name="vid">{1}</param>
-            <result type="redirectAction">
-                <param name="actionName">list</param>
-                <param name="namespace">/vip</param>
-            </result>
-            <result name="input">/WEB-INF/jsp/vip/add.jsp</result>
-        </action>
-
-    </package>
-    
-    <package name="consume" namespace="/consume" extends="struts-default, json-default">
-        <action name="add" class="com.jikexueyuan.caiwen.action.ConsumeAction" method="addView">
-            <result name="success">/WEB-INF/jsp/consume/add.jsp</result>
-        </action>
-        <action name="doAdd" class="com.jikexueyuan.caiwen.action.ConsumeAction" method="doAdd">
-            <result name="success" type="redirectAction">
-                <param name="actionName">list</param>
-                <param name="namespace">/consume</param>
-            </result>
-        </action>
-        <action name="list" class="com.jikexueyuan.caiwen.action.ConsumeAction" method="list">
-            <result name="success">/WEB-INF/jsp/consume/list.jsp</result>
-        </action>
-
-        <action name="/list/*"  class="com.jikexueyuan.caiwen.action.ConsumeAction" method="jsonList">
-            <param name="page">{1}</param>
-            <result name="success" type="json">
-                <param name="root">pageData</param>
-            </result>
+        <action name="edit/*" class="com.jikexueyuan.caiwen.action.ShoppingAction" method="edit">
+            <param name="goodsDto.id">{1}</param>
+            <result name="success">/WEB-INF/jsp/shopping/edit.jsp</result>
         </action>
     </package>
+
 
 </struts>

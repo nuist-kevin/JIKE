@@ -69,7 +69,7 @@ public class CategoryAction extends ActionSupport {
         return SUCCESS;
     }
     public String getAll() {
-        Map<String, Object> queryResult = categoryService.pagedQuery(page, 10);
+        Map<String, Object> queryResult = categoryService.pagedQuery(page, 5);
         jsonResult.put("categories", queryResult.get("pageData"));
         jsonResult.put("totalPages", queryResult.get("totalPages"));
         return SUCCESS;
