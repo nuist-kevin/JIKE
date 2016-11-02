@@ -2,35 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d52060b1-0bf9-40d2-bddd-8703fc7e39aa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/shopping/edit.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/shopping/view.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/js/goods/ajaxfileupload.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebContent/js/shopping/query.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/action/ShoppingAction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/action/UploadAction.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/img/goods/test.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/com/jikexueyuan/caiwen/dao/impl/GoodsDaoTest.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/task10.iml" afterPath="$PROJECT_DIR$/.idea/task10.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/common/header.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/common/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/goods/add.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/goods/add.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/goods/edit.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/goods/edit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/goods/list.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/goods/list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/js/category/list.js" afterPath="$PROJECT_DIR$/WebContent/js/category/list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/js/common/public.js" afterPath="$PROJECT_DIR$/WebContent/js/common/public.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/js/goods/query.js" afterPath="$PROJECT_DIR$/WebContent/js/goods/query.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/js/user/list.js" afterPath="$PROJECT_DIR$/WebContent/js/user/list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/action/CategoryAction.java" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/action/CategoryAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/action/GoodsAction.java" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/action/GoodsAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/action/UserAction.java" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/action/UserAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/dao/GoodsDao.java" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/dao/GoodsDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/dao/impl/GoodsDaoImpl.java" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/dao/impl/GoodsDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/dto/GoodsDto.java" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/dto/GoodsDto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/service/GoodsService.java" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/service/GoodsService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/service/ShoppingCartService.java" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/service/ShoppingCartService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/service/impl/GoodsServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/service/impl/GoodsServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/service/impl/ShoppingCartServiceImp.java" afterPath="$PROJECT_DIR$/src/com/jikexueyuan/caiwen/service/impl/ShoppingCartServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/struts.xml" afterPath="$PROJECT_DIR$/src/struts.xml" />
     </list>
     <ignored path="task10.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -972,6 +944,7 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -993,7 +966,6 @@
       <window_info id="soapUI Navigator" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3943662" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27193934" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23667377" sideWeight="0.4049844" order="7" side_tool="true" content_ui="tabs" />
