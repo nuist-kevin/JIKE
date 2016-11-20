@@ -8,6 +8,7 @@ import java.math.BigDecimal;
  * Created by caiwen on 2016/8/12.
  */
 @Entity
+@Table(name = "SHOPPING_CART_DETAIL")
 public class ShoppingCartDetail implements Serializable{
 
     private static final long serialVersionUID = 34534299234l;

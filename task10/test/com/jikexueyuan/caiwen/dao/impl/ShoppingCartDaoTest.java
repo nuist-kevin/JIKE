@@ -26,12 +26,8 @@ public class ShoppingCartDaoTest extends BaseDaoTest {
     @Test(dependsOnMethods = "testFindOne")
 //    @Rollback(false)
     public void testSave() {
-        Role admin = new Role();
-        admin.setId(1);
-        admin.setRoleName("admin");
 
         User user = new User();
-        user.setRole(admin);
         user.setUserName("caiwen");
         user.setPassword("123456");
         user.setRealName("蔡文");
@@ -95,13 +91,9 @@ public class ShoppingCartDaoTest extends BaseDaoTest {
     @Sql("classpath:/sql/ShoppingCartDaoTest/testFindOne.sql")
     @Test
     public void testFindOne() {
-        Role admin = new Role();
-        admin.setId(1);
-        admin.setRoleName("admin");
 
         User user = new User();
         user.setId(1);
-        user.setRole(admin);
         user.setUserName("caiwen");
         user.setPassword("123456");
         user.setRealName("蔡文");

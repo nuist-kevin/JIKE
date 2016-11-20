@@ -25,20 +25,20 @@
             <result name="input">/WEB-INF/jsp/register.jsp</result>
         </action>
         <action name="doRegister" class="com.jikexueyuan.caiwen.action.UserAction" method="doRegister">
-            <result type="chain">
-                <param name="actionName">index</param>
-                <param name="namespace">/</param>
+            <result type="redirectAction">
+                <param name="actionName">list</param>
+                <param name="namespace">/goods</param>
             </result>
             <result name="error">/WEB-INF/jsp/register.jsp</result>
             <result name="input">/WEB-INF/jsp/register.jsp</result>
         </action>
         <action name="login" class="com.jikexueyuan.caiwen.action.UserAction" method="login">
-            <result type="redirectAction">
-                <param name="actionName">help</param>
-                <param name="namespace">/</param>
+            <result name="shopping" type="redirectAction">
+                <param name="actionName">list</param>
+                <param name="namespace">/goods</param>
             </result>
             <result name="maintain" type="redirectAction">
-                <param name="actionName">maintain</param>
+                <param name="actionName">list</param>
                 <param name="namespace">/user</param>
             </result>
             <result name="error">/WEB-INF/jsp/login.jsp</result>

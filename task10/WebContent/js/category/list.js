@@ -2,7 +2,7 @@ $("#addConfirm").on("click", function () {
     if ($("input[name='categoryName']").val().length > 0) {
         $.post("category/add", "category.categoryName=" + $("input[name='categoryName']").val(), function () {
             $(".pagination").remove();
-            $.pagingQueryRequest("category/list/", 1, "", $.appendTrForCategories);
+            $.pagingQueryRequest("category/list/", 5, 1, "", $.appendTrForCategories);
             $("input[name='categoryName']").val('');
         });
     } else {

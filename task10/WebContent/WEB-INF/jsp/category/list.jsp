@@ -37,11 +37,10 @@
                             <div class="modal-body">
                                 <from id="vipQueryForm" class="form-horizontal">
                                     <div class="form-group">
-                                        <label class="control-label col-md4 col-lg-4 small">目录名称：</label>
+                                        <label class="control-label col-md-4 col-lg-4 small">目录名称：</label>
                                         <div class="col-md-6 col-lg-6">
                                             <input type="text" required class="form-control input-sm"
-                                                   name="categoryName"
-                                                   placeholder="目录名称"/>
+                                                   name="categoryName"/>
                                         </div>
                                     </div>
                                 </from>

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "SHOPPING_CART")
 public class ShoppingCart implements Serializable {
 
 	private static final long serialVersionUID = 33432251908L;
@@ -34,7 +35,7 @@ public class ShoppingCart implements Serializable {
 		this.user = user;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "shoppingCart", cascade = CascadeType.REMOVE)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "shoppingCart", cascade = CascadeType.REMOVE)
 	public List<ShoppingCartDetail> getShoppingCartDetail() {
 		return shoppingCartDetail;
 	}
@@ -56,40 +57,4 @@ public class ShoppingCart implements Serializable {
 		this.subtotal = subtotal;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "ShoppingCart{" +
-//				"id=" + id +
-//				", user=" + user +
-//				", shoppingCartDetail=" + shoppingCartDetail +
-//				", goodsNum=" + goodsNum +
-//				", subtotal=" + subtotal +
-//				'}';
-//	}
-//
-//	@Override
-//	public boolean equals(Object o) {
-//		if (this == o) return true;
-//		if (o == null || getClass() != o.getClass()) return false;
-//
-//		ShoppingCart that = (ShoppingCart) o;
-//
-//		if (!id.equals(that.id)) return false;
-//		if (!user.equals(that.user)) return false;
-//		if (shoppingCartDetail != null ? !shoppingCartDetail.equals(that.shoppingCartDetail) : that.shoppingCartDetail != null)
-//			return false;
-//		if (!goodsNum.equals(that.goodsNum)) return false;
-//		return subtotal.equals(that.subtotal);
-//
-//	}
-//
-//	@Override
-//	public int hashCode() {
-//		int result = id.hashCode();
-//		result = 31 * result + user.hashCode();
-//		result = 31 * result + (shoppingCartDetail != null ? shoppingCartDetail.hashCode() : 0);
-//		result = 31 * result + goodsNum.hashCode();
-//		result = 31 * result + subtotal.hashCode();
-//		return result;
-//	}
 }

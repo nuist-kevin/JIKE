@@ -42,7 +42,7 @@
                     <input class="form-control" type="text" name="userDto.phoneNo" placeholder="请输入电话号码"/>
                 </div>
                 <div class="form-group">
-                    <button type="doRegister" class="btn btn-sm btn-primary">注册</button>
+                    <button type="submit" class="btn btn-sm btn-info ">注册</button>
                 </div>
             </form>
         </div>

@@ -3,7 +3,7 @@ package com.jikexueyuan.caiwen.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Resource;
-import com.jikexueyuan.caiwen.entity.Role;
+
 import org.springframework.test.context.jdbc.Sql;
 import com.jikexueyuan.caiwen.dao.UserDao;
 import com.jikexueyuan.caiwen.entity.User;
@@ -32,12 +32,9 @@ public class UserDaoTest extends BaseDaoTest {
 	@Test
 	@Sql("classpath:/sql/UserDaoTest/testSave.sql")
 	public void testSave() {
-		Role role = new Role();
-		role.setId(1);
-		role.setRoleName("admin");
+
 		User user1 = new User();
 		user1.setUserName("caiwen");
-		user1.setRole(role);
 		user1.setRealName("蔡文");
 		user1.setPassword("123456");
 		user1.setPwdQuestion("老婆的名字");

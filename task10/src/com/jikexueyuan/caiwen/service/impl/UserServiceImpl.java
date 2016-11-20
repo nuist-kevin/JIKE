@@ -1,6 +1,7 @@
 package com.jikexueyuan.caiwen.service.impl;
 
 import com.jikexueyuan.caiwen.dao.UserDao;
+import com.jikexueyuan.caiwen.entity.Auth;
 import com.jikexueyuan.caiwen.entity.ShoppingCart;
 import com.jikexueyuan.caiwen.entity.User;
 import com.jikexueyuan.caiwen.service.ShoppingCartService;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import javax.annotation.Resource;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
 @Service
@@ -28,7 +28,8 @@ public class UserServiceImpl implements UserService {
             throw new Exception("该用户已存在");
         }
         User result = user;
-        Integer userId = userDao.save(user);
+        result.setAuth(Auth.valueOf("NORMAL"));
+        Integer userId = userDao.save(result);
         result.setId(userId);
         //为新用户生成购物车信息
         ShoppingCart shoppingCart = shoppingCartService.generateShoppingCartForUser(result);

@@ -19,7 +19,7 @@ public class Order implements Serializable{
 	private List<OrderDetail> orderDetails;
 	
 	@Id
-	@Column(name = "ORDERSID")
+	@Column(name = "ORDER_ID")
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;

@@ -1,9 +1,8 @@
 package com.jikexueyuan.caiwen.action;
 
 import com.jikexueyuan.caiwen.dto.UserDto;
-import com.jikexueyuan.caiwen.entity.Role;
+import com.jikexueyuan.caiwen.entity.Auth;
 import com.jikexueyuan.caiwen.entity.User;
-import com.jikexueyuan.caiwen.service.RoleService;
 import com.jikexueyuan.caiwen.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -17,9 +16,6 @@ public class UserAction extends ActionSupport {
 
     @Autowired
     UserService userService;
-    @Autowired
-    RoleService roleService;
-
     UserDto userDto = new UserDto();
     User user;
     Integer page;
@@ -33,13 +29,6 @@ public class UserAction extends ActionSupport {
         this.userService = userService;
     }
 
-    public RoleService getRoleService() {
-        return roleService;
-    }
-
-    public void setRoleService(RoleService roleService) {
-        this.roleService = roleService;
-    }
 
     public Integer getPage() {
         return page;
@@ -79,8 +68,7 @@ public class UserAction extends ActionSupport {
 
     public String doRegister() throws Exception {
         user = new User();
-        Role role = roleService.getRoleById(Role.NORMAL);
-        user.setRole(role);
+
         user = userDto.toUser(user);
         userService.addUser(user);
         return SUCCESS;
@@ -90,7 +78,11 @@ public class UserAction extends ActionSupport {
         if (userService.validateUser(userDto.getUserName(), userDto.getPassword())) {
             user = userService.getUserByUserName(userDto.getUserName());
             ActionContext.getContext().getSession().put("userId",user.getId());
-            return SUCCESS;
+            if (user.getAuth().equals(Auth.ADMIN)) {
+                return "maintain";
+            } else {
+                return "shopping";
+            }
         } else {
             return ERROR;
         }
@@ -124,7 +116,6 @@ public class UserAction extends ActionSupport {
     public String edit() throws Exception {
         user = userService.getUserById(user.getId());
         BeanUtils.copyProperties(user, userDto, "orders", "shoppingCart");
-        userDto.setRoleId(user.getRole().getId());
         return SUCCESS;
     }
 
