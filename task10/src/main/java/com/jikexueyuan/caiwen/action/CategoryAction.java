@@ -7,72 +7,75 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.data.domain.Page;
 
 public class CategoryAction extends ActionSupport {
-    @Autowired
-    CategoryService categoryService;
-    Category category;
-    Integer page;
-    Map<String, Object> jsonResult = new HashMap<>();
 
-    public Integer getPage() {
-        return page;
-    }
+  @Autowired
+  private CategoryService categoryService;
+  private Category category;
+  private Integer page;
+  private Map<String, Object> jsonResult = new HashMap<>();
 
-    public void setPage(Integer page) {
-        this.page = page;
-    }
+  public Integer getPage() {
+    return page;
+  }
 
-    public CategoryService getCategoryService() {
-        return categoryService;
-    }
+  public void setPage(Integer page) {
+    this.page = page;
+  }
 
-    public void setCategoryService(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
+  public CategoryService getCategoryService() {
+    return categoryService;
+  }
 
-    public Category getCategory() {
-        return category;
-    }
+  public void setCategoryService(CategoryService categoryService) {
+    this.categoryService = categoryService;
+  }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+  public Category getCategory() {
+    return category;
+  }
 
-    public Map<String, Object> getJsonResult() {
-        return jsonResult;
-    }
+  public void setCategory(Category category) {
+    this.category = category;
+  }
 
-    public void setJsonResult(Map<String, Object> jsonResult) {
-        this.jsonResult = jsonResult;
-    }
+  public Map<String, Object> getJsonResult() {
+    return jsonResult;
+  }
 
-    public String list() {
-        return SUCCESS;
-    }
+  public void setJsonResult(Map<String, Object> jsonResult) {
+    this.jsonResult = jsonResult;
+  }
 
-    public String add() {
-        categoryService.add(category.getCategoryName());
-        jsonResult.put("result","1");
-        return SUCCESS;
-    }
+  public String list() {
+    return SUCCESS;
+  }
 
-    public String delete() {
-        categoryService.delete(category.getCategoryId());
-        jsonResult.put("result","1");
-        return SUCCESS;
-    }
+  public String add() {
+    categoryService.add(category.getCategoryName());
+    jsonResult.put("result", "1");
+    return SUCCESS;
+  }
 
-    public String edit() {
-        categoryService.update(category);
-        jsonResult.put("result","1");
-        return SUCCESS;
-    }
-    public String getAll() {
-        Map<String, Object> queryResult = categoryService.pagedQuery(page, 5);
-        jsonResult.put("categories", queryResult.get("pageData"));
-        jsonResult.put("totalPages", queryResult.get("totalPages"));
-        return SUCCESS;
-    }
+  public String delete() {
+    categoryService.delete(category.getCategoryId());
+    jsonResult.put("result", "1");
+    return SUCCESS;
+  }
+
+  public String edit() {
+    categoryService.update(category);
+    jsonResult.put("result", "1");
+    return SUCCESS;
+  }
+
+  public String getAll() {
+    Page<Category> queryResult = categoryService.pagedQuery(page, 5);
+    jsonResult.put("categories", queryResult.getContent());
+    jsonResult.put("totalPages", queryResult.getTotalPages());
+    return SUCCESS;
+  }
 
 }

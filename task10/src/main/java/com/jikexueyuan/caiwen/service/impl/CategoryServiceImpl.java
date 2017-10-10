@@ -1,56 +1,59 @@
 package com.jikexueyuan.caiwen.service.impl;
 
-import com.jikexueyuan.caiwen.dao.CategoryDao;
 import com.jikexueyuan.caiwen.entity.Category;
+import com.jikexueyuan.caiwen.repository.CategoryRepository;
 import com.jikexueyuan.caiwen.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
-@Transactional
 public class CategoryServiceImpl implements CategoryService {
 
-    @Autowired
-    CategoryDao categoryDao;
+  @Autowired
+  private CategoryRepository categoryRepository;
 
-    @Override
-    public Category add(String categoryName) {
-        Category result = new Category();
-        result.setCategoryName(categoryName);
-        Integer id = categoryDao.save(result);
-        result.setCategoryId(id);
-        return result;
-    }
+  @Override
+  @Transactional
+  public Category add(String categoryName) {
+    Category category = new Category();
+    category.setCategoryName(categoryName);
+    return categoryRepository.save(category);
+  }
 
-    @Override
-    public void delete(Integer id) {
-        categoryDao.delete(id);
-    }
+  @Override
+  @Transactional
+  public void delete(Integer id) {
+    categoryRepository.delete(id);
+  }
 
-    @Override
-    public void update(Category category) {
-        categoryDao.saveOrUpdate(category);
-    }
+  @Override
+  @Transactional
+  public void update(Category category) {
+    categoryRepository.save(category);
+  }
 
+  @Override
+  public List<Category> getAllCategories() {
+    return categoryRepository.findAll();
+  }
 
-    @Override
-    public List<Category> getAllCategories() {
-        return categoryDao.findAll();
-    }
+  @Override
+  public int getTotalPages(Integer page, Integer recordPerPage) {
+    Pageable pageable = new PageRequest(page, recordPerPage);
+    return categoryRepository.findAll(pageable).getTotalPages();
+  }
 
-    @Override
-    public Integer getTotalPages() {
-        return categoryDao.totalPages(10);
-    }
-
-    @Override
-    public Map pagedQuery(Integer page, Integer recordPerPage) {
-        return categoryDao.pagedQuery(page,recordPerPage);
-    }
+  @Override
+  public Page<Category> pagedQuery(Integer page, Integer recordPerPage) {
+    Pageable pageable = new PageRequest(page, recordPerPage);
+    return categoryRepository.findAll(pageable);
+  }
 
 
 }
