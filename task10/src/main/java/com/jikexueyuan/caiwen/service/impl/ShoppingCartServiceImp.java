@@ -32,7 +32,7 @@ public class ShoppingCartServiceImp implements ShoppingCartService {
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.setUser(user);
         Integer shoppingCartId =  shoppingCartDao.save(shoppingCart);
-        shoppingCart.setId(shoppingCartId);
+        shoppingCart.setShoppingCartId(shoppingCartId);
         return shoppingCart;
     }
 

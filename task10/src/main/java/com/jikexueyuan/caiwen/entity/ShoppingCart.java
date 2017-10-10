@@ -3,6 +3,7 @@ package com.jikexueyuan.caiwen.entity;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.*;
+import org.hibernate.annotations.Formula;
 
 @Entity
 public class ShoppingCart {
@@ -17,7 +18,8 @@ public class ShoppingCart {
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "shoppingCart", cascade = CascadeType.REMOVE)
   private List<ShoppingCartDetail> shoppingCartDetail;
-  private Integer goodsNum;
+
+  private Integer totalAmount;
   private BigDecimal subtotal;
 
   public Integer getShoppingCartId() {
@@ -44,12 +46,12 @@ public class ShoppingCart {
     this.shoppingCartDetail = shoppingCartDetail;
   }
 
-  public Integer getGoodsNum() {
-    return goodsNum;
+  public Integer getTotalAmount() {
+    return totalAmount;
   }
 
-  public void setGoodsNum(Integer goodsNum) {
-    this.goodsNum = goodsNum;
+  public void setTotalAmount(Integer totalAmount) {
+    this.totalAmount = totalAmount;
   }
 
   public BigDecimal getSubtotal() {

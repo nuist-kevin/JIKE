@@ -6,6 +6,7 @@ import com.jikexueyuan.caiwen.entity.Category;
 import com.jikexueyuan.caiwen.repository.CategoryRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
 public class CategoryRepositoryTest extends BasicJpaTest{
@@ -14,13 +15,22 @@ public class CategoryRepositoryTest extends BasicJpaTest{
   private CategoryRepository categoryRepository;
 
   @Test
-  @Transactional
   public void test() {
     Category category = new Category();
     category.setCategoryName("Cloth");
     categoryRepository.save(category);
-    assertThat(categoryRepository.findCategoryByCategoryNameLike("Cloth")).isNotNull();
-    assertThat(categoryRepository.findCategoryByCategoryNameLike("Cloth").getCategoryId()).isNotNull();
+    assertThat(categoryRepository.findOne(category.getCategoryId())).isNotNull();
+  }
+
+  @Sql(statements = {"insert into category values(1, 'Cloth')"})
+  @Test
+  public void testCacheFind() {
+    Category category =
+    categoryRepository.findCachedCategoryByName("Cloth");
+    Category category2 =
+        categoryRepository.findCachedCategoryByName("Cloth");
+
+    assertThat(category).isEqualToComparingFieldByField(category2);
   }
 
 }

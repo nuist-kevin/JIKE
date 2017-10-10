@@ -1,6 +1,6 @@
 package com.jikexueyuan.caiwen.dto;
 
-import com.jikexueyuan.caiwen.entity.Auth;
+import com.jikexueyuan.caiwen.entity.RoleName;
 import com.jikexueyuan.caiwen.entity.User;
 
 import java.io.Serializable;
@@ -8,8 +8,8 @@ import java.io.Serializable;
 public class UserDto implements Serializable{
     private static final long serialVersionUID = 165703863807L;
     private Integer id;
-    private Auth auth;
-    private String userName;
+    private RoleName roleName;
+    private String username;
     private String realName;
     private String password;
     private String pwdQuestion;
@@ -30,20 +30,20 @@ public class UserDto implements Serializable{
         this.id = id;
     }
 
-    public Auth getAuth() {
-        return auth;
+    public RoleName getRoleName() {
+        return roleName;
     }
 
-    public void setAuth(Auth auth) {
-        this.auth = auth;
+    public void setRoleName(RoleName roleName) {
+        this.roleName = roleName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getRealName() {
@@ -103,7 +103,7 @@ public class UserDto implements Serializable{
     }
 
     public User toUser(User user) {
-        user.setUserName(this.userName);
+        user.setUsername(this.username);
         user.setRealName(this.realName);
         user.setPassword(this.password);
         user.setPhoneNo(this.phoneNo);

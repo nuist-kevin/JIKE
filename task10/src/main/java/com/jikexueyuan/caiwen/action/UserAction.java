@@ -1,7 +1,7 @@
 package com.jikexueyuan.caiwen.action;
 
 import com.jikexueyuan.caiwen.dto.UserDto;
-import com.jikexueyuan.caiwen.entity.Auth;
+import com.jikexueyuan.caiwen.entity.RoleName;
 import com.jikexueyuan.caiwen.entity.User;
 import com.jikexueyuan.caiwen.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
@@ -75,10 +75,10 @@ public class UserAction extends ActionSupport {
     }
 
     public String login() throws Exception {
-        if (userService.validateUser(userDto.getUserName(), userDto.getPassword())) {
-            user = userService.getUserByUserName(userDto.getUserName());
+        if (userService.validateUser(userDto.getUsername(), userDto.getPassword())) {
+            user = userService.getUserByUserName(userDto.getUsername());
             ActionContext.getContext().getSession().put("userId",user.getUserId());
-            if (user.getAuth().equals(Auth.ADMIN)) {
+            if (user.getRole().getRoleName().equals(RoleName.ADMIN)) {
                 return "maintain";
             } else {
                 return "shopping";

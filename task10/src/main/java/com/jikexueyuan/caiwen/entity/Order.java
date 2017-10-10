@@ -1,24 +1,26 @@
 package com.jikexueyuan.caiwen.entity;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "ORDERS")
 public class Order {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer orderId;
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "USERNAME")
+  @JoinColumn(name = "USERNAME", referencedColumnName = "USERNAME")
   private User user;
-  @OneToMany(mappedBy = "order")
+  @OneToMany(mappedBy = "order", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
   private List<OrderDetail> orderDetails;
+
   private Integer totalAmount;
-  private BigDecimal sum;
-  private Date createTime;
+  private BigDecimal sums;
+  private LocalDateTime createTime;
 
   public Integer getOrderId() {
     return orderId;
@@ -44,19 +46,19 @@ public class Order {
     this.totalAmount = totalAmount;
   }
 
-  public BigDecimal getSum() {
-    return sum;
+  public BigDecimal getSums() {
+    return sums;
   }
 
-  public void setSum(BigDecimal sum) {
-    this.sum = sum;
+  public void setSums(BigDecimal sums) {
+    this.sums = sums;
   }
 
-  public Date getCreateTime() {
+  public LocalDateTime getCreateTime() {
     return createTime;
   }
 
-  public void setCreateTime(Date createTime) {
+  public void setCreateTime(LocalDateTime createTime) {
     this.createTime = createTime;
   }
 

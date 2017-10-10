@@ -37,20 +37,19 @@ public class UserServiceImplTest extends AbstractTransactionalJUnit4SpringContex
     @Test
     public void testAddUser() throws Exception {
         User user = new User();
-        user.setUserName("cc");
+        user.setUsername("cc");
         // 假设用户不存在
-        when(userDao.findByUserName(user.getUserName())).thenReturn(null);
+        when(userDao.findByUserName(user.getUsername())).thenReturn(null);
         // 假设入库返回的 id 是 1
         when(userDao.save(user)).thenReturn(1);
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.setId(2);
+        shoppingCart.setShoppingCartId(2);
         // 假设生成的购物车就是这里的 shoppingCart，id 为 2
         when(shoppingCartService.generateShoppingCartForUser(user)).thenReturn(shoppingCart);
         // 用模拟的中间结果运行 addUser 方法
         User result = userService.addUser(user);
         // 检查结果
         assertThat(result.getUserId(), is(1));
-        assertThat(result.getShoppingCart().getId(), is(2));
     }
 
     @Test

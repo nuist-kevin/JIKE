@@ -1,17 +1,19 @@
 package com.jikexueyuan.caiwen.entity;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "USERS")
-public class User {
+public class User implements Serializable{
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer userId;
 
-  @Enumerated(EnumType.STRING)
-  private Auth auth;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "ROLE_ID")
+  private Role role;
 
   private String username;
   private String realName;
@@ -30,12 +32,12 @@ public class User {
     this.userId = id;
   }
 
-  public Auth getAuth() {
-    return auth;
+  public Role getRole() {
+    return role;
   }
 
-  public void setAuth(Auth auth) {
-    this.auth = auth;
+  public void setRole(Role role) {
+    this.role = role;
   }
 
   public String getUsername() {

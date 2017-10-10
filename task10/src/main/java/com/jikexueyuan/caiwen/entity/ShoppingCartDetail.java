@@ -34,7 +34,6 @@ public class ShoppingCartDetail {
     this.shoppingCart = shoppingCart;
   }
 
-
   public Goods getGoods() {
     return goods;
   }

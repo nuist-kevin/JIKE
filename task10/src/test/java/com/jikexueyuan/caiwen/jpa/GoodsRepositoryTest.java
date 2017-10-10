@@ -14,6 +14,7 @@ import javax.persistence.criteria.Predicate;
 import org.junit.Test;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.jdbc.Sql;
 
 public class GoodsRepositoryTest extends BasicJpaTest {
 
@@ -40,6 +41,15 @@ public class GoodsRepositoryTest extends BasicJpaTest {
 
   }
 
+
+  @Sql(statements = {
+      "insert into category values(1, 'phone')",
+      "insert into category values(2, 'tv')",
+      "insert into goods (goods_id, goods_name, description, price, category_id, img_url) "
+          +       "values(1, 'iPhone 8', 'new iPhone', 6488, 1, 'http://apple.com')",
+      "insert into goods (goods_id, goods_name, description, price, category_id, img_url) "
+          +       "values(2, 'MITV 3', 'new XIAOMI TV', 3288, 2, 'http://mi.com')",
+  })
   @Test
   public void specificationTest() {
     GoodsDto goodsDto = new GoodsDto();
@@ -47,12 +57,6 @@ public class GoodsRepositoryTest extends BasicJpaTest {
     goodsDto.setPriceFrom(BigDecimal.valueOf(5999.99));
     goodsDto.setPriceTo(BigDecimal.valueOf(7999.99));
     goodsDto.setCategoryName("phone");
-
-    Goods goods1 = new Goods();
-    BeanUtils.copyProperties(goodsDto, goods1);
-    goods1.setPrice(BigDecimal.valueOf(6500));
-
-    goodsRepository.save(goods1);
 
     List<Goods> goodsList = goodsRepository.findAll((root, query, cb) -> {
       List<Predicate> predicates = new ArrayList<>();
@@ -83,7 +87,7 @@ public class GoodsRepositoryTest extends BasicJpaTest {
       return cb.and(predicates.toArray(new Predicate[predicates.size()]));
     });
 
-    assertThat(goodsList).hasSize(1).contains(goods1);
+    assertThat(goodsList).hasSize(1);
 
 
   }

@@ -15,7 +15,7 @@ public class Goods {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer goodsId;
 
-  @ManyToOne(cascade = PERSIST) // 如果 category 不存在，先持久化 category
+  @ManyToOne(cascade = PERSIST, fetch = FetchType.LAZY) // 如果 category 不存在，先持久化 category
   @JoinColumn(name = "CATEGORY_ID")
   private Category category;
   private String goodsName;

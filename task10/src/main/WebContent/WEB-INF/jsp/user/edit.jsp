@@ -13,7 +13,7 @@
                 </div>
                 <div class="bootstrap-admin-panel-content">
                     <form method="post" action="user/doEdit/<s:property value="userDto.id"/>" class="form-horizontal">
-                        <input type="hidden" name="user.auth" value="<s:property value="userDto.auth"/>">
+                        <input type="hidden" name="user.roleName" value="<s:property value="userDto.roleName"/>">
                         <div class="form-group">
                             <label class="col-sm-4 control-label">用户名</label>
                             <div class="col-sm-4">

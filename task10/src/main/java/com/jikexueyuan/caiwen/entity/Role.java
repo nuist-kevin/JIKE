@@ -2,6 +2,8 @@ package com.jikexueyuan.caiwen.entity;
 
 import javax.persistence.Cacheable;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,27 +13,28 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Cacheable
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Category {
+public class Role {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer categoryId;
-  private String categoryName;
+  private Integer roleId;
 
-  public Integer getCategoryId() {
-    return categoryId;
+  @Enumerated(EnumType.STRING)
+  private RoleName roleName;
+
+  public Integer getRoleId() {
+    return roleId;
   }
 
-  public void setCategoryId(Integer id) {
-    this.categoryId = id;
+  public void setRoleId(Integer roleId) {
+    this.roleId = roleId;
   }
 
-  public String getCategoryName() {
-    return categoryName;
+  public RoleName getRoleName() {
+    return roleName;
   }
 
-  public void setCategoryName(String categoryName) {
-    this.categoryName = categoryName;
+  public void setRoleName(RoleName roleName) {
+    this.roleName = roleName;
   }
-
 }

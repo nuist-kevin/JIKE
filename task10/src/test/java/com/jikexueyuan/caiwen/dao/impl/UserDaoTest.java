@@ -21,14 +21,14 @@ public class UserDaoTest extends BaseDaoTest {
   @Sql("classpath:/sql/UserDaoTest/testFindOne.sql")
   public void testFindOne() {
     User user = userDao.findOne(1);
-    assertThat(user.getUserName(), is("caiwen"));
+    assertThat(user.getUsername(), is("caiwen"));
   }
 
   @Test
   @Sql("classpath:/sql/UserDaoTest/testFindByUsername.sql")
   public void testFindByUsername() throws Exception {
     User user = userDao.findByUserName("caiwen");
-    assertThat(user.getUserName(), is("caiwen"));
+    assertThat(user.getUsername(), is("caiwen"));
   }
 
   @Test
@@ -36,7 +36,7 @@ public class UserDaoTest extends BaseDaoTest {
   public void testSave() {
 
     User user1 = new User();
-    user1.setUserName("caiwen");
+    user1.setUsername("caiwen");
     user1.setRealName("蔡文");
     user1.setPassword("123456");
     user1.setPwdQuestion("老婆的名字");
@@ -52,7 +52,7 @@ public class UserDaoTest extends BaseDaoTest {
   public void TestFindAll() {
     List<User> userList = new ArrayList<>();
     User user1 = new User();
-    user1.setUserName("caiwen");
+    user1.setUsername("caiwen");
     user1.setRealName("蔡文");
     user1.setPassword("6886377");
     user1.setPwdQuestion("老婆的名字");

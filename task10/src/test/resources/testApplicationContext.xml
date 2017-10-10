@@ -33,8 +33,13 @@
     p:dataSource-ref="dataSource">
     <property name="jpaPropertyMap">
       <map>
+        <entry key="hibernate.show_sql" value="true"/>
+        <entry key="hibernate.format_sql" value="true"/>
         <entry key="hibernate.physical_naming_strategy"
           value="com.jikexueyuan.caiwen.repository.CustomPhysicalNamingStrategy"/>
+        <entry key="hibernate.cache.use_query_cache" value="true"/>
+        <entry key="hibernate.cache.use_second_level_cache" value="true"/>
+        <entry key="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory"/>
       </map>
     </property>
 

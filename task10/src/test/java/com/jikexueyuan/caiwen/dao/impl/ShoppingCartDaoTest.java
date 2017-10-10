@@ -26,7 +26,7 @@ public class ShoppingCartDaoTest extends BaseDaoTest {
   public void testSave() {
 
     User user = new User();
-    user.setUserName("caiwen");
+    user.setUsername("caiwen");
     user.setPassword("123456");
     user.setRealName("蔡文");
     user.setPwdQuestion("老婆的名字");
@@ -38,8 +38,8 @@ public class ShoppingCartDaoTest extends BaseDaoTest {
     Integer userId = userDao.save(user);
 
     ShoppingCart shoppingCart = new ShoppingCart();
-    shoppingCart.setId(1);
-    shoppingCart.setGoodsNum(5);
+    shoppingCart.setShoppingCartId(1);
+    shoppingCart.setTotalAmount(5);
     shoppingCart.setSubtotal(BigDecimal.valueOf(15332.32));
     shoppingCart.setUser(user);
 //        Integer shoppingCartId = shoppingCartDao.save(shoppingCart);
@@ -68,12 +68,12 @@ public class ShoppingCartDaoTest extends BaseDaoTest {
     iphone.setImgUrl("img/cellphone/iphone6s.jpg");
 
     ShoppingCartDetail shoppingCartDetail1 = new ShoppingCartDetail();
-    shoppingCartDetail1.setId(1);
+    shoppingCartDetail1.setShoppingCartDetailId(1);
     shoppingCartDetail1.setGoods(rose);
     shoppingCartDetail1.setNum(2);
 
     ShoppingCartDetail shoppingCartDetail2 = new ShoppingCartDetail();
-    shoppingCartDetail2.setId(2);
+    shoppingCartDetail2.setShoppingCartDetailId(2);
     shoppingCartDetail2.setGoods(iphone);
     shoppingCartDetail2.setNum(3);
 
@@ -92,7 +92,7 @@ public class ShoppingCartDaoTest extends BaseDaoTest {
 
     User user = new User();
     user.setUserId(1);
-    user.setUserName("caiwen");
+    user.setUsername("caiwen");
     user.setPassword("123456");
     user.setRealName("蔡文");
     user.setPwdQuestion("老婆的名字");
@@ -102,7 +102,7 @@ public class ShoppingCartDaoTest extends BaseDaoTest {
     user.setPhoneNo("18094200522");
 
     ShoppingCart shoppingCart = new ShoppingCart();
-    shoppingCart.setId(1);
+    shoppingCart.setShoppingCartId(1);
     shoppingCart.setUser(user);
 
     Category flower = new Category();
@@ -130,13 +130,13 @@ public class ShoppingCartDaoTest extends BaseDaoTest {
 
     ShoppingCartDetail shoppingCartDetail1 = new ShoppingCartDetail();
     shoppingCartDetail1.setShoppingCart(shoppingCart);
-    shoppingCartDetail1.setId(1);
+    shoppingCartDetail1.setShoppingCartDetailId(1);
     shoppingCartDetail1.setGoods(rose);
     shoppingCartDetail1.setNum(1);
 
     ShoppingCartDetail shoppingCartDetail2 = new ShoppingCartDetail();
     shoppingCartDetail2.setShoppingCart(shoppingCart);
-    shoppingCartDetail2.setId(2);
+    shoppingCartDetail2.setShoppingCartDetailId(2);
     shoppingCartDetail2.setGoods(iphone);
     shoppingCartDetail2.setNum(1);
 
@@ -144,11 +144,11 @@ public class ShoppingCartDaoTest extends BaseDaoTest {
     shoppingCart.setShoppingCartDetail(shoppingCartDetailList);
     shoppingCart.getShoppingCartDetail().add(shoppingCartDetail1);
     shoppingCart.getShoppingCartDetail().add(shoppingCartDetail2);
-    shoppingCart.setGoodsNum(2);
+    shoppingCart.setTotalAmount(2);
     shoppingCart.setSubtotal(BigDecimal.valueOf(15333.32));
     ShoppingCart actual = shoppingCartDao.findOne(1);
 
-    assertThat(actual.getGoodsNum()).isEqualTo(2);
+    assertThat(actual.getTotalAmount()).isEqualTo(2);
     assertThat(actual.getSubtotal()).isEqualTo(BigDecimal.valueOf(15333.32));
     assertThat(actual.getShoppingCartDetail().toArray())
         .containsExactly(shoppingCartDetail1, shoppingCartDetail2);
