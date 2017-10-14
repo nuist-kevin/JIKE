@@ -3,6 +3,7 @@ package com.jikexueyuan.caiwen.service.impl;
 import com.jikexueyuan.caiwen.entity.Role;
 import com.jikexueyuan.caiwen.entity.RoleName;
 import com.jikexueyuan.caiwen.entity.User;
+import com.jikexueyuan.caiwen.repository.RoleRepository;
 import com.jikexueyuan.caiwen.repository.UserRepository;
 import com.jikexueyuan.caiwen.service.ShoppingCartService;
 import com.jikexueyuan.caiwen.service.UserService;
@@ -20,6 +21,8 @@ public class UserServiceImpl implements UserService {
 
   @Autowired
   private UserRepository userRepository;
+  @Autowired
+  private RoleRepository roleRepository;
 
   @Transactional
   public User addUser(User user) throws Exception {
@@ -28,8 +31,8 @@ public class UserServiceImpl implements UserService {
       throw new Exception("该用户已存在");
     }
     User result = user;
-    Role nomalRole = new Role();
-    nomalRole.setRoleName(RoleName.USER);
+    Role nomalRole =
+        roleRepository.findFromCacheByRoleName(RoleName.USER);
     result.setRole(nomalRole);
     userRepository.save(result);
     //为新用户生成购物车信息

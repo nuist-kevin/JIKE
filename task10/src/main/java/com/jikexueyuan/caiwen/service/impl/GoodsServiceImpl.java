@@ -1,6 +1,5 @@
 package com.jikexueyuan.caiwen.service.impl;
 
-import com.jikexueyuan.caiwen.dao.GoodsDao;
 import com.jikexueyuan.caiwen.dto.GoodsDto;
 import com.jikexueyuan.caiwen.entity.Category;
 import com.jikexueyuan.caiwen.entity.Goods;
@@ -18,13 +17,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class GoodsServiceImpl implements GoodsService {
 
-  @Autowired
-  private GoodsDao goodsDao;
 
   @Autowired
   private GoodsRepository goodsRepository;
@@ -52,20 +48,10 @@ public class GoodsServiceImpl implements GoodsService {
     return goodsRepository.findOne(id);
   }
 
-  @Override
-  public Integer getTotalPages() {
-    return goodsDao.totalPages(5);
-  }
 
   @Override
   public List<Goods> getAll() {
     return goodsRepository.findAll();
-  }
-
-  @Override
-  public Map<String, Object> getGoodsByConditionMap(Map condition, Integer page,
-      Integer recordPerPage) {
-    return goodsDao.conditionQuery(condition, page, recordPerPage);
   }
 
   public Page<Goods> getPagedGoodsListByCondition(GoodsDto goodsDto, Integer page,

@@ -22,10 +22,6 @@ public interface GoodsService {
 
   List<Goods> getAll();
 
-  Integer getTotalPages();
-
-  Map<String, Object> getGoodsByConditionMap(Map condition, Integer page, Integer recordPerPage);
-
   Page<Goods> getPagedGoodsListByCondition(GoodsDto goodsDto, Integer page,
       Integer pageSize);
 

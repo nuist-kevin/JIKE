@@ -1,6 +1,5 @@
 <%@include file="/WEB-INF/jsp/common/header.jsp" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <div class="col-md-10">
     <div class="row">
@@ -14,6 +13,8 @@
                                    name="conditions.goodsName"
                                    placeholder="商品名称">
                         </div>
+                    </div>
+                    <div class="form-group">
                         <label class="control-label col-md-2 col-lg-2">商品目录：</label>
                         <div class="col-md-2 col-lg-2">
                             <input type="text" class="form-control"
@@ -24,12 +25,16 @@
                     <div class="form-group">
                         <label class="control-label col-md-2 col-lg-2">商品价格：</label>
                         <div class="col-md-2 col-lg-2">
-                            <input type="number" class="form-control" name="conditions.lowPrice" min="0.01" step="0.01"
+                            <input type="number" class="form-control" name="conditions.lowPrice"
+                                   min="0.01"
+                                   step="0.01"
                                    placeholder="价格下限">
                         </div>
                         <p class="form-control-static col-md-1 col-lg-1 text-center">至</p>
                         <div class="col-md-2 col-lg-2">
-                            <input type="number" class="form-control" name="conditions.upPrice" min="0.01" step="0.01"
+                            <input type="number" class="form-control" name="conditions.upPrice"
+                                   min="0.01"
+                                   step="0.01"
                                    placeholder="价格上限">
                         </div>
                         <div class="col-md-offset-11 col-lg-offset-11">

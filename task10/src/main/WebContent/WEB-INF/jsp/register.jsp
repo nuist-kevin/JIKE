@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%
     String path = request.getContextPath();
 %>
@@ -18,28 +18,36 @@
         <div class="col-lg-12">
             <form method="post" action="doRegister" class="bootstrap-admin-login-form">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userDto.userName" placeholder="请输入用户名"/>
+                    <input class="form-control" type="text" required name="userDto.username"
+                           placeholder="请输入用户名"/>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="password" name="userDto.password" placeholder="请输入密码"/>
+                    <input class="form-control" type="password" required name="userDto.password"
+                           placeholder="请输入密码"/>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userDto.realName" placeholder="请输入真名"/>
+                    <input class="form-control" type="text" name="userDto.realName"
+                           placeholder="请输入真名"/>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userDto.pwdQuestion" placeholder="请输入密码问题"/>
+                    <input class="form-control" type="text" name="userDto.pwdQuestion"
+                           placeholder="请输入密码问题"/>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userDto.pwdQuestionAnswer" placeholder="请输入密码问题答案"/>
+                    <input class="form-control" type="text" name="userDto.pwdQuestionAnswer"
+                           placeholder="请输入密码问题答案"/>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userDto.address" placeholder="请输入地址"/>
+                    <input class="form-control" type="text" name="userDto.address"
+                           placeholder="请输入地址"/>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="email" name="userDto.email" placeholder="请输入email"/>
+                    <input class="form-control" type="email" name="userDto.email"
+                           placeholder="请输入email"/>
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="userDto.phoneNo" placeholder="请输入电话号码"/>
+                    <input class="form-control" type="text" name="userDto.phoneNo"
+                           placeholder="请输入电话号码"/>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-sm btn-info ">注册</button>

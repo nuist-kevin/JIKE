@@ -8,6 +8,7 @@ import com.jikexueyuan.caiwen.repository.RoleRepository;
 import com.jikexueyuan.caiwen.repository.UserRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.jdbc.Sql;
 
 public class UserRepositoryTest extends BasicJpaTest {
 
@@ -18,6 +19,9 @@ public class UserRepositoryTest extends BasicJpaTest {
   private RoleRepository roleRepository;
 
   @Test
+  @Sql(statements = {
+      "insert into role (role_id, role_name) values (1, 'ADMIN')"
+  })
   public void saveTest() {
     User user = new User();
     user.setUsername("caiwen");

@@ -20,7 +20,6 @@ import java.util.Map;
  * @version 1.0
  * @see BaseDaoImpl
  */
-@Repository
 public class GoodsDaoImpl extends BaseDaoImpl<Goods, Integer> implements GoodsDao {
 
     public Map<String, Object> conditionQuery(Map<String, String> parameterMap, Integer page, Integer recordPerPage) {

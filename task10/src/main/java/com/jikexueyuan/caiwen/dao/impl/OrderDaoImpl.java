@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by caiwen on 2016/8/12.
  */
-@Repository
 public class OrderDaoImpl extends BaseDaoImpl<Order, Integer> implements OrderDao {
 
 }

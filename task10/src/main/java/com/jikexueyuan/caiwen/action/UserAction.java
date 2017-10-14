@@ -16,11 +16,11 @@ import org.springframework.data.domain.Page;
 public class UserAction extends ActionSupport {
 
   @Autowired
-  UserService userService;
-  UserDto userDto = new UserDto();
-  User user;
-  Integer page;
-  Map<String, Object> jsonResult = new HashMap<>();
+  private UserService userService;
+  private UserDto userDto = new UserDto();
+  private User user;
+  private Integer page;
+  private Map<String, Object> jsonResult = new HashMap<>();
 
   public UserService getUserService() {
     return userService;
@@ -75,6 +75,7 @@ public class UserAction extends ActionSupport {
   }
 
   public String login() throws Exception {
+    System.out.println("test");
     if (userService.validateUser(userDto.getUsername(), userDto.getPassword())) {
       user = userService.getUserByUsername(userDto.getUsername());
       ActionContext.getContext().getSession().put("userId", user.getUserId());

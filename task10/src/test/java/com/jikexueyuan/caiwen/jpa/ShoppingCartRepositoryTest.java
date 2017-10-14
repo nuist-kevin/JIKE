@@ -16,7 +16,9 @@ public class ShoppingCartRepositoryTest extends BasicJpaTest {
   @Autowired
   private UserRepository userRepository;
 
-  @Sql(statements = {"insert into users (user_id, role_id, password, username) values(1, 1, '123456', 'caiwen')"})
+  @Sql(statements = {
+      "insert into role (role_id, role_name) values (1, 'ADMIN')",
+      "insert into users (user_id, role_id, password, username) values(1, 1, '123456', 'caiwen')"})
   @Test
   public void saveTest() {
     ShoppingCart shoppingCart = new ShoppingCart();

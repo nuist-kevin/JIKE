@@ -28,6 +28,13 @@ public class RoleRepositoryTest extends BasicJpaTest {
   }
 
   @Test
+  @Sql(statements = {
+      "insert into role (role_id, role_name) values (1, 'ADMIN')",
+      "insert into role (role_id, role_name) values (2, 'USER')",
+      "insert into role (role_id, role_name) values (3, 'GUEST')",
+
+  })
+
   public void cacheFind() {
 
     Role dbRole = roleRepository.findOne(1);

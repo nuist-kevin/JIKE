@@ -26,6 +26,7 @@ public class OrderRepositoryTest extends BasicJpaTest {
   private OrderDetailRepository orderDetailRepository;
 
   @Sql(statements = {
+      "insert into role (role_id, role_name) values (1, 'ADMIN')",
       "insert into users (user_id, role_id, password, username) values(1, 1, '123456', 'caiwen')"})
   @Test
   public void saveTest() {

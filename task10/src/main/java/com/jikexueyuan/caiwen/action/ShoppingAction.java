@@ -86,7 +86,7 @@ public class ShoppingAction extends ActionSupport {
         if (recordPerPage == null) {
             recordPerPage = 20;
         }
-        pageData = goodsService.getGoodsByConditionMap(conditions, page, recordPerPage);
+//        pageData = goodsService.getGoodsByConditionMap(conditions, page, recordPerPage);
         return SUCCESS;
     }
 

@@ -90,7 +90,7 @@ public class GoodsAction extends ActionSupport {
   }
 
   public String jsonList() throws Exception {
-    pageData = goodsService.getGoodsByConditionMap(conditions, page, recordPerPage);
+//    pageData = goodsService.getGoodsByConditionMap(conditions, page, recordPerPage);
     return SUCCESS;
   }
 
