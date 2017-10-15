@@ -2,7 +2,9 @@ package com.jikexueyuan.caiwen.entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
+/**
+ * @author caiwen
+ */
 @Entity
 @Table(name = "USERS")
 public class User implements Serializable{

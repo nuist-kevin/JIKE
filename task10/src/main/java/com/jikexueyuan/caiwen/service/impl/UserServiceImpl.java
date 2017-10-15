@@ -12,7 +12,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+/**
+ * @author caiwen
+ */
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -24,7 +26,8 @@ public class UserServiceImpl implements UserService {
   @Autowired
   private RoleRepository roleRepository;
 
-  @Transactional
+  @Override
+  @Transactional(rollbackFor = Exception.class)
   public User addUser(User user) throws Exception {
     //判断用户名是否已存在
     if (getUserByUsername(user.getUsername()) != null) {
@@ -40,6 +43,7 @@ public class UserServiceImpl implements UserService {
     return result;
   }
 
+  @Override
   public Page<User> pageQuery(Integer page, Integer recordPerPage) {
     return userRepository.findAll(new PageRequest(page, recordPerPage));
   }
@@ -67,6 +71,7 @@ public class UserServiceImpl implements UserService {
   /**
    * 校验用户名密码
    */
+  @Override
   public Boolean validateUser(String username, String password) {
     User user = getUserByUsername(username);
     if (user != null && password.equals(user.getPassword())) {

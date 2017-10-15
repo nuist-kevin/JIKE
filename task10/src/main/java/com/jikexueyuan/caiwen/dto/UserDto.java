@@ -5,112 +5,116 @@ import com.jikexueyuan.caiwen.entity.User;
 
 import java.io.Serializable;
 
-public class UserDto implements Serializable{
-    private static final long serialVersionUID = 165703863807L;
-    private Integer id;
-    private RoleName roleName;
-    private String username;
-    private String realName;
-    private String password;
-    private String pwdQuestion;
-    private String pwdQuestionAnswer;
-    private String address;
-    private String phoneNo;
-    private String email;
+/**
+ * @author caiwen
+ */
+public class UserDto implements Serializable {
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
+  private static final long serialVersionUID = 165703863807L;
+  private Integer id;
+  private RoleName roleName;
+  private String username;
+  private String realName;
+  private String password;
+  private String pwdQuestion;
+  private String pwdQuestionAnswer;
+  private String address;
+  private String phoneNo;
+  private String email;
 
-    public Integer getId() {
-        return id;
-    }
+  public static long getSerialVersionUID() {
+    return serialVersionUID;
+  }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  public Integer getId() {
+    return id;
+  }
 
-    public RoleName getRoleName() {
-        return roleName;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public void setRoleName(RoleName roleName) {
-        this.roleName = roleName;
-    }
+  public RoleName getRoleName() {
+    return roleName;
+  }
 
-    public String getUsername() {
-        return username;
-    }
+  public void setRoleName(RoleName roleName) {
+    this.roleName = roleName;
+  }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  public String getUsername() {
+    return username;
+  }
 
-    public String getRealName() {
-        return realName;
-    }
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
-    public void setRealName(String realName) {
-        this.realName = realName;
-    }
+  public String getRealName() {
+    return realName;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public void setRealName(String realName) {
+    this.realName = realName;
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public String getPassword() {
+    return password;
+  }
 
-    public String getPwdQuestion() {
-        return pwdQuestion;
-    }
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
-    public void setPwdQuestion(String pwdQuestion) {
-        this.pwdQuestion = pwdQuestion;
-    }
+  public String getPwdQuestion() {
+    return pwdQuestion;
+  }
 
-    public String getPwdQuestionAnswer() {
-        return pwdQuestionAnswer;
-    }
+  public void setPwdQuestion(String pwdQuestion) {
+    this.pwdQuestion = pwdQuestion;
+  }
 
-    public void setPwdQuestionAnswer(String pwdQuestionAnswer) {
-        this.pwdQuestionAnswer = pwdQuestionAnswer;
-    }
+  public String getPwdQuestionAnswer() {
+    return pwdQuestionAnswer;
+  }
 
-    public String getAddress() {
-        return address;
-    }
+  public void setPwdQuestionAnswer(String pwdQuestionAnswer) {
+    this.pwdQuestionAnswer = pwdQuestionAnswer;
+  }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+  public String getAddress() {
+    return address;
+  }
 
-    public String getPhoneNo() {
-        return phoneNo;
-    }
+  public void setAddress(String address) {
+    this.address = address;
+  }
 
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
-    }
+  public String getPhoneNo() {
+    return phoneNo;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public void setPhoneNo(String phoneNo) {
+    this.phoneNo = phoneNo;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public User toUser(User user) {
-        user.setUsername(this.username);
-        user.setRealName(this.realName);
-        user.setPassword(this.password);
-        user.setPhoneNo(this.phoneNo);
-        user.setEmail(this.email);
-        user.setAddress(this.address);
-        user.setPwdQuestion(this.pwdQuestion);
-        user.setPwdQuestionAnswer(this.pwdQuestionAnswer);
-        return user;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public User toUser(User user) {
+    user.setUsername(this.username);
+    user.setRealName(this.realName);
+    user.setPassword(this.password);
+    user.setPhoneNo(this.phoneNo);
+    user.setEmail(this.email);
+    user.setAddress(this.address);
+    user.setPwdQuestion(this.pwdQuestion);
+    user.setPwdQuestionAnswer(this.pwdQuestionAnswer);
+    return user;
+  }
 }

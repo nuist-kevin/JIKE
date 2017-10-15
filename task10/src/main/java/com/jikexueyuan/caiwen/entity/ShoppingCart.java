@@ -5,6 +5,10 @@ import java.util.List;
 import javax.persistence.*;
 import org.hibernate.annotations.Formula;
 
+/**
+ * @author caiwen
+ */
+
 @Entity
 public class ShoppingCart {
 

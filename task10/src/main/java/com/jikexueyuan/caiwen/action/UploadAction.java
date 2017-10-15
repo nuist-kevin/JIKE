@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * Created by caiwen on 2016/8/28.
+ * @author caiwen
  */
 public class UploadAction extends ActionSupport {
     private File file;

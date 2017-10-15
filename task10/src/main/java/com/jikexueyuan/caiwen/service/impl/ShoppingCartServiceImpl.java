@@ -8,24 +8,28 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-
+/**
+ * @author caiwen
+ */
 @Service
-public class ShoppingCartServiceImp implements ShoppingCartService {
+public class ShoppingCartServiceImpl implements ShoppingCartService {
 
   @Resource
   private ShoppingCartRepository shoppingCartRepository;
 
   /**
-   * 用于用户注册时为用户生成一个空的购物车
+   * Description: 用于用户注册时为用户生成一个空的购物车
    */
-  @Transactional
+  @Override
+  @Transactional(rollbackFor = Exception.class)
   public ShoppingCart generateShoppingCartForUser(User user) {
     ShoppingCart shoppingCart = new ShoppingCart();
     shoppingCart.setUser(user);
     return shoppingCartRepository.save(shoppingCart);
   }
 
-  @Transactional
+  @Override
+  @Transactional(rollbackFor = Exception.class)
   public ShoppingCart update(ShoppingCart shoppingCart) {
     return shoppingCartRepository.save(shoppingCart);
   }

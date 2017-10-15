@@ -4,11 +4,10 @@ import com.jikexueyuan.caiwen.dto.GoodsDto;
 import com.jikexueyuan.caiwen.entity.Goods;
 
 import java.util.List;
-import java.util.Map;
 import org.springframework.data.domain.Page;
 
 /**
- * Created by caiwen on 2016/8/20.
+ * @author caiwen
  */
 public interface GoodsService {
 

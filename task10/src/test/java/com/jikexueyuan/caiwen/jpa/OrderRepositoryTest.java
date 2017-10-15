@@ -19,7 +19,6 @@ public class OrderRepositoryTest extends BasicJpaTest {
 
   @Autowired
   private UserRepository userRepository;
-
   @Autowired
   private OrderRepository orderRepository;
   @Autowired

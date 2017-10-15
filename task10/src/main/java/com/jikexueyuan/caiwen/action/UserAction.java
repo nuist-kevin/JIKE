@@ -13,6 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 import org.springframework.data.domain.Page;
 
+/**
+ * @author caiwen
+ */
 public class UserAction extends ActionSupport {
 
   @Autowired

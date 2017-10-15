@@ -5,7 +5,7 @@ import com.jikexueyuan.caiwen.entity.User;
 import org.springframework.data.domain.Page;
 
 /**
- * Created by caiwen on 2016/8/12.
+ * @author caiwen
  */
 public interface UserService {
 

@@ -2,6 +2,9 @@ package com.jikexueyuan.caiwen.entity;
 
 import javax.persistence.*;
 
+/**
+ * @author caiwen
+ */
 @Entity
 public class ShoppingCartDetail {
 

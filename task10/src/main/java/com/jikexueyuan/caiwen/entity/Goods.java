@@ -8,6 +8,10 @@ import org.springframework.beans.BeanUtils;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
+/**
+ * @author caiwen
+ */
+
 @Entity
 public class Goods {
 

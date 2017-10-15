@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+/**
+ * @author caiwen
+ */
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
@@ -19,7 +21,7 @@ public class CategoryServiceImpl implements CategoryService {
   private CategoryRepository categoryRepository;
 
   @Override
-  @Transactional
+  @Transactional(rollbackFor = Exception.class)
   public Category add(String categoryName) {
     Category category = new Category();
     category.setCategoryName(categoryName);
@@ -27,13 +29,13 @@ public class CategoryServiceImpl implements CategoryService {
   }
 
   @Override
-  @Transactional
+  @Transactional(rollbackFor = Exception.class)
   public void delete(Integer id) {
     categoryRepository.delete(id);
   }
 
   @Override
-  @Transactional
+  @Transactional(rollbackFor = Exception.class)
   public void update(Category category) {
     categoryRepository.save(category);
   }

@@ -1,12 +1,18 @@
 package com.jikexueyuan.caiwen.repository;
 
 import com.jikexueyuan.caiwen.entity.User;
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+/**
+ * @author caiwen
+ */
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-  List<User> findUsersByUsernameLike(String username);
-
+  /**
+   * 根据用户名精确查找用户
+   *
+   * @param username 查找的用户名
+   * @return 返回查找到的用户，没有找到则返回null
+   */
   User findByUsername(String username);
 }

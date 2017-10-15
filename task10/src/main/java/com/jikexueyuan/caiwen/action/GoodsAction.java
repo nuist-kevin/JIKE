@@ -12,6 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author caiwen
+ */
 public class GoodsAction extends ActionSupport {
 
   @Autowired
@@ -32,7 +35,6 @@ public class GoodsAction extends ActionSupport {
     this.recordPerPage = recordPerPage;
   }
 
-  //用于响应json格式列表请求
   private Map<String, Object> pageData = new HashMap<>();
 
   private List<Category> categoryList;
@@ -90,7 +92,6 @@ public class GoodsAction extends ActionSupport {
   }
 
   public String jsonList() throws Exception {
-//    pageData = goodsService.getGoodsByConditionMap(conditions, page, recordPerPage);
     return SUCCESS;
   }
 

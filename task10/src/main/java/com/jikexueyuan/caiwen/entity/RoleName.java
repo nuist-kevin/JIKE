@@ -1,5 +1,13 @@
 package com.jikexueyuan.caiwen.entity;
 
+/**
+ * @author caiwen
+ */
 public enum RoleName {
-    ADMIN, USER, GUEST
+  //管理员
+  ADMIN,
+  //普通用户
+  USER,
+  //游客
+  GUEST
 }

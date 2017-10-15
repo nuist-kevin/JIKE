@@ -17,7 +17,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+/**
+ * @author caiwen
+ */
 @Service
 public class GoodsServiceImpl implements GoodsService {
 
@@ -26,19 +28,19 @@ public class GoodsServiceImpl implements GoodsService {
   private GoodsRepository goodsRepository;
 
   @Override
-  @Transactional
+  @Transactional(rollbackFor = Exception.class)
   public Goods add(Goods goods) {
     return goodsRepository.save(goods);
   }
 
   @Override
-  @Transactional
+  @Transactional(rollbackFor = Exception.class)
   public void update(Goods goods) {
     goodsRepository.save(goods);
   }
 
   @Override
-  @Transactional
+  @Transactional(rollbackFor = Exception.class)
   public void delete(Integer id) {
     goodsRepository.delete(id);
   }
@@ -54,6 +56,7 @@ public class GoodsServiceImpl implements GoodsService {
     return goodsRepository.findAll();
   }
 
+  @Override
   public Page<Goods> getPagedGoodsListByCondition(GoodsDto goodsDto, Integer page,
       Integer pageSize) {
     Pageable pageable = new PageRequest(page, pageSize);

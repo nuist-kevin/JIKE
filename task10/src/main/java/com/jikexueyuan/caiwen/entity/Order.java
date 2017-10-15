@@ -5,6 +5,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.*;
 
+/**
+ * @author caiwen
+ */
+
 @Entity
 @Table(name = "ORDERS")
 public class Order {

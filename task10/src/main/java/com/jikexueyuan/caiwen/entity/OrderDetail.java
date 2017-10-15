@@ -3,6 +3,10 @@ package com.jikexueyuan.caiwen.entity;
 import java.math.BigDecimal;
 import javax.persistence.*;
 
+/**
+ * @author caiwen
+ */
+
 @Entity
 public class OrderDetail {
 

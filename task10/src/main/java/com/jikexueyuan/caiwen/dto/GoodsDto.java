@@ -7,7 +7,7 @@ import org.springframework.beans.BeanUtils;
 import java.math.BigDecimal;
 
 /**
- * Created by caiwen on 2016/8/20.
+ * @author caiwen
  */
 public class GoodsDto {
 
